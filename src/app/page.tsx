@@ -1,9 +1,9 @@
-import NavBar from "@/components/NavBar";
+import HeroPage from "./hero/page";
 
 export default function Home() {
   return (
     <div>
-      <NavBar />
+      <HeroPage />
     </div>
   );
 }
