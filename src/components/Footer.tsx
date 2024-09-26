@@ -10,8 +10,8 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-3 py-8 ">
           {/* Company Info */}
-          <div className="flex flex-col justify-center items-center gap-3">
-            <Logo />
+          <div className="flex flex-col justify-center items-center gap-3 ">
+            <Logo imgSize="w-[10rem] h-24  p-2 " src="/images/LOGO-WHITE.png" />
             <p className="text-sm">
               Building Your Dream Home with Precision & Quality
             </p>

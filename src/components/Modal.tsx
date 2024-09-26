@@ -12,7 +12,7 @@ const Modal = ({ closeModal }: { closeModal: () => void }) => {
   }, []);
   return (
     <div
-      className=" w-svw  h-svh flex justify-center items-center  bg-black/75 backdrop-filter backdrop-brightness-75 backdrop-blur-md"
+      className=" w-svw  h-svh flex justify-center items-center  bg-black/85 backdrop-filter backdrop-brightness-75 backdrop-blur-md"
       onClick={closeModal}
     >
       <button
@@ -27,11 +27,20 @@ const Modal = ({ closeModal }: { closeModal: () => void }) => {
         <IoMdClose size={30} />
       </button>
       <div
-        className="w-2/4 py-20 flex flex-col justify-center items-center bg-white "
+        className="w-2/4 px-20 py-20 flex flex-col justify-center items-center gap-10 bg-white "
         onClick={(e) => e.stopPropagation()}
       >
-        <h1 className="font-bold text-3xl pb-20">Contact Us</h1>
-        <div>
+        <h1 className="font-bold text-3xl ">
+          Get a <strong className="text-yellow-500">Free</strong> Quote
+        </h1>
+        <h2 className="text-lg">
+          Call us at
+          <strong className="text-white bg-yellow-500 py-1 px-2 ml-1">
+            (404) 641-2994
+          </strong>{" "}
+          or fill out the form below
+        </h2>
+        <div className="w-full ">
           <ContactForm showSelectOption={true} />
         </div>
       </div>

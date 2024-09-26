@@ -6,36 +6,23 @@ import { Textarea } from "./ui/textarea";
 import { Button } from "./ui/button";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Checkbox } from "./ui/checkbox";
 import { z } from "zod";
 import SelectInput from "./SelectInput";
-
-const apiUrl = "http://localhost:3000/api/contact";
 
 //  COMPONENTS type.
 type ContactFormProps = {
   showTextInput?: boolean;
   showSelectOption?: boolean;
-  modalButton?: boolean;
-  secondButton?: boolean;
   checkBox?: boolean;
 };
 
 const ContactForm: React.FC<ContactFormProps> = ({
   showTextInput = false,
   showSelectOption = false,
-  modalButton = false,
-  secondButton = false,
-  checkBox = false,
 }) => {
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
   const [showSuccessModal, setShowSuccessModal] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => setIsModalOpen(true);
-
-  const closeModal = () => setIsModalOpen(false);
 
   const formSchema = z.object({
     fullname: z.string().min(2, {
@@ -65,12 +52,6 @@ const ContactForm: React.FC<ContactFormProps> = ({
         message: "Please enter your message.",
       }),
     }),
-
-    ...(checkBox && {
-      checkbox: z
-        .boolean()
-        .refine((val) => val === true, "You must agree to the terms."),
-    }),
   });
 
   // 1. Define your form.
@@ -83,51 +64,48 @@ const ContactForm: React.FC<ContactFormProps> = ({
       emailAddress: "",
       ...(showSelectOption && { selectOption: "" }),
       ...(showTextInput && { textarea: "" }),
-      ...(checkBox && { checkbox: false }),
     },
   });
 
   // Define a submit handler.
   const onSubmit = async (value: z.infer<typeof formSchema>) => {
-    // console.log(value);
-    // console.log(form.getValues());
-    // Send the data.
+    console.log("Form Values:", value);
+
     setSubmitting(true);
-
-    const isValid = await form.trigger();
-
-    console.log(isValid);
-
-    if (!isValid) {
-      console.log(form.formState.errors);
-      setSubmitting(false);
-      // setSubmitError("Please fill out all required fields.");
-      return;
-    }
+    setSubmitError("");
 
     try {
-      const response = await fetch(apiUrl, {
+      // Direct validation in submit handler
+      const isValid = await form.trigger();
+      if (!isValid) {
+        setSubmitting(false);
+        setSubmitError("Please fill out all required fields.");
+        return;
+      }
+
+      const response = await fetch("/api/send-email", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(value),
+        body: JSON.stringify({ value }),
       });
-      if (response.ok) {
-        console.log("Email sent successfully");
-        setShowSuccessModal(true);
-        form.reset();
-        setSubmitting(false);
-      } else {
-        throw new Error("Server is not responding");
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(
+          `Server responded with status ${response.status}: ${errorText}`
+        );
       }
-    } catch (error) {
-      console.log(error);
-      setSubmitting(false);
+
+      console.log("Email sent successfully");
       form.reset();
-      // console.log(form.getValues());
-      // console.log(error);
-      setSubmitError("Error sending email");
+      setShowSuccessModal(true);
+    } catch (error) {
+      console.error("Error sending email:", error);
+      setSubmitError("Error sending email. Please try again later.");
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -135,7 +113,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
     <div className=" w-full ">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8   ">
-          <div className="grid grid-cols-2 mobile:flex tablet:flex-col pb-3 gap-5 px-10 m-0 w-full   ">
+          <div className="grid grid-cols-2 pb-3 gap-5 px-10 m-0 w-full   ">
             <FormField
               control={form.control}
               name="fullname"
@@ -159,7 +137,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
                 <FormItem>
                   <FormControl>
                     <Input
-                      type="number"
+                      type="tel"
                       placeholder="Phone Number"
                       className="mobile:text-xs"
                       {...field}
@@ -250,15 +228,12 @@ const ContactForm: React.FC<ContactFormProps> = ({
 
             <Button
               type="submit"
-              className={` ${
-                secondButton
-                  ? "bg-red-600 hover:bg-red-800 rounded-none"
-                  : modalButton
-                  ? ""
-                  : "h-[50px] col-span-2 relative"
-              } ${submitting ? "opacity-50 cursor-not-allowed" : ""}`}
+              className={` rounded-none w-full relative xs:text-sm lg:text-base z-0 bg-yellow-500 hover:bg-yellow-600 ${
+                showTextInput ? "col-span-2 h-12" : "col-span-1 h-10"
+              } `}
               disabled={submitting}
             >
+              {/* LOADING ICON */}
               {submitting && (
                 <svg
                   className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
@@ -281,79 +256,15 @@ const ContactForm: React.FC<ContactFormProps> = ({
                   ></path>
                 </svg>
               )}
-              {submitting
-                ? "Sending..."
-                : secondButton
-                ? "Start Saving Today"
-                : "Submit"}
+              {submitting ? "Sending..." : "Submit"}
             </Button>
           </div>
 
-          {checkBox && (
-            <div className="flex justify-center  w-full px-10 mt-10 ">
-              <FormField
-                control={form.control}
-                name="checkbox"
-                render={({ field: { onChange, value } }) => (
-                  <FormItem>
-                    <FormControl>
-                      <Checkbox
-                        className=" mr-2 w-[1rem] h-[1rem]"
-                        required
-                        onCheckedChange={onChange}
-                        checked={value as boolean}
-                      />
-                    </FormControl>
-                  </FormItem>
-                )}
-              ></FormField>
-              <a
-                className=" hidden tablet:flex mobile:text-xs underline "
-                onClick={openModal}
-              >
-                Click to check agreement
-              </a>
-              <label
-                htmlFor="checkbox"
-                className=" text-xs tablet:hidden flex "
-              >
-                I’m interested in learning more about ABJ Remodeling and its
-                services. By checking this box, I consent and authorize ABJ
-                Remodeling to contact me via phone call or text message. ABJ
-                Remodeling may use any of the telephone numbers I have provided
-                for these communications.
-              </label>
-            </div>
-          )}
-
-          {/* Modal Component */}
-          {isModalOpen && (
-            <div className="fixed w-full translate-y-[-2rem] h-full top-0 inset-0 mt-0  bg-black bg-opacity-50 flex justify-center items-center z-50">
-              <div className="bg-white p-8 rounded shadow-lg max-w-lg mx-4 mt-0">
-                <h2 className="text-xl font-bold mb-4">Agreement</h2>
-                <p>
-                  I’m interested in learning more about ABJ Remodeling and its
-                  services. By checking this box, I consent and authorize ABJ
-                  Remodeling to contact me via phone call or text message. ABJ
-                  Remodeling may use any of the telephone numbers I have
-                  provided for these communications.
-                </p>
-                <button
-                  className="mt-4 px-4 py-2 bg-blue-950 text-white rounded"
-                  onClick={closeModal}
-                >
-                  Close
-                </button>
-              </div>
-            </div>
-          )}
-
           {/* Success Modal Component */}
           {showSuccessModal && (
-            <div className="fixed w-full h-full top-0 -translate-y-3 inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+            <div className="fixed w-full h-full top-0 -translate-y-3 inset-0 bg-black bg-opacity-50 flex justify-center items-center z-[9999999]">
               <div className="flex flex-col bg-white p-8 py-14 gap-5 rounded shadow-lg max-w-lg mx-4 mt-0">
                 <div className="flex flex-col justify-center items-center gap-3">
-                  {" "}
                   <svg
                     width="60px"
                     height="60px"
@@ -364,7 +275,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
                     <circle
                       className="path circle"
                       fill="none"
-                      stroke="#73AF55"
+                      stroke="#a7af55"
                       stroke-width="6"
                       stroke-miterlimit="10"
                       cx="65.1"
@@ -374,14 +285,14 @@ const ContactForm: React.FC<ContactFormProps> = ({
                     <polyline
                       className="path check"
                       fill="none"
-                      stroke="#73AF55"
+                      stroke="#a7af55"
                       strokeWidth="6"
                       strokeLinecap="round"
                       strokeMiterlimit="10"
                       points="100.2,40.2 51.5,88.8 29.8,67.5 "
                     />
                   </svg>
-                  <h2 className="text-xl font-bold mb-4 text-center text-[#73AF55]">
+                  <h2 className="text-xl font-bold mb-4 text-center text-[#a7af55]">
                     Thank you!
                   </h2>
                 </div>
@@ -391,7 +302,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
                   shortly!
                 </p>
                 <button
-                  className="w-2/4 mx-auto mt-4 px-4 py-2 text-white rounded bg-black"
+                  className="w-2/4 mx-auto mt-4 px-4 py-2 text-white bg-yellow-500 hover:bg-yellow-600"
                   onClick={() => setShowSuccessModal(false)}
                 >
                   Close
@@ -400,7 +311,9 @@ const ContactForm: React.FC<ContactFormProps> = ({
             </div>
           )}
 
-          {submitError && <div className="text-red-500">{submitError}</div>}
+          {submitError && (
+            <div className="text-red-500  text-center">{submitError}</div>
+          )}
         </form>
       </Form>
     </div>

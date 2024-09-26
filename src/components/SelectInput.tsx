@@ -11,7 +11,8 @@ const itemVariants: Variants = {
   closed: { opacity: 0, y: 20, transition: { duration: 0.2 } },
 };
 
-const HoverList = "py-2 px-3 hover:bg-black/80 hover:text-white cursor-pointer";
+const HoverList =
+  "py-2 px-3 hover:bg-yellow-500 hover:text-white cursor-pointer";
 
 interface SelectInputProps {
   value: string;
@@ -58,19 +59,19 @@ const SelectInput: React.FC<SelectInputProps> = ({
 
   return (
     <motion.div
-      className={`flex w-full bg-white border border-gray-300 text-sm rounded-lg text-slate-500 h-[2.5rem] `}
+      className={`flex w-full bg-white border border-gray-300 text-sm  text-slate-500 h-[2.5rem]  `}
       whileTap={{ scale: 0.97 }}
       ref={selectRef}
     >
       <motion.div
-        className=" w-full transition "
+        className=" w-full transition z-50 "
         initial={true}
         animate={isOpen ? "open" : "closed"}
       >
         {isOpen && (
           <div className=" relative top-10 mobile:translate-y-0  tablet:translate-y-[-14.4rem] z-[2] ">
             <motion.div
-              className="absolute w-full  mt-1 border bg-white border-gray-300 rounded-lg shadow-2xl  "
+              className="absolute w-full  mt-1 border bg-white border-gray-300  shadow-2xl  "
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.2 }}
@@ -85,9 +86,9 @@ const SelectInput: React.FC<SelectInputProps> = ({
                     key={option}
                     className={
                       index === 0
-                        ? ` hover:rounded-t-lg ${HoverList}`
+                        ? `  ${HoverList}`
                         : index === options.length - 1
-                        ? ` hover:rounded-b-lg  ${HoverList}`
+                        ? `  ${HoverList}`
                         : HoverList
                     }
                     onClick={() => handleSelect(option)}
@@ -101,11 +102,11 @@ const SelectInput: React.FC<SelectInputProps> = ({
         )}
 
         <motion.div
-          className="relative flex items-center w-full h-full px-2.5 cursor-pointer focus:border-black focus:border-2 focus:rounded-lg  "
+          className="relative flex items-center w-full h-full px-2.5 cursor-pointer focus:border-yellow-500 focus:border-2    "
           onClick={() => setIsOpen(!isOpen)}
         >
           <div
-            className={`w-full border-none ring-white  ${
+            className={`w-full border-none ring-white z-50   ${
               selected ? "text-black" : " text-slate-500"
             }`}
             // contentEditable={false}
@@ -113,7 +114,7 @@ const SelectInput: React.FC<SelectInputProps> = ({
             {selected ? selected : "Select a Project"}
           </div>
           <motion.div
-            className="cursor-pointer "
+            className="cursor-pointer z-50"
             variants={{
               open: { rotate: 180 },
               closed: { rotate: 0 },

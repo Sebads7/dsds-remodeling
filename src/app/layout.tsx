@@ -4,7 +4,7 @@ import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "DS & DS Remodeling",
+  title: "DS&DS Home Remodeling",
   description: "Home Remodeling Services",
 };
 
