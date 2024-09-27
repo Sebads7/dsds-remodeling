@@ -7,9 +7,9 @@
 }
 
 .image-hover {
-  transition-duration: 600ms;
+  transition-duration: 450ms;
   transition-timing-function: ease-in-out;
-  transition-delay: 100ms;
+  transition-delay: 50ms;
 }
 
 @layer base {

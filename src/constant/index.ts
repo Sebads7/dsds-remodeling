@@ -59,3 +59,71 @@ export const SERVICES = [
     image: "/images/home-remo/home-rem1.jpg",
   },
 ];
+
+export const PROJECTS = [
+  {
+    button: "Interior Painting",
+    image: [
+      "/images/home-remo/home-rem1.jpg",
+      "/images/home-remo/home-rem1.jpg",
+      "/images/home-remo/home-rem1.jpg",
+      "/images/home-remo/home-rem1.jpg",
+      "/images/home-remo/home-rem1.jpg",
+      "/images/home-remo/home-rem1.jpg",
+    ],
+    colSpan: [1, 2, 2, 1, 1, 2],
+  },
+  {
+    button: "Exterior Painting",
+    image: [
+      "/images/home-remo/home-rem1.jpg",
+      "/images/home-remo/home-rem1.jpg",
+      "/images/home-remo/home-rem1.jpg",
+      "/images/home-remo/home-rem1.jpg",
+      "/images/home-remo/home-rem1.jpg",
+      "/images/home-remo/home-rem1.jpg",
+    ],
+    colSpan: [2, 1, 1, 2, 2, 1],
+  },
+  {
+    button: "Kitchen Remodeling",
+    image: [
+      "/images/kitchen/kitchen1.jpg",
+      "/images/kitchen/kitchen1.jpg",
+      "/images/kitchen/kitchen1.jpg",
+      "/images/kitchen/kitchen1.jpg",
+      "/images/kitchen/kitchen1.jpg",
+      "/images/kitchen/kitchen1.jpg",
+      "/images/kitchen/kitchen1.jpg",
+    ],
+    colSpan: [1, 2, 2, 1, 1],
+  },
+  {
+    button: "Bathroom Remodeling",
+    image: [
+      "/images/home-remo/home-rem1.jpg",
+      "/images/home-remo/home-rem1.jpg",
+      "/images/home-remo/home-rem1.jpg",
+      "/images/home-remo/home-rem1.jpg",
+      "/images/home-remo/home-rem1.jpg",
+      "/images/home-remo/home-rem1.jpg",
+      "/images/home-remo/home-rem1.jpg",
+    ],
+    colSpan: [2, 1, 1, 2, 1, 1],
+  },
+];
+
+export const REVIEW = [
+  {
+   
+    name: "John Doe",
+    description:
+      "   I recently remodeled my kitchen, and I'm thrilled with the results! The design team was attentive, helping me create a beautiful and functional space. Their craftsmanship was exceptional, with meticulous attention to detail in the cabinetry, counter-tops, and tile work.",
+  },
+  {
+  
+    name: "Juana Doe",
+    description:
+      "I couldn't be happier with my kitchen remodel! The team was professional, efficient, and delivered amazing results. They listened to my ideas and turned them into a beautiful, functional space. Everything was done on time and within budget. Highly recommend!",
+  },
+];
