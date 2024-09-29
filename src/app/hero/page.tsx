@@ -59,14 +59,7 @@ const HeroPage = () => {
         <p className="text-lg md:text-2xl mb-8">
           Leading Construction Services Tailored to Your Needs
         </p>
-        <div className="flex space-x-4">
-          <Link
-            href="contact"
-            className="bg-yellow-500 text-white py-3 px-6  shadow-md font-semibold hover:bg-yellow-600"
-          >
-            Contact Us
-          </Link>
-        </div>
+        <div className="flex space-x-4"></div>
       </header>
 
       <main className="w-full h-full bg-white">
@@ -144,13 +137,33 @@ const HeroPage = () => {
           </div>
         </section>
         {/* CONTACT SECTION */}
-        <section className="w-full h-full bg-[#F6F5F2] grid grid-cols-2 py-32 pl-20 pr-10 ">
-          <h2 className="text-center font-bold text-3xl pb-32 col-span-2 ">
-            CONTACT US TO GET A FREE QUOTE
-          </h2>
-          <div className=""></div>
-          <div className="">
-            <ContactForm showTextInput={true} />
+        <section className="relative  w-full h-full bg-[#F6F5F2] py-32  pr-10 overflow-hidden">
+          <div className="absolute top-0 h-[2rem] w-full bg-yellow-600/80 z-[2]"></div>
+          <div className="absolute z-0 top-2 opacity-10 ">
+            <Image
+              src="/images/hero-bg.webp"
+              width={2000}
+              height={2000}
+              alt="hero-background"
+            />
+          </div>
+          <div className=" grid grid-cols-2">
+            <h2 className="text-center font-bold text-3xl pb-32 col-span-2 ">
+              CONTACT US TO GET A FREE QUOTE
+            </h2>
+            <div className="pl-20">
+              <div className=" text-black w-full h-full ">
+                <h2>
+                  We are located in Lawrenceville and serving all the Greater
+                  Atlanta Area
+                </h2>
+                <p>Call us at (678) 226-5000 or email us at </p>
+              </div>
+            </div>
+
+            <div className="z-10 ">
+              <ContactForm showTextInput={true} />
+            </div>
           </div>
         </section>
       </main>

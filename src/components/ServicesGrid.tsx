@@ -30,11 +30,19 @@ const ServicesGrid = ({ service }: { service: Service }) => {
           {service.description}
         </p>
 
-        <ul className="flex mx-auto gap-10 py-3">
-          <li className="flex gap-2 items-center ">
+        <ul className="flex justify-center items-center mx-auto  py-3">
+          <li className="flex gap-2 items-center pr-10 ">
             <FaDollarSign className="text-green-500" />
-            Affordable
+            We beat any price
           </li>
+          <Image
+            src="/icons/100-percent.png"
+            alt="100-Percent"
+            width={30}
+            height={30}
+            className=" mr-3"
+          />
+          <li>Customer Satisfaction</li>
         </ul>
       </div>
     </>
