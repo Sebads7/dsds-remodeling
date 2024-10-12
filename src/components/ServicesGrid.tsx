@@ -9,10 +9,16 @@ interface Service {
   image: string;
 }
 
-const ServicesGrid = ({ service }: { service: Service }) => {
+const ServicesGrid = ({
+  service,
+  descriptionClass,
+}: {
+  service: Service;
+  descriptionClass?: string;
+}) => {
   return (
     <>
-      <div className="flex flex-col  h-[30rem] border-2 bg-white">
+      <div className="flex flex-col  h-full border-2 bg-white">
         <div className="relative overflow-hidden">
           <Image
             className="w-full h-[18rem] hover:scale-110 image-hover hover:opacity-90  "
@@ -26,7 +32,9 @@ const ServicesGrid = ({ service }: { service: Service }) => {
           </h3>
         </div>
 
-        <p className="px-5 h-[8rem] pt-5 border-b-2 text-center">
+        <p
+          className={`px-5 h-[8rem] pt-5 border-b-2 text-center ${descriptionClass}`}
+        >
           {service.description}
         </p>
 

@@ -9,6 +9,7 @@ import ServicesGrid from "@/components/ServicesGrid";
 import { BANNER, SERVICES } from "@/constant";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { MdEmail, MdOutlinePhoneIphone } from "react-icons/md";
 
 import Link from "next/link";
 import React from "react";
@@ -86,7 +87,11 @@ const HeroPage = () => {
                       timeline.
                     </p>
                     <div className="flex gap-5">
-                      <LinkButton href="contact" name="Contact Us" />
+                      <LinkButton
+                        href="contact"
+                        name="Contact Us"
+                        icon={<MdEmail className="text-xl " />}
+                      />
                       <LinkButton
                         href="ourservices"
                         name=" Learn More About Our Services"
@@ -148,16 +153,31 @@ const HeroPage = () => {
             />
           </div>
           <div className=" grid grid-cols-2">
-            <h2 className="text-center font-bold text-3xl pb-32 col-span-2 ">
+            <h2 className="text-center font-bold text-4xl pb-32 col-span-2 ">
               CONTACT US TO GET A FREE QUOTE
             </h2>
             <div className="pl-20">
-              <div className=" text-black w-full h-full ">
-                <h2>
+              <div className=" text-black w-full h-full  px-20">
+                <h2 className="font-bold text-2xl pb-10 pt-10   ">
                   We are located in Lawrenceville and serving all the Greater
-                  Atlanta Area
+                  <strong className="text-yellow-500">Atlanta</strong> Area!
                 </h2>
-                <p>Call us at (678) 226-5000 or email us at </p>
+                <div className="space-y-2">
+                  <h3 className="font-bold text-xl underline pb-3">
+                    Contact Info
+                  </h3>
+                  <p className="flex items-center gap-2 ">
+                    <MdOutlinePhoneIphone />
+                    <strong className="text-yellow-500">(678) 226-5000</strong>
+                  </p>
+
+                  <p className="flex items-center gap-2 ">
+                    <MdEmail />
+                    <strong className="text-white bg-yellow-500 px-1">
+                      ds&ds@gmail.com
+                    </strong>
+                  </p>
+                </div>
               </div>
             </div>
 

@@ -12,7 +12,7 @@ const Modal = ({ closeModal }: { closeModal: () => void }) => {
   }, []);
   return (
     <div
-      className=" w-svw  h-svh flex justify-center items-center bg-black/20"
+      className=" w-svw  h-svh flex justify-center items-center bg-black/80"
       onClick={closeModal}
     >
       <div

@@ -3,10 +3,18 @@ import Image from "next/image";
 import { LiaHammerSolid, LiaHandshakeSolid } from "react-icons/lia";
 import { TbChecks } from "react-icons/tb";
 
-const SectionDivider = ({ imageSrc }: { imageSrc: string }) => {
+const SectionDivider = ({
+  imageSrc,
+  sectionClass,
+}: {
+  imageSrc: string;
+  sectionClass?: string;
+}) => {
   return (
     <>
-      <div className="relative w-full h-[10rem]  overflow-hidden">
+      <div
+        className={`relative w-full h-[10rem]  overflow-hidden ${sectionClass} `}
+      >
         <div className="absolute top-0 inset-x-0 h-[10rem] overflow-hidden  ">
           <Image
             src={imageSrc}
@@ -14,7 +22,7 @@ const SectionDivider = ({ imageSrc }: { imageSrc: string }) => {
             height={2000}
             alt="hero-background"
           />
-          <div className=" absolute bg-black/70 top-0 h-full w-full text-white flex justify-center items-center gap-60">
+          <div className=" absolute bg-black/70 top-0 h-full  w-full text-white flex justify-center items-center gap-60">
             <div className="flex flex-col justify-center items-center h-full ">
               <LiaHandshakeSolid className=" text-7xl" />
               <h3 className="text-xl font-semibold">Customer Satisfaction</h3>

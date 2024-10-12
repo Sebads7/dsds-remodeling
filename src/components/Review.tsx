@@ -9,7 +9,7 @@ const Review = () => {
   return (
     <>
       <div className="flex flex-col  items-center justify-center mx-auto w-full  gap-20">
-        <div className="flex gap-10">
+        <div className="flex  gap-10">
           {REVIEW.map((review, index) => (
             <div
               className="w-[40rem] gap-5  flex  border-yellow-500 border p-5  justify-center items-center"

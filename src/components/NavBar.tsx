@@ -48,7 +48,7 @@ const NavBar = () => {
   return (
     <div
       className={` py-5  bg-[#F6F5F2]    z-10 ${
-        isSticky ? "sticky top-0 border-b-2 border-yellow-500   " : ""
+        isSticky ? " top-0 border-b-2 border-yellow-500   " : ""
       }  `}
     >
       <div className="pr-20 pl-32  w-full flex  justify-between items-center ">
@@ -92,7 +92,7 @@ const NavBar = () => {
         {/* CONTACT-MODAL */}
         <div>
           <button
-            className="bg-yellow-500 text-white py-3 px-6 font-semibold hover:bg-yellow-600 mr-1"
+            className={`text-white bg-yellow-500  py-3 px-6 font-semibold hover:bg-yellow-600 mr-1 `}
             onClick={handleModal}
           >
             Get a Free Quote
@@ -102,7 +102,7 @@ const NavBar = () => {
 
       {/* MODAL */}
       {showModal && (
-        <div className="absolute top-0 z-10">
+        <div className="fixed top-0 h-svh w-full z-50">
           <Modal closeModal={handleModal} />
         </div>
       )}
