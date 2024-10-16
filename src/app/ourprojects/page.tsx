@@ -3,10 +3,8 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import { FaCirclePlus } from "react-icons/fa6";
-import { PROJECTS_PAGE } from "@/constant";
+import { DIVIDER_DATA, PROJECTS_PAGE } from "@/constant";
 import SectionDivider from "@/components/SectionDivider";
-import { LiaHammerSolid, LiaHandshakeSolid } from "react-icons/lia";
-import { TbChecks } from "react-icons/tb";
 
 import {
   MdOutlineArrowCircleLeft,
@@ -38,12 +36,13 @@ const ProjectPage = () => {
   };
 
   return (
-    <div className="w-full h-full bg-page-bg/50 text-dark-gray">
+    <div className="w-full h-full pb-20  bg-page-bg/50 text-dark-gray">
       <div className="fixed top-0 left-0 w-full h-full -z-10  opacity-20">
         <Image
           src="/images/hero-bg.webp"
           width={2000}
           height={2000}
+          className="0"
           alt="hero-background"
         />
       </div>
@@ -90,7 +89,7 @@ const ProjectPage = () => {
                     type="button"
                     title="Previous"
                     onClick={(event) => handlePrevClick(event)}
-                    className={`text-5xl mr-10 ml-auto  ${
+                    className={`text-5xl mr-10 ml-auto translate-x-10  ${
                       activeIndex === 0
                         ? "disabled text-gray-400/50 cursor-default"
                         : "hover:scale-105 cursor-pointer hover:text-yellow-700 text-gray-600"
@@ -99,7 +98,7 @@ const ProjectPage = () => {
                     <MdOutlineArrowCircleLeft />
                   </button>
                   {/* IMAGES */}
-                  <div className="flex justify-center   mx-auto gap-3 py-14 hover:pb-24 transition-all duration-500 ease-in-out overflow-hidden ">
+                  <div className="flex justify-center   mx-auto gap-3 px-10 pt-14 pb-24 transition-all duration-500 ease-in-out overflow-hidden ">
                     {service.images
                       .slice(activeIndex, activeIndex + ITEMS_PER_PAGE)
                       .map((image, index) => (
@@ -123,10 +122,12 @@ const ProjectPage = () => {
                         </div>
                       ))}
                   </div>
+
+                  {/* RIGHT BUTTON */}
                   <button
                     type="button"
                     title="Next"
-                    className={`text-5xl ml-10 mr-auto   ${
+                    className={`text-5xl ml-10 mr-auto   -translate-x-10  ${
                       activeIndex ===
                       PROJECTS_PAGE[0].images.length - ITEMS_PER_PAGE
                         ? "disabled text-gray-400/50 cursor-default "
@@ -139,7 +140,7 @@ const ProjectPage = () => {
                 </div>
 
                 {/* Custom Navigation Dots */}
-                <div className="flex justify-center items-center gap-3 pt-1 w-full  ">
+                <div className="flex justify-center items-center gap-3 pt-1 w-full  -translate-y-5 ">
                   {Array.from(
                     {
                       length: Math.ceil(
@@ -152,7 +153,7 @@ const ProjectPage = () => {
                         className={` rounded-full cursor-pointer ${
                           activeIndex === index * ITEMS_PER_PAGE
                             ? "bg-yellow-600 w-8 h-4"
-                            : "bg-gray-300 w-7 h-3"
+                            : "bg-gray-300 w-6 h-3"
                         }`}
                         onClick={(event) => handleDotClick(index, event)}
                       />
@@ -162,25 +163,11 @@ const ProjectPage = () => {
               </div>
               {index < PROJECTS_PAGE.length - 1 && (
                 <div className="my-20">
-                  <SectionDivider imageSrc="/images/hero-bg.webp">
-                    <div className="flex flex-col justify-center items-center h-full ">
-                      <LiaHandshakeSolid className=" text-7xl" />
-                      <h3 className="text-xl font-semibold">
-                        Customer Satisfaction
-                      </h3>
-                    </div>
-                    <div className="flex flex-col justify-center items-center">
-                      <TbChecks className="text-7xl" />
-
-                      <h3 className="text-xl font-semibold">
-                        High-Quality Workmanship
-                      </h3>
-                    </div>
-                    <div className="flex flex-col justify-center items-center">
-                      <LiaHammerSolid className="text-7xl" />
-                      <h3 className="text-xl font-semibold">Built to Last</h3>
-                    </div>
-                  </SectionDivider>
+                  {/* Section Divider */}
+                  <SectionDivider
+                    imageSrc="/images/hero-bg.webp"
+                    arrayData={DIVIDER_DATA[index % DIVIDER_DATA.length]}
+                  />
                 </div>
               )}
             </div>

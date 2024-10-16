@@ -1,6 +1,6 @@
 import React from "react";
 
-import { SERVICES } from "@/constant/index";
+import { DIVIDER_DATA, SERVICES } from "@/constant/index";
 import ServicesGrid from "@/components/ServicesGrid";
 import LinkButton from "@/components/LinkButton";
 import SectionDivider from "@/components/SectionDivider";
@@ -21,13 +21,13 @@ const ServicesPage = () => {
       <h2 className="text-center font-bold text-4xl pt-10"> OUR SERVICES</h2>
 
       <div className=" pl-28 pt-10 ">
-        <h3 className=" font-semibold text-3xl capitalize  mt-20 ">
-          Why Select <span className="text-yellow-600  ">DS&DS</span> Remodeling
-          for Your Next Renovation?
+        <h3 className=" font-extralight text-3xl capitalize  mt-20 bg-yellow-600 mr-auto w-fit p-2 text-white ">
+          Why Select <span className="font-light">DS&DS</span> Remodeling for
+          Your Next Renovation?
         </h3>
-        <div className="pr-40 py-8  text-lg  ">
+        <div className="pr-40 mt-5 py-8 space-y-5  text-lg  ">
           <p className="">
-            <strong className=" underline underline-offset-4  decoration-yellow-500 pr-1">
+            <strong className="text-xl underline underline-offset-4  decoration-yellow-500 pr-1">
               Expert Craftsmanship:
             </strong>
             Our experienced team brings exceptional skill and attention to
@@ -35,7 +35,7 @@ const ServicesPage = () => {
             test of time.
           </p>
           <p className="pt-2  ">
-            <strong className=" underline underline-offset-4 decoration-yellow-500 pr-1">
+            <strong className="text-xl underline underline-offset-4 decoration-yellow-500 pr-1">
               Tailored Solutions:
             </strong>
             At DS&DS Remodeling, we understand that no two projects are alike.
@@ -142,7 +142,10 @@ const ServicesPage = () => {
         </div>
       </section>
 
-      <SectionDivider imageSrc="/images/hero-bg.webp" sectionClass="" />
+      <SectionDivider
+        imageSrc="/images/hero-bg.webp"
+        arrayData={DIVIDER_DATA[1]}
+      />
 
       {/* WHY CHOOSE US */}
       <section className="flex flex-col pl-28 pr-20 pt-20  pb-20">
