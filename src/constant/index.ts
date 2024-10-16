@@ -128,17 +128,25 @@ export const REVIEW = [
 
 export const PROJECTS_PAGE = [
   {
+    id: "interiorpainting",
     title: "Interior Painting",
     images: [
       "/images/home-remo/home-rem1.jpg",
+      "/images/home-remo/home-rem2.jpg",
       "/images/home-remo/home-rem1.jpg",
+      "/images/home-remo/home-rem3.jpg",
       "/images/home-remo/home-rem1.jpg",
+      "/images/home-remo/home-rem4.jpeg",
       "/images/home-remo/home-rem1.jpg",
+      "/images/home-remo/home-rem5.jpeg",
       "/images/home-remo/home-rem1.jpg",
+      "/images/home-remo/home-rem6.jpeg",
       "/images/home-remo/home-rem1.jpg",
+      "/images/home-remo/home-rem2.jpg",
     ],
   },
   {
+    id: "exteriorpainting",
     title: "Exterior Painting",
     images: [
       "/images/home-remo/home-rem1.jpg",
@@ -150,6 +158,7 @@ export const PROJECTS_PAGE = [
     ],
   },
   {
+    id: "bathremodeling",
     title: "Bathroom Remodeling",
     images: [
       "/images/home-remo/home-rem1.jpg",
@@ -161,6 +170,7 @@ export const PROJECTS_PAGE = [
     ],
   },
   {
+    id: "kitchenremodeling",
     title: "Kitchen Remodeling",
     images: [
       "/images/home-remo/home-rem1.jpg",

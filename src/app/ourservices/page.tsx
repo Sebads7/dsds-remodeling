@@ -17,16 +17,16 @@ const ServicesPage = () => {
    * The page also contains a section for "Why Choose Us" which highlights the benefits of choosing the company.
    */
   /******  014d2287-6411-407c-812e-f56eaea0ae72  *******/ return (
-    <div className="w-full h-full bg-[#F6F5F2]">
+    <div className="w-full h-full bg-[#F6F5F2] text-dark-gray">
       <h2 className="text-center font-bold text-4xl pt-10"> OUR SERVICES</h2>
 
-      <div className="pt-20 pl-28">
-        <h3 className=" font-semibold text-2xl ">
+      <div className=" pl-28 pt-10 ">
+        <h3 className=" font-semibold text-3xl capitalize  mt-20 ">
           Why Select <span className="text-yellow-600  ">DS&DS</span> Remodeling
           for Your Next Renovation?
         </h3>
-        <div className="pr-40 py-8  text-lg ">
-          <p>
+        <div className="pr-40 py-8  text-lg  ">
+          <p className="">
             <strong className=" underline underline-offset-4  decoration-yellow-500 pr-1">
               Expert Craftsmanship:
             </strong>
@@ -49,7 +49,7 @@ const ServicesPage = () => {
       {/* SERVICES INFO */}
       <section className="flex flex-col gap-20 py-20 pl-28 pr-20">
         {/* FIRST SERVICE */}
-        <div className="flex bg-white/90 ">
+        <div className="flex bg-white/40 ">
           <div className="w-2/4">
             {SERVICES.slice(1, 2).map((service, index) => (
               <ServicesGrid
@@ -69,13 +69,16 @@ const ServicesPage = () => {
               elements.
             </p>
             <div className="h-full ">
-              <LinkButton href="/contact" name="View our Bathroom Projects" />
+              <LinkButton
+                href="/ourprojects#bathremodeling"
+                name="View Our Bathroom Projects"
+              />
             </div>
           </div>
         </div>
 
         {/* SECOND SERVICE */}
-        <div className="flex bg-white/90">
+        <div className="flex bg-white/40">
           <div className="grid grid-rows-3 place-items-center  w-10/12 border-2">
             <h3 className="font-bold pt-10 text-2xl  ">Kitchen Remodeling</h3>
             <p className="mb-5 h-full px-20 text-center text-lg ">
@@ -86,7 +89,10 @@ const ServicesPage = () => {
               elements.
             </p>
             <div className="h-full ">
-              <LinkButton href="/contact" name="View our Kitchen Projects" />
+              <LinkButton
+                href="/ourprojects#kitchenremodeling"
+                name="View Our Kitchen Projects"
+              />
             </div>
           </div>
           <div className="w-2/4">
@@ -101,7 +107,7 @@ const ServicesPage = () => {
         </div>
 
         {/* THIRD SERVICE */}
-        <div className="flex bg-white/90 ">
+        <div className="flex bg-white/40 ">
           <div className="w-2/4">
             {SERVICES.slice(2, 3).map((service, index) => (
               <ServicesGrid
@@ -122,8 +128,15 @@ const ServicesPage = () => {
               your home not only looks great but is also protected from the
               elements.
             </p>
-            <div className="h-full ">
-              <LinkButton href="/contact" name="View our Exterior Projects" />
+            <div className=" h-full flex items-start gap-2 ">
+              <LinkButton
+                href="/ourprojects#exteriorpainting"
+                name="View Our Exterior Projects"
+              />
+              <LinkButton
+                href="/ourprojects#interiorpainting"
+                name="View Our Interior Projects"
+              />
             </div>
           </div>
         </div>
@@ -133,7 +146,9 @@ const ServicesPage = () => {
 
       {/* WHY CHOOSE US */}
       <section className="flex flex-col pl-28 pr-20 pt-20  pb-20">
-        <h3 className=" font-bold text-3xl">Ready to Transform Your Home?</h3>
+        <h3 className=" font-bold text-3xl text-dark-gray">
+          Ready to Transform Your Home?
+        </h3>
         <div className="grid grid-cols-2 ">
           <div className="pr-20 space-y-5">
             <p className="pt-10 text-muted-foreground  text-lg ">
@@ -153,13 +168,8 @@ const ServicesPage = () => {
                 name="CONTACT US"
                 icon={<MdEmail className="text-xl " />}
               />
-              <div className="text-muted-foreground ">
-                <p className="text-center text-yellow-500 font-bold">
-                  {" "}
-                  Call Us
-                </p>
-
-                <p className="flex items-center  gap-2">
+              <div className="flex gap-5 text-lg text-muted-foreground ">
+                <p className="flex items-center font-bold  gap-2 ">
                   <FaPhoneAlt />
                   404-661-2994
                 </p>

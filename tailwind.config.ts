@@ -31,6 +31,8 @@ const config: Config = {
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        "dark-gray": "rgb(61,59,64)",
+        "page-bg": "rgb(246,245,242)",
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",

@@ -47,13 +47,13 @@ const NavBar = () => {
 
   return (
     <div
-      className={` py-5  bg-[#F6F5F2]    z-10 ${
+      className={` pt-5 pb-8  bg-[#F6F5F2]/90    z-10 ${
         isSticky ? " top-0 border-b-2 border-yellow-500   " : ""
       }  `}
     >
       <div className="pr-20 pl-32  w-full flex  justify-between items-center ">
         {/* LOGO */}
-        <Logo imgSize=" w-[8rem] h-[4.6rem] " src="/images/LOGO-COLOR.png" />
+        <Logo imgSize=" w-[9rem] h-[5.2rem] " src="/images/LOGO-COLOR.png" />
 
         {/* NAVBAR */}
         <nav>

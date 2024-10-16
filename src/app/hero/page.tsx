@@ -135,7 +135,7 @@ const HeroPage = () => {
           <SectionDivider imageSrc="/images/hero-bg.webp" />
 
           <h2 className="text-center font-bold text-4xl py-32 ">
-            WHAT OUR CLIENT SAY ABOUT US
+            WHAT OUR CLIENTS SAY ABOUT US
           </h2>
           <div className=" pb-20 ">
             <Review />
