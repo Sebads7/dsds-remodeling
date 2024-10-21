@@ -29,7 +29,7 @@ const SectionDivider = ({
             height={2000}
             alt={`hero-background ${imgClass}`}
           />
-          <div className=" absolute bg-black/70 top-0 h-full  w-full text-white flex justify-center items-center gap-60">
+          <div className=" absolute bg-black/70 top-0 h-full  w-full text-white flex justify-evenly   items-center  ">
             {Array.isArray(arrayData) &&
               arrayData.map((item, index) => (
                 <div
@@ -37,14 +37,16 @@ const SectionDivider = ({
                   key={index}
                 >
                   <Image
-                    className="w-14 h-14 text-white fill-white icon-white "
-                    width={2000}
-                    height={2000}
+                    className="w-10 h-10 lg:w-14 lg:h-14 text-white fill-white icon-white "
+                    width={200}
+                    height={200}
                     alt={item.title}
                     src={item.icon}
                   ></Image>
 
-                  <h3 className="text-xl font-semibold">{item.title}</h3>
+                  <h3 className="text-sm lg:text-xl font-semibold pt-2">
+                    {item.title}
+                  </h3>
                 </div>
               ))}
           </div>

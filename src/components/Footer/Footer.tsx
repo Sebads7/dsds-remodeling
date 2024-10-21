@@ -1,8 +1,10 @@
 import React from "react";
-import Logo from "./Logo";
+
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
-import { NAV_LINKS } from "@/constant";
+
 import Link from "next/link";
+import Logo from "../Logo";
+import { NAV_LINKS } from "@/constant/navlinks";
 
 const Footer = () => {
   return (

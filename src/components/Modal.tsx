@@ -12,11 +12,11 @@ const Modal = ({ closeModal }: { closeModal: () => void }) => {
   }, []);
   return (
     <div
-      className=" w-svw  h-svh flex justify-center items-center bg-black/80"
+      className=" w-svw h-svh flex justify-center md:items-center bg-black/80"
       onClick={closeModal}
     >
       <div
-        className=" relative w-2/4 px-20 py-40 flex flex-col justify-center items-center gap-10 shadow-2xl bg-white "
+        className=" relative  md:w-2/4 px-5 md:px-20 py-40 flex flex-col md:justify-center items-center gap-10 shadow-2xl bg-white  "
         onClick={(e) => e.stopPropagation()}
       >
         <button

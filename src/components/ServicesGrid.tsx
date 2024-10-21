@@ -33,12 +33,12 @@ const ServicesGrid = ({
         </div>
 
         <p
-          className={`px-5 h-[8rem] pt-5 border-b-2 text-center ${descriptionClass}`}
+          className={`px-5 h-[8rem] pt-5 border-b-2 text-center text-sm md:text-base ${descriptionClass}`}
         >
           {service.description}
         </p>
 
-        <ul className="flex justify-center items-center mx-auto  py-3">
+        <ul className="flex justify-center items-center mx-auto  py-3 text-sm md:text-base">
           <li className="flex gap-2 items-center pr-10 ">
             <FaDollarSign className="text-green-500" />
             We beat any price

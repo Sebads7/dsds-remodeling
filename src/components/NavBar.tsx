@@ -1,15 +1,18 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { NAV_LINKS } from "@/constant";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Logo from "./Logo";
 import Modal from "./Modal";
+import { IoMdClose } from "react-icons/io";
+import { NAV_LINKS } from "@/constant/navlinks";
 
 const NavBar = () => {
   const [isSticky, setIsSticky] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
   const [isHovered, setIsHovered] = useState<string | null>(null);
   const [activeIndex, setActiveIndex] = useState<string | null>("/");
 
@@ -51,13 +54,25 @@ const NavBar = () => {
         isSticky ? " top-0 border-b-2 border-yellow-500   " : ""
       }  `}
     >
-      <div className="pr-20 pl-32  w-full flex  justify-between items-center ">
+      <div className="xl:pr-20 xl:pl-32 px-10  w-full flex  justify-between items-center ">
+        {/* MOBILE MENU BUTTON */}
+        <button
+          title="Mobile Menu"
+          type="button"
+          onClick={() => setShowMenu(true)}
+          className="block md:hidden"
+        >
+          <GiHamburgerMenu className="text-4xl" />
+        </button>
         {/* LOGO */}
-        <Logo imgSize=" w-[9rem] h-[5.2rem] " src="/images/LOGO-COLOR.png" />
+        <Logo
+          imgSize=" w-[7rem] h-[4.2rem] lg:w-[9rem] lg:h-[5.2rem]"
+          src="/images/LOGO-COLOR.png"
+        />
 
         {/* NAVBAR */}
-        <nav>
-          <ul className="w-full flex gap-5 ">
+        <nav className="hidden md:block">
+          <ul className="w-full flex lg:gap-5 text-sm lg:text-base ">
             {NAV_LINKS.map((link, index) => (
               <Link
                 href={link.href}
@@ -90,9 +105,9 @@ const NavBar = () => {
           </ul>
         </nav>
         {/* CONTACT-MODAL */}
-        <div>
+        <div className="text-sm lg:text-base">
           <button
-            className={`text-white bg-yellow-500  py-3 px-6 font-semibold hover:bg-yellow-600 mr-1 `}
+            className={`text-white bg-yellow-500  py-3 px-3 lg:px-6 font-semibold hover:bg-yellow-600 mr-1 `}
             onClick={handleModal}
           >
             Get a Free Quote
@@ -102,8 +117,46 @@ const NavBar = () => {
 
       {/* MODAL */}
       {showModal && (
-        <div className="fixed top-0 h-svh w-full z-50">
+        <div className="absolute top-0 h-svh w-full z-50">
           <Modal closeModal={handleModal} />
+        </div>
+      )}
+
+      {showMenu && (
+        <div className="fixed top-0 h-svh w-full z-50 bg-black/80">
+          <nav className="bg-white h-svh w-2/4 pt-10">
+            <button
+              className="  w-full "
+              type="button"
+              title="Close Menu"
+              onClick={() => setShowMenu(false)}
+            >
+              <IoMdClose className=" text-2xl right-0 ml-auto mr-10" />
+            </button>
+
+            <ul className=" flex flex-col gap-5 pt-5  ">
+              {NAV_LINKS.map((link, index) => (
+                <Link
+                  href={link.href}
+                  key={index}
+                  className="h-full w-full "
+                  onMouseEnter={() => setIsHovered(link.name)}
+                  onMouseLeave={() => setIsHovered(null)}
+                >
+                  <li
+                    onClick={() => setActiveIndex(link.href)}
+                    className={`  px-4 py-1 ${
+                      activeIndex === link.href
+                        ? "text-yellow-500 font-semibold"
+                        : ""
+                    } `}
+                  >
+                    {link.name}
+                  </li>
+                </Link>
+              ))}
+            </ul>
+          </nav>
         </div>
       )}
     </div>
