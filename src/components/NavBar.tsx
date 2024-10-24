@@ -122,6 +122,7 @@ const NavBar = () => {
         </div>
       )}
 
+      {/* MOBILE MENU */}
       {showMenu && (
         <div className="fixed top-0 h-svh w-full z-50 bg-black/80">
           <nav className="bg-white h-svh w-2/4 pt-10">
@@ -142,6 +143,7 @@ const NavBar = () => {
                   className="h-full w-full "
                   onMouseEnter={() => setIsHovered(link.name)}
                   onMouseLeave={() => setIsHovered(null)}
+                  onClick={() => setShowMenu(false)}
                 >
                   <li
                     onClick={() => setActiveIndex(link.href)}

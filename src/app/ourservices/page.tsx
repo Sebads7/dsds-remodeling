@@ -1,12 +1,13 @@
 import React from "react";
 
-import { DIVIDER_DATA, SERVICES } from "@/constant/index";
 import ServicesGrid from "@/components/ServicesGrid";
 import LinkButton from "@/components/LinkButton";
 import SectionDivider from "@/components/SectionDivider";
 import Image from "next/image";
 import { MdEmail } from "react-icons/md";
 import { FaPhoneAlt } from "react-icons/fa";
+import { DIVIDER_DATA } from "@/constant/divider";
+import { SERVICES_DATA } from "@/constant/services-data";
 
 const ServicesPage = () => {
   /*************  ✨ Codeium Command ⭐  *************/
@@ -18,15 +19,17 @@ const ServicesPage = () => {
    */
   /******  014d2287-6411-407c-812e-f56eaea0ae72  *******/ return (
     <div className="w-full h-full bg-[#F6F5F2] text-dark-gray">
-      <h2 className="text-center font-bold text-4xl pt-10"> OUR SERVICES</h2>
+      <h2 className="text-center font-bold text-xl md:text-4xl pt-10">
+        OUR SERVICES
+      </h2>
 
-      <div className=" pl-28 pt-10 ">
-        <h3 className=" font-extralight text-3xl capitalize  mt-20 bg-yellow-600 mr-auto w-fit p-2 text-white ">
+      <div className=" px-10 md:pl-28 md:pt-10 ">
+        <h3 className=" font-extralight text-lg md:text-3xl capitalize mt-10  md:mt-20 bg-yellow-600 md:mr-auto md:w-fit p-2 text-white  ">
           Why Select <span className="font-light">DS&DS</span> Remodeling for
           Your Next Renovation?
         </h3>
-        <div className="pr-40 mt-5 py-8 space-y-5  text-lg  ">
-          <p className="">
+        <div className="md:pr-40 mt-5 py-8 space-y-5  text-lg">
+          <p>
             <strong className="text-xl underline underline-offset-4  decoration-yellow-500 pr-1">
               Expert Craftsmanship:
             </strong>
@@ -34,7 +37,7 @@ const ServicesPage = () => {
             detail to every project, ensuring top-tier results that stand the
             test of time.
           </p>
-          <p className="pt-2  ">
+          <p className="pt-2">
             <strong className="text-xl underline underline-offset-4 decoration-yellow-500 pr-1">
               Tailored Solutions:
             </strong>
@@ -47,38 +50,54 @@ const ServicesPage = () => {
       </div>
 
       {/* SERVICES INFO */}
-      <section className="flex flex-col gap-20 py-20 pl-28 pr-20">
+      <section className="flex flex-col gap-20 py-20 md:pl-28 lg:pr-20 px-10">
         {/* FIRST SERVICE */}
-        <div className="flex bg-white/40 ">
-          <div className="w-2/4">
-            {SERVICES.slice(1, 2).map((service, index) => (
-              <ServicesGrid
-                service={service}
-                key={index}
-                descriptionClass="hidden"
-              />
-            ))}
-          </div>
-          <div className="grid grid-rows-3 place-items-center  w-10/12 border-2 ">
-            <h3 className="font-bold pt-10 text-2xl  ">Bathroom Remodeling</h3>
-            <p className="mb-5 h-full px-20 text-center text-lg ">
-              Enhance your home’s curb appeal with our exterior remodeling
-              services. From siding and painting to roofing and gutter
-              installation, we use only the highest quality materials to ensure
-              your home not only looks great but is also protected from the
-              elements.
-            </p>
-            <div className="h-full ">
-              <LinkButton
-                href="/ourprojects#bathremodeling"
-                name="View Our Bathroom Projects"
-              />
+        <div className="flex flex-col gap-10   bg-white/40 ">
+          {SERVICES_DATA.map((service, index) => (
+            <div
+              key={index}
+              className={`flex flex-col  md:${service.flexDirection}  `}
+            >
+              <div className="md:w-2/4 bg-blue-300 ">
+                <ServicesGrid
+                  service={service}
+                  descriptionClass="hidden"
+                  imageTitle={false}
+                />
+              </div>
+
+              <div className="grid md:grid-rows-3 place-items-center  md:w-10/12 border-2  ">
+                <h3 className="font-bold my-5 md:pt-10 text-xl  md:text-2xl  ">
+                  {service.title}
+                </h3>
+                <p className="mb-5 h-full mx-5 md:mx-20 text-center text-lg ">
+                  Enhance your home’s curb appeal with our exterior remodeling
+                  services. From siding and painting to roofing and gutter
+                  installation, we use only the highest quality materials to
+                  ensure your home not only looks great but is also protected
+                  from the elements.
+                </p>
+                <div className=" h-full flex flex-col sm:flex-row items-start gap-2 my-5 ">
+                  <LinkButton
+                    href={service.link}
+                    name={service.linkName}
+                    className="w-[14rem] md:w-full"
+                  />
+                  {service.linkName2 && (
+                    <LinkButton
+                      href={service.link2}
+                      name={service.linkName2}
+                      className="w-[14rem] md:w-full"
+                    />
+                  )}
+                </div>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
 
         {/* SECOND SERVICE */}
-        <div className="flex bg-white/40">
+        {/* <div className="flex bg-white/40">
           <div className="grid grid-rows-3 place-items-center  w-10/12 border-2">
             <h3 className="font-bold pt-10 text-2xl  ">Kitchen Remodeling</h3>
             <p className="mb-5 h-full px-20 text-center text-lg ">
@@ -104,10 +123,10 @@ const ServicesPage = () => {
               />
             ))}
           </div>
-        </div>
+        </div> */}
 
         {/* THIRD SERVICE */}
-        <div className="flex bg-white/40 ">
+        {/* <div className="flex bg-white/40 ">
           <div className="w-2/4">
             {SERVICES.slice(2, 3).map((service, index) => (
               <ServicesGrid
@@ -139,7 +158,7 @@ const ServicesPage = () => {
               />
             </div>
           </div>
-        </div>
+        </div> */}
       </section>
 
       <SectionDivider
@@ -148,12 +167,13 @@ const ServicesPage = () => {
       />
 
       {/* WHY CHOOSE US */}
-      <section className="flex flex-col pl-28 pr-20 pt-20  pb-20">
-        <h3 className=" font-bold text-3xl text-dark-gray">
+      <section className="flex flex-col items-center lg:items-start md:pl-10 lg:pl-28 md:pr-10 lg:pr-20 pt-20  pb-20">
+        <h3 className="font-bold text-3xl text-dark-gray mb-5 ">
           Ready to Transform Your Home?
         </h3>
-        <div className="grid grid-cols-2 ">
-          <div className="pr-20 space-y-5">
+        <div className="flex flex-col-reverse lg:grid grid-cols-2 ">
+          {/* LEFT COLUMN */}
+          <div className="px-8 md:px-0 md:pr-20 space-y-5 ">
             <p className="pt-10 text-muted-foreground  text-lg ">
               <strong> Experienced Craftsmanship: </strong>
               Our team of skilled professionals is committed to delivering
@@ -165,7 +185,7 @@ const ServicesPage = () => {
               closely with you to understand your vision and preferences,
               ensuring the final result exceeds your expectations.
             </p>
-            <div className="pt-10 flex items-center gap-10">
+            <div className="pt-10 flex items-center justify-center lg:justify-start gap-10">
               <LinkButton
                 href="/contact"
                 name="CONTACT US"
@@ -179,7 +199,9 @@ const ServicesPage = () => {
               </div>
             </div>
           </div>
-          <div className="w-full ">
+
+          {/* RIGHT COLUMN */}
+          <div className="w-full p-10 md:p-0 ">
             <Image
               src="/images/hero-bg.webp"
               width={2000}

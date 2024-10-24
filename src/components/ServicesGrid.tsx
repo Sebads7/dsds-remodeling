@@ -12,9 +12,11 @@ interface Service {
 const ServicesGrid = ({
   service,
   descriptionClass,
+  imageTitle,
 }: {
   service: Service;
   descriptionClass?: string;
+  imageTitle: boolean;
 }) => {
   return (
     <>
@@ -27,9 +29,11 @@ const ServicesGrid = ({
             height={200}
             alt="image-1"
           />
-          <h3 className="text-center bg-black/60 text-white p-5 absolute w-full bottom-0 ">
-            {service.title}
-          </h3>
+          {imageTitle && (
+            <h3 className="text-center bg-black/60 text-white p-5 absolute w-full bottom-0 ">
+              {service.title}
+            </h3>
+          )}
         </div>
 
         <p

@@ -1,9 +1,10 @@
 import React from "react";
 // import Image from "next/image";
-import { REVIEW } from "@/constant/index";
+
 import LinkButton from "./LinkButton";
 import Rating from "@mui/material/Rating";
 import { IoPersonCircleOutline } from "react-icons/io5";
+import { REVIEW } from "@/constant/review";
 
 const Review = () => {
   return (

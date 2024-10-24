@@ -110,21 +110,17 @@ const ContactForm: React.FC<ContactFormProps> = ({
   };
 
   return (
-    <div className=" w-full ">
+    <div className=" w-full  ">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8   ">
-          <div className="grid grid-cols-2 pb-3 gap-5 px-10 m-0 w-full   ">
+          <div className="grid grid-cols-2 pb-3 gap-5 px-16 xl:px-32 m-0 w-svw md:w-full  ">
             <FormField
               control={form.control}
               name="fullname"
               render={({ field }) => (
-                <FormItem>
+                <FormItem className=" ">
                   <FormControl>
-                    <Input
-                      placeholder="Full Name"
-                      {...field}
-                      className="mobile:text-xs"
-                    />
+                    <Input placeholder="Full Name" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -136,12 +132,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input
-                      type="tel"
-                      placeholder="Phone Number"
-                      className="mobile:text-xs"
-                      {...field}
-                    />
+                    <Input type="tel" placeholder="Phone Number" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -153,11 +144,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input
-                      placeholder="Email"
-                      {...field}
-                      className="mobile:text-xs"
-                    />
+                    <Input placeholder="Email" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -169,11 +156,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input
-                      placeholder="City"
-                      {...field}
-                      className="mobile:text-xs"
-                    />
+                    <Input placeholder="City" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -185,7 +168,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
                 control={form.control}
                 name="textarea"
                 render={({ field }) => (
-                  <FormItem className="col-span-2">
+                  <FormItem className=" md:col-span-2 ">
                     <FormControl>
                       <Textarea
                         placeholder="Please, enter your message"

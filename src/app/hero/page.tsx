@@ -3,16 +3,20 @@
 import ContactForm from "@/components/ContactForm";
 import LinkButton from "@/components/LinkButton";
 import ProjectGrid from "@/components/ProjectGrid";
-import Review from "@/components/Review";
+
 import SectionDivider from "@/components/SectionDivider";
 import ServicesGrid from "@/components/ServicesGrid";
-import { BANNER, DIVIDER_DATA, SERVICES } from "@/constant";
+
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { MdEmail, MdOutlinePhoneIphone } from "react-icons/md";
 
 import Link from "next/link";
 import React from "react";
+import { DIVIDER_DATA } from "@/constant/divider";
+import Review from "@/components/Review";
+import { BANNER } from "@/constant/banner";
+import { SERVICES_DATA } from "@/constant/services-data";
 
 const HeroPage = () => {
   return (
@@ -70,10 +74,10 @@ const HeroPage = () => {
           <h2 className="text-center font-bold text-xl md:text-4xl md:pb-32 py-10  ">
             OUR SERVICES
           </h2>
-          <div className="container px-10 md:px-0   mx-auto md:grid grid-cols-3  gap-10  ">
-            <div className="h-full md:grid grid-cols-3  gap-10 overflow-hidden   w-full col-span-3 space-y-6 ">
-              {SERVICES.map((service, index) => (
-                <ServicesGrid service={service} key={index} />
+          <div className="container px-10 md:px-0   mx-auto md:grid grid-cols-3 ">
+            <div className="h-full md:grid grid-cols-3  gap-10 overflow-hidden   w-full col-span-3 space-y-6 md:space-y-0 ">
+              {SERVICES_DATA.map((service, index) => (
+                <ServicesGrid service={service} key={index} imageTitle={true} />
               ))}
 
               <div className="md:h-[23rem]  w-full col-span-3 border-2   bg-white overflow-hidden ">
