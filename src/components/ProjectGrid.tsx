@@ -1,7 +1,8 @@
 import React from "react";
-import { PROJECTS } from "@/constant/index";
+
 import { useState } from "react";
 import Image from "next/image";
+import { PROJECTS_PAGE } from "@/constant/projects-data";
 
 const ProjectGrid = () => {
   const [isSelectedImage, setIsSelectedImage] = useState(0);
@@ -12,34 +13,38 @@ const ProjectGrid = () => {
   return (
     <div className=" md:px-20">
       {/* BUTTONS */}
-      <ul className="w-full flex gap-5 text-center md:text-start justify-center items-center pt-10 bg-[#e2e1de] text-sm md:text-base px-5 md:px-0 ">
-        {PROJECTS.map((project, index) => (
+      <ul className="w-full flex gap-5 text-center md:text-start justify-center items-center pt-10 bg-[#b6b1a4] text-xs sm:text-sm md:text-base px-5 md:px-0 ">
+        {PROJECTS_PAGE.map((project, index) => (
           <li
             onClick={() => handleImage(index)}
             key={index}
-            className={`border-yellow-600 border md:p-2 cursor-pointer  hover:bg-yellow-600 hover:text-white ${
-              isSelectedImage === index && "bg-yellow-600 text-white"
+            className={` md:border-white border-b-2 border-slate-600  md:border py-1 md:p-2 cursor-pointer md:text-white  hover:bg-yellow-600 hover:border-yellow-600 hover:text-white ${
+              isSelectedImage === index && "bg-yellow-600 border-yellow-600 "
             } `}
           >
-            {project.button}
+            {project.title}
           </li>
         ))}
       </ul>
-      <div className="grid grid-cols-3 grid-rows-3 container mx-auto p-5 md:p-10 gap-4 md:gap-8 bg-[#e2e1de]">
-        {PROJECTS[isSelectedImage]?.image.map((imgSrc, index) => (
-          <div
-            key={index}
-            className={` w-full   h-[13rem] hover:h-full overflow-hidden  col-span-${PROJECTS[isSelectedImage].colSpan[index]}  `}
-          >
-            <Image
-              src={imgSrc}
-              width={200}
-              height={200}
-              alt="image"
-              className="object-cover w-full h-[13rem]"
-            />
-          </div>
-        ))}
+
+      {/* IMAGES GRID */}
+      <div className="grid grid-cols-3 grid-rows-3 container mx-auto p-5 md:p-10 gap-4 md:gap-8 bg-[#b6b1a4]">
+        {PROJECTS_PAGE[isSelectedImage]?.images
+          .slice(0, 6)
+          .map((imgSrc, index) => (
+            <div
+              key={index}
+              className={` w-full   h-[13rem] hover:h-full overflow-hidden  col-span-${PROJECTS_PAGE[isSelectedImage].colSpan[index]}  `}
+            >
+              <Image
+                src={imgSrc}
+                width={200}
+                height={200}
+                alt="image"
+                className="object-cover w-full h-[13rem]"
+              />
+            </div>
+          ))}
       </div>
     </div>
   );

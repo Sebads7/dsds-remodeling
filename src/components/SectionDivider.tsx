@@ -37,14 +37,14 @@ const SectionDivider = ({
                   key={index}
                 >
                   <Image
-                    className="w-10 h-10 lg:w-14 lg:h-14 text-white fill-white icon-white "
+                    className="w-8 h-8 md:w-10 md:h-10 lg:w-14 lg:h-14 text-white fill-white icon-white "
                     width={200}
                     height={200}
                     alt={item.title}
                     src={item.icon}
                   ></Image>
 
-                  <h3 className="text-sm lg:text-xl font-semibold pt-2">
+                  <h3 className="text-center text-sm lg:text-xl font-semibold pt-2">
                     {item.title}
                   </h3>
                 </div>

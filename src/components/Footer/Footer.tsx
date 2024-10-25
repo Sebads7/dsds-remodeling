@@ -8,22 +8,26 @@ import { NAV_LINKS } from "@/constant/navlinks";
 
 const Footer = () => {
   return (
-    <footer className="bg-yellow-500 text-black ">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-3 py-8 ">
+    <footer className="bg-yellow-500 text-slate-700 ">
+      <div className="container mx-auto px-5 sm:px-0">
+        <div className="lg:grid grid-cols-3 py-8 px-5">
           {/* Company Info */}
           <div className="flex flex-col justify-center items-center gap-3 ">
             <Logo imgSize="w-[10rem] h-24  p-2 " src="/images/LOGO-WHITE.png" />
-            <p className="text-sm">
+            <p className="text-sm text-center">
               Building Your Dream Home with Precision & Quality
             </p>
           </div>
 
           {/* Links */}
           <div className="flex flex-col  justify-center items-center ">
-            <ul className="flex gap-3">
+            <ul className=" grid grid-cols-2 md:flex  gap-3 pt-5 md:pt-0">
               {NAV_LINKS.map((link, index) => (
-                <Link href={link.href} key={index} className="hover:underline">
+                <Link
+                  href={link.href}
+                  key={index}
+                  className="underline lg:no-underline hover:lg:underline"
+                >
                   <li> {link.name}</li>
                 </Link>
               ))}
@@ -57,12 +61,12 @@ const Footer = () => {
             {/* Copyright */}
             <div className="mt-8 text-center text-sm">
               &copy; {new Date().getFullYear()} Designed and Developed by
-              Sebastian Di Salvatore. All rights reserved.
+              Digital-Solutions. All rights reserved.
             </div>
           </div>
 
           {/* Contact Info */}
-          <div className="flex flex-col justify-center gap-5 items-center">
+          <div className="flex flex-col justify-center gap-2 lg:gap-5 items-center mt-5 lg:mt-0">
             <p className="text-sm">
               <strong>Call Us:</strong> (404) 641-2994
             </p>

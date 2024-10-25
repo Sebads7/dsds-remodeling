@@ -54,7 +54,7 @@ const NavBar = () => {
         isSticky ? " top-0 border-b-2 border-yellow-500   " : ""
       }  `}
     >
-      <div className="xl:pr-20 xl:pl-32 px-10  w-full flex  justify-between items-center ">
+      <div className="xl:pr-20 xl:pl-32 px-16 md:px-10  w-full flex  justify-between items-center ">
         {/* MOBILE MENU BUTTON */}
         <button
           title="Mobile Menu"
@@ -71,7 +71,7 @@ const NavBar = () => {
         />
 
         {/* NAVBAR */}
-        <nav className="hidden md:block">
+        <nav className="hidden md:block text-slate-80 ">
           <ul className="w-full flex lg:gap-5 text-sm lg:text-base ">
             {NAV_LINKS.map((link, index) => (
               <Link
@@ -105,7 +105,7 @@ const NavBar = () => {
           </ul>
         </nav>
         {/* CONTACT-MODAL */}
-        <div className="text-sm lg:text-base">
+        <div className="text-sm lg:text-base hidden sm:block">
           <button
             className={`text-white bg-yellow-500  py-3 px-3 lg:px-6 font-semibold hover:bg-yellow-600 mr-1 `}
             onClick={handleModal}

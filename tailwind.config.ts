@@ -21,7 +21,7 @@ const config: Config = {
         },
       },
       animation: {
-        marque: "marque 40s linear infinite",
+        marque: "marque 30s linear infinite",
       },
       borderRadius: {
         lg: "var(--radius)",

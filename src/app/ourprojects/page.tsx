@@ -22,20 +22,20 @@ const ProjectPage = () => {
           alt="hero-background"
         />
       </div>
-      <div className=" pt-20 ">
-        <div className="text-center mt-10 mb-12">
-          <h2 className="text-2xl md:text-4xl font-bold mb-4 ">
+      <div className=" lg:pt-20  ">
+        <div className="xl:text-center my-12 mx-4 md:mx-0">
+          <h2 className="text-2xl md:text-4xl font-bold mb-4 text-center  ">
             Welcome To Our
             <span className="text-yellow-600 p-2  ml-1">
               Remodeling Gallery
             </span>
           </h2>
-          <div className="flex flex-col gap-2 mt-10 mb-20  mx-auto md:w-3/4 px-4 md:px-0 ">
-            <p className="text-xl md:text-3xl font-bold ">
+          <div className="flex flex-col gap-2 md:mt-10 md:mb-20  mx-auto md:w-3/4">
+            <p className="text-xl md:text-3xl md:font-bold ">
               Take a look at some of the beautiful transformations we&apos;ve
               done for our clients.
             </p>
-            <p className="bg-yellow-600 text-lg md:text-2xl font-extralight text-white p-2  mr-auto ml-20  ">
+            <p className="bg-yellow-600 text-lg md:text-2xl font-extralight text-white p-2  mr-auto ml-20 w-3/4 md:w-fit    ">
               We specialize in various home remodeling services to meet all your
               needs.
             </p>
@@ -47,20 +47,20 @@ const ProjectPage = () => {
           {/* RENDERING DATA FROM ARRAY  */}
           {PROJECTS_PAGE.map((service, index) => (
             <div key={index}>
-              <div className="bg-page-bg/70 p-10 md:mx-20 border-white border-[1px] py-10">
+              <div className="bg-page-bg/70  md:p-10 lg:mx-20 border-white border-[1px] py-10">
                 <h2
-                  className="py-10 text-2xl font-bold underline underline-offset-4 decoration-yellow-500"
+                  className="pl-5 sm:pl-0 py-10 text-2xl font-bold underline underline-offset-4 decoration-yellow-500"
                   id={service.id}
                 >
                   {service.title}
                 </h2>
-                <p className="md:w-6/12">
+                <p className="px-5 md:pl-0 md:w-6/12">
                   Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                   Error quia quam odit iste magnam modi consectetur sequi.
                   Obcaecati laborum deleniti iste, officia reiciendis sunt,
                   fugiat tempore repudiandae, maxime vel repellendus!
                 </p>
-                <div className="flex  items-center justify-center">
+                <div className="flex  items-center justify-center overflow-x-hidden ">
                   <Carousel
                     data={service}
                     elmPerPge={isMobile ? 3 : 4}
