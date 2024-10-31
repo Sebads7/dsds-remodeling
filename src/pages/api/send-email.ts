@@ -30,12 +30,17 @@ export default async function sendMail(
           from: "Website Form", // sender address
           to: receiver, //  email address to receive data
           subject: `New Contact Form Submission from ${value.fullname}`,
-          html: `<p>You have a new contact form submission</p>
+          html: `<p><strong>You have a new contact form submission</strong></p>
                  <p><strong>Name: </strong> ${value.fullname}</p>
                  <p><strong>Phone: </strong> ${value.phonenumber}</p>
                     <p><strong>Email: </strong> ${value.emailAddress}</p>
+                    ${
+                      !value.textarea
+                        ? `<p><strong>Project:</strong> ${value.selectOption}</p>`
+                        : `<p><strong>Message: </strong> ${value.textarea}</p>`
+                    }
                  <p><strong>City: </strong> ${value.city}</p>
-                 <p><strong>Message: </strong> ${value.textarea}</p>`,
+                 `,
         });
         res.status(200).json({ success: true });
       } catch (error) {

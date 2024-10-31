@@ -5,6 +5,7 @@ import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 import Link from "next/link";
 import Logo from "../Logo";
 import { NAV_LINKS } from "@/constant/navlinks";
+import { MdEmail, MdOutlinePhoneIphone } from "react-icons/md";
 
 const Footer = () => {
   return (
@@ -66,12 +67,14 @@ const Footer = () => {
           </div>
 
           {/* Contact Info */}
-          <div className="flex flex-col justify-center gap-2 lg:gap-5 items-center mt-5 lg:mt-0">
-            <p className="text-sm">
-              <strong>Call Us:</strong> (404) 641-2994
+          <div className="flex flex-col justify-center gap-2 lg:gap-5 items-center lg:items-start mt-5 lg:mt-0  lg:max-w-sm lg:ml-16 xl:ml-32 ">
+            <p className="text-sm flex">
+              <strong className="mr-3">CALL US:</strong>{" "}
+              <MdOutlinePhoneIphone className=" text-xl" /> (404) 641-2994
             </p>
-            <p className="text-sm">
-              <strong>Email:</strong> ds&ds@gmail.com
+            <p className="text-sm flex">
+              <strong className="mr-2">EMAIL US:</strong>{" "}
+              <MdEmail className=" text-xl mr-1" /> dsdsatlanta@gmail.com
             </p>
           </div>
         </div>

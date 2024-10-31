@@ -44,7 +44,6 @@ const ProjectGrid = () => {
                 alt="image"
                 className="object-cover w-full h-[13rem]"
               />
-              <div className="w-full h-full top-0  bg-black/30 absolute"></div>
             </div>
           ))}
       </div>

@@ -1,7 +1,7 @@
-import LinkButton from "./LinkButton";
 import Rating from "@mui/material/Rating";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import { REVIEW } from "@/constant/review";
+import LinkButton from "../LinkButton";
 
 type Props = {
   linkButton?: boolean;
@@ -22,12 +22,12 @@ const Review = ({
 }: Props) => {
   return (
     <>
-      <div className={`flex ${mainContainer}  mx-auto w-full  gap-20`}>
+      <div className={`flex ${mainContainer}  mx-auto w-full gap-5  md:gap-20`}>
         {arrayData && (
-          <div className={`flex  ${containerReview}  px-5 gap-10`}>
+          <div className={`flex  ${containerReview}  px-5 md:gap-10`}>
             {REVIEW.map((review, index) => (
               <div
-                className={`xl:w-[40rem]  gap-5  flex  border-yellow-500 border p-5 ${reviewBox}  justify-center items-center`}
+                className={`xl:w-[40rem]  md:gap-5  flex flex-col md:flex-row  border-yellow-500 md:border p-2 md:p-5 ${reviewBox}  justify-center items-center`}
                 key={index}
               >
                 <ul className="text-center   p-5">

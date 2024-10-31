@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { IoMdClose } from "react-icons/io";
-import ContactForm from "./ContactForm";
+import ContactForm from "./FormComponents/ContactForm";
 
 const Modal = ({ closeModal }: { closeModal: () => void }) => {
   useEffect(() => {

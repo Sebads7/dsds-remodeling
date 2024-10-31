@@ -1,12 +1,13 @@
-import ContactForm from "@/components/ContactForm";
 import Image from "next/image";
 import { MdEmail, MdOutlinePhoneIphone } from "react-icons/md";
 import React from "react";
+import ContactForm from "@/components/FormComponents/ContactForm";
 
 const ContactInfo = () => {
   return (
     <>
-      <div className="absolute z-0 top-0 opacity-10 h-full  w-full">
+      {/* IMAGE BACKGROUND */}
+      <div className="absolute -z-0 top-0 inset-0 opacity-10 h-full  w-full hidden md:block">
         <Image
           src="/images/hero-bg.webp"
           width={2000}
@@ -15,30 +16,38 @@ const ContactInfo = () => {
           className="h-full w-full object-cover"
         />
       </div>
-      <div className="flex flex-col justify-center items-center   md:grid grid-cols-2 pt-20 pl-20 z-10 ">
-        <div className=" text-black w-full h-full z-10 flex flex-col justify-center items-center   ">
-          <h3 className="font-extrabold text-xl md:text-3xl pb-10   w-7/12  mx-auto">
+
+      <div className="md:grid grid-cols-2 md:pt-20 xl:pl-20 z-10 b ">
+        <div className=" text-slate-700 w-full h-full  flex flex-col justify-center items-center  z-10  ">
+          <h3 className="font-extrabold text-xl md:text-3xl pb-10 w-7/12 lg:w-9/12  2xl:w-7/12  mx-auto ">
             We are located in Lawrenceville and serving all the Greater
             <strong className="text-yellow-500 pl-1">Atlanta Area!</strong>
           </h3>
 
-          <div className="flex justify-between items-center   w-3/6 mx-auto  opacity-95">
+          <div className="flex flex-col md:flex-row justify-center   items-center  gap-5   w-full mx-auto  opacity-95 z-10 ">
             <div>
               <p className="flex flex-col justify-center h-full items-center gap-2 text-sm md:text-lg ">
-                <MdOutlinePhoneIphone className=" text-4xl" />
+                <strong className="flex justify-center items-center text-xl md:text-2xl">
+                  <MdOutlinePhoneIphone className=" text-2xl md:text-4xl" />{" "}
+                  Phone
+                </strong>
+
                 <strong className="">(678) 226-5000</strong>
               </p>
             </div>
             <div>
               <p className="flex flex-col justify-center items-center h-full gap-2 text-sm md:text-lg ">
-                <MdEmail className="t text-4xl" />
-                <strong className="">ds&ds@gmail.com</strong>
+                <strong className="flex justify-center items-center text-xl md:text-2xl">
+                  <MdEmail className="text-2xl md:text-4xl mr-1" /> Email
+                </strong>
+
+                <strong className="">dsdsatlanta@gmail.com</strong>
               </p>
             </div>
           </div>
         </div>
 
-        <div className="z-10 ">
+        <div className="z-10 pt-10 md:pt-0 ">
           <ContactForm showTextInput={true} />
         </div>
       </div>

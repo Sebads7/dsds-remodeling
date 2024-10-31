@@ -1,13 +1,20 @@
 "use client";
 import React, { useState } from "react";
-import { Form, FormControl, FormField, FormItem, FormMessage } from "./ui/form";
-import { Input } from "./ui/input";
-import { Textarea } from "./ui/textarea";
-import { Button } from "./ui/button";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormMessage,
+} from "../ui/form";
+import { Input } from "../ui/input";
+import { Textarea } from "../ui/textarea";
+import { Button } from "../ui/button";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import SelectInput from "./SelectInput";
+import SuccessModal from "./SuccessModal";
 
 //  COMPONENTS type.
 type ContactFormProps = {
@@ -113,10 +120,10 @@ const ContactForm: React.FC<ContactFormProps> = ({
   };
 
   return (
-    <div className=" w-full  ">
+    <div className=" w-full  z-10 ">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8   ">
-          <div className="grid grid-cols-2 pb-3 gap-5 px-16 xl:px-32 m-0 w-svw md:w-full  ">
+          <div className="grid grid-cols-2 pb-3 gap-5 px-10 xl:px-32 m-0 w-svw md:w-full  z-10 ">
             <FormField
               control={form.control}
               name="fullname"
@@ -258,53 +265,13 @@ const ContactForm: React.FC<ContactFormProps> = ({
 
           {/* Success Modal Component */}
           {showSuccessModal && (
-            <div className="fixed w-full h-full top-0 -translate-y-3 inset-0 bg-black bg-opacity-50 flex justify-center items-center z-[9999999]">
-              <div className="flex flex-col bg-white p-8 py-14 gap-5 rounded shadow-lg max-w-lg mx-4 mt-0">
-                <div className="flex flex-col justify-center items-center gap-3">
-                  <svg
-                    width="60px"
-                    height="60px"
-                    version="1.1"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 130.2 130.2"
-                  >
-                    <circle
-                      className="path circle"
-                      fill="none"
-                      stroke="#a7af55"
-                      stroke-width="6"
-                      stroke-miterlimit="10"
-                      cx="65.1"
-                      cy="65.1"
-                      r="62.1"
-                    />
-                    <polyline
-                      className="path check"
-                      fill="none"
-                      stroke="#a7af55"
-                      strokeWidth="6"
-                      strokeLinecap="round"
-                      strokeMiterlimit="10"
-                      points="100.2,40.2 51.5,88.8 29.8,67.5 "
-                    />
-                  </svg>
-                  <h2 className="text-xl font-bold mb-4 text-center text-[#a7af55]">
-                    Thank you!
-                  </h2>
-                </div>
-
-                <p className="text-center">
-                  Your form has been submitted successfully. We will contact you
-                  shortly!
-                </p>
-                <button
-                  className="w-2/4 mx-auto mt-4 px-4 py-2 text-white bg-yellow-500 hover:bg-yellow-600"
-                  onClick={() => setShowSuccessModal(false)}
-                >
-                  Close
-                </button>
-              </div>
-            </div>
+            <>
+              <SuccessModal
+                setShowSuccessModal={setShowSuccessModal}
+                message="    Your form has been submitted successfully. We will contact you
+            shortly!"
+              />
+            </>
           )}
 
           {submitError && (

@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import axios from "axios";
-import SelectInput from "../SelectInput";
+import SelectInput from "./SelectInput";
+import SuccessModal from "./SuccessModal";
 
 type ReviewData = {
   _id?: string;
@@ -22,7 +23,7 @@ const ReviewForm = ({
     reviewDetail: "",
   });
 
-  const [message, setMessage] = useState<string | null>(null);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -36,7 +37,7 @@ const ReviewForm = ({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setMessage(null); // Clear any previous messages
+    // setMessage(null); // Clear any previous messages
 
     try {
       const response = await axios.post("/api/reviews", formData);
@@ -45,10 +46,11 @@ const ReviewForm = ({
         onAddReview(response.data.data);
       }
 
-      setMessage("Review submitted successfully!");
+      setShowSuccessModal(true);
+      // setMessage("Review submitted successfully!");
       setFormData({ name: "", rating: 1, reviewDetail: "" });
     } catch (error) {
-      setMessage("Error submitting review");
+      // setMessage("Error submitting review");
       console.error(error);
     }
   };
@@ -56,12 +58,14 @@ const ReviewForm = ({
   return (
     <form
       onSubmit={handleSubmit}
-      className="space-y-4 max-w-md mx-auto p-4 bg-gray-100 rounded-md"
+      className="space-y-4 max-w-lg mx-auto p-4 bg-gray-100 rounded-md"
     >
-      <h2 className="text-2xl font-bold mb-4">Leave a Review</h2>
+      <h2 className="text-2xl font-bold mb-4 text-slate-700">
+        Are You a Previous Client? Leave a Review!
+      </h2>
 
-      <div>
-        <label className="block font-semibold mb-1">Name</label>
+      <div className="text-slate-700">
+        <label className="block font-medium mb-1">Name</label>
         <input
           title="Please enter your name"
           type="text"
@@ -74,7 +78,7 @@ const ReviewForm = ({
       </div>
 
       <div>
-        <label className="block font-semibold mb-1  w-full h-full py-2">
+        <label className="block font-medium mb-1  w-full h-full py-2">
           Rating (1-5)
         </label>
         <SelectInput
@@ -87,7 +91,7 @@ const ReviewForm = ({
       </div>
 
       <div>
-        <label className="block font-semibold mb-1">Review</label>
+        <label className="block font-medium mb-1">Review</label>
         <textarea
           rows={5}
           title="Please enter a review"
@@ -105,8 +109,14 @@ const ReviewForm = ({
       >
         Submit Review
       </button>
-
-      {message && <p className="mt-4 text-center">{message}</p>}
+      {showSuccessModal && (
+        <>
+          <SuccessModal
+            setShowSuccessModal={setShowSuccessModal}
+            message="Review submitted successfully!"
+          />
+        </>
+      )}
     </form>
   );
 };

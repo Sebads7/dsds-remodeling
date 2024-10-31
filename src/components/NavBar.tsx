@@ -8,6 +8,7 @@ import Logo from "./Logo";
 import Modal from "./Modal";
 import { IoMdClose } from "react-icons/io";
 import { NAV_LINKS } from "@/constant/navlinks";
+import { motion } from "framer-motion";
 
 const NavBar = () => {
   const [isSticky, setIsSticky] = useState(false);
@@ -125,7 +126,18 @@ const NavBar = () => {
       {/* MOBILE MENU */}
       {showMenu && (
         <div className="fixed top-0 h-svh w-full z-50 bg-black/80">
-          <nav className="bg-white h-svh w-2/4 pt-10">
+          <motion.nav
+            className="bg-white h-svh w-3/4 pt-10"
+            initial={{ opacity: 0, x: "-100%" }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{
+              duration: 0.7,
+              delay: 0.2,
+              type: "spring",
+              stiffness: 50,
+              ease: "easeInOut",
+            }}
+          >
             <button
               className="  w-full "
               type="button"
@@ -158,7 +170,7 @@ const NavBar = () => {
                 </Link>
               ))}
             </ul>
-          </nav>
+          </motion.nav>
         </div>
       )}
     </div>
