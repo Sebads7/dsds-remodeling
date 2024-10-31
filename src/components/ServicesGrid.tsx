@@ -50,7 +50,7 @@ const ServicesGrid = ({
 
           <li className="flex gap-2 items-center ">
             <Image
-              src="/icons/100-percent.png"
+              src="/images/icons/100-percent.png"
               alt="100-Percent"
               width={30}
               height={30}

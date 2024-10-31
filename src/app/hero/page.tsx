@@ -8,7 +8,6 @@ import ServicesGrid from "@/components/ServicesGrid";
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { MdEmail } from "react-icons/md";
 
 import Link from "next/link";
 import React from "react";
@@ -92,12 +91,7 @@ const HeroPage = () => {
                       with you to create a plan that fits your budget and
                       timeline.
                     </p>
-                    <div className="flex flex-col md:flow-row gap-5">
-                      <LinkButton
-                        href="contact"
-                        name="Contact Us"
-                        icon={<MdEmail className="text-xl " />}
-                      />
+                    <div className=" gap-5">
                       <LinkButton
                         href="ourservices"
                         name=" Learn More About Our Services"
@@ -139,6 +133,7 @@ const HeroPage = () => {
             />
           </div>
         </section>
+
         {/* TESTIMONIALS SECTION */}
         <section className="w-full full px-5 md:px-0  bg-[#F6F5F2]">
           <SectionDivider
@@ -150,13 +145,17 @@ const HeroPage = () => {
             WHAT OUR CLIENTS SAY ABOUT US
           </h2>
           <div className=" pb-20 ">
-            <Review />
+            <Review
+              mainContainer="items-center justify-center flex-col"
+              containerReview="flex-row"
+              linkButton={true}
+            />
           </div>
         </section>
         {/* CONTACT SECTION */}
         <section className="relative  w-full h-full bg-[#F6F5F2] py-32  lg:pr-10 overflow-hidden">
           <div className="absolute top-0 h-[2rem] w-full bg-yellow-600/80 z-[2]"></div>
-          <h2 className="text-center font-bold text-2xl md:text-4xl pb-10 md:pb-32 col-span-2  ">
+          <h2 className="text-center font-bold text-2xl md:text-4xl pb-10 md:pb-12 col-span-2  ">
             CONTACT US TO GET A FREE QUOTE
           </h2>
           <ContactInfo />

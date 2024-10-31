@@ -15,8 +15,10 @@ const HoverList =
   "py-2 px-3 hover:bg-yellow-500 hover:text-white cursor-pointer";
 
 interface SelectInputProps {
-  value: string;
-  onChange: (value: string) => void;
+  value: string | number;
+  onChange: {
+    (value: string | number): void;
+  };
   options: string[];
 }
 
@@ -59,7 +61,7 @@ const SelectInput: React.FC<SelectInputProps> = ({
 
   return (
     <motion.div
-      className={`flex w-full bg-white border border-gray-300 text-sm  text-slate-500 h-[2.5rem]  `}
+      className={`flex w-full bg-white border  border-yellow-500 focus-visible:ring-yellow-500 focus-visible:ring-[1px] focus-visible:outline-none   text-sm  text-slate-500 h-[2.5rem]  `}
       whileTap={{ scale: 0.97 }}
       ref={selectRef}
     >
@@ -71,7 +73,7 @@ const SelectInput: React.FC<SelectInputProps> = ({
         {isOpen && (
           <div className=" relative top-10 mobile:translate-y-0  tablet:translate-y-[-14.4rem] z-[2] ">
             <motion.div
-              className="absolute w-full  mt-1 border bg-white border-gray-300  shadow-2xl  "
+              className="absolute w-full  mt-1 border bg-white border-yellow-500  shadow-2xl  "
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.2 }}

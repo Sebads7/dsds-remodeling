@@ -35,6 +35,9 @@ const ContactForm: React.FC<ContactFormProps> = ({
       })
       .max(14, {
         message: "Please enter a valid phone number.",
+      })
+      .regex(/^[+]?[(]?[0-9]{1,4}[)]?[-\s./0-9]*$/, {
+        message: "Please enter a valid phone number.",
       }),
     city: z.string().min(2, {
       message: "Please enter your city.",
@@ -132,7 +135,17 @@ const ContactForm: React.FC<ContactFormProps> = ({
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input type="tel" placeholder="Phone Number" {...field} />
+                    <Input
+                      type="tel"
+                      placeholder="Phone Number"
+                      {...field}
+                      pattern="\d*" // Only allows numeric values
+                      onInput={(e) => {
+                        const target = e.target as HTMLInputElement;
+                        target.value = target.value.replace(/\D/g, ""); // Only allow numeric characters
+                        field.onChange(target.value); // Updates the form state
+                      }}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
