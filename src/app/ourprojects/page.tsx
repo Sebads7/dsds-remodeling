@@ -7,7 +7,7 @@ import SectionDivider from "@/components/SectionDivider";
 import Carousel from "@/components/Carousel/Carousel";
 import { PROJECTS_PAGE } from "@/constant/projects-data";
 import { DIVIDER_DATA } from "@/constant/divider";
-import useScreen from "@/components/hooks/useScreenSize";
+import useScreen from "@/hooks/useScreenSize";
 import { motion } from "framer-motion";
 
 const ProjectPage = () => {

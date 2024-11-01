@@ -19,7 +19,7 @@ import { BANNER } from "@/constant/banner";
 import { SERVICES_DATA } from "@/constant/services-data";
 import ContactInfo from "../contact/ContactInfo";
 import Review from "@/components/ReviewComponents/Review";
-import useInViewAnimation from "@/components/hooks/useView";
+import useInViewAnimation from "@/hooks/useView";
 import {
   LeftLoading,
   Scale_1,
