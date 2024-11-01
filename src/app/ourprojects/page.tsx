@@ -8,6 +8,7 @@ import Carousel from "@/components/Carousel/Carousel";
 import { PROJECTS_PAGE } from "@/constant/projects-data";
 import { DIVIDER_DATA } from "@/constant/divider";
 import useScreen from "@/components/hooks/useScreenSize";
+import { motion } from "framer-motion";
 
 const ProjectPage = () => {
   const { isMobile } = useScreen();
@@ -23,7 +24,15 @@ const ProjectPage = () => {
         />
       </div>
       <div className=" lg:pt-20  ">
-        <div className="xl:text-center my-12 mx-4 md:mx-0">
+        <motion.div
+          className="xl:text-center my-12 mx-4 md:mx-0"
+          initial={{ opacity: 0, x: -100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{
+            duration: 1,
+            ease: "easeInOut",
+          }}
+        >
           <h2 className="text-2xl md:text-4xl font-bold mb-4 text-center  ">
             Welcome To Our
             <span className="text-yellow-600 p-2  ml-1">
@@ -42,7 +51,7 @@ const ProjectPage = () => {
               </p>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Gallery Grid */}
         <section className="mb-20">

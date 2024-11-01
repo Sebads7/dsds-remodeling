@@ -1,5 +1,7 @@
 "use client";
 
+import "./hero.css";
+
 import LinkButton from "@/components/LinkButton";
 import ProjectGrid from "@/components/ProjectGrid";
 
@@ -17,23 +19,31 @@ import { BANNER } from "@/constant/banner";
 import { SERVICES_DATA } from "@/constant/services-data";
 import ContactInfo from "../contact/ContactInfo";
 import Review from "@/components/ReviewComponents/Review";
-
-import "./hero.css";
+import useInViewAnimation from "@/components/hooks/useView";
+import {
+  LeftLoading,
+  Scale_1,
+  Scale_2,
+  Scale_delay1,
+  Scale_delay2,
+} from "../../constant/framer_effects";
 
 const HeroPage = () => {
+  const { ref: gridRef, mainControls: gridControls } = useInViewAnimation();
+  const { ref: projectsRef, mainControls: projectsControls } =
+    useInViewAnimation();
+
+  const { ref: testimonialsRef, mainControls: testimonialControls } =
+    useInViewAnimation();
+
+  const { ref: contactRef, mainControls: contactControls } =
+    useInViewAnimation();
+
   return (
     <div className="w-full h-full relative">
       {/* BANNER */}
       <div className="bg-yellow-500 z-[10] text-slate-700 py-4 text-center font-bold text-sm md:text-lg overflow-hidden ">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{
-            duration: 1,
-            ease: "linear",
-            delay: 1,
-          }}
-        >
+        <motion.div variants={Scale_1} initial="initial" animate="animate">
           <div className=" flex gap-[20rem]  whitespace-nowrap animate-marque hover:pause ">
             {BANNER.map((banner, index) => (
               <div key={index} className="flex  ">
@@ -61,14 +71,29 @@ const HeroPage = () => {
 
       {/* TITLE SECTION */}
       <header className="display-column h-[33rem]  md:h-[40rem] lg:h-[60rem]  px-5  sm:px-20  ">
-        <div className="display-column px-5 md:px-10 w-full lg:w-[60rem] h-[22rem] lg:h-[26rem] shadow-sm  lg:-translate-y-10 text-slate-700 my-5  bg-gray-50/50 border-2 border-gray-50">
-          <h1 className="text-3xl md:text-5xl  xl:text-6xl font-bold mb-5 ">
+        <motion.div
+          className="display-column px-5 md:px-10 w-full lg:w-[60rem] h-[22rem] lg:h-[26rem] shadow-sm  lg:-translate-y-10 text-slate-700 my-5  bg-gray-50/50 border-2 border-gray-50"
+          variants={LeftLoading}
+          initial="initial"
+          animate="animate"
+        >
+          <motion.h1
+            className="text-3xl md:text-5xl  xl:text-6xl font-bold mb-5 "
+            variants={Scale_delay1}
+            initial="initial"
+            animate="animate"
+          >
             Transforming Atlanta Homes with Expert Craftsmanship
-          </h1>
-          <h2 className="text-xl md:text-2xl md:bg-yellow-600 text-yellow-600 md:text-white  sm:px-5 md:p-2 w-full lg:w-fit mx-auto lg:translate-x-10  text-center font-bold">
+          </motion.h1>
+          <motion.h2
+            className="text-xl md:text-2xl md:bg-yellow-600 text-yellow-600 md:text-white  sm:px-5 md:p-2 w-full lg:w-fit mx-auto lg:translate-x-10  text-center font-bold"
+            variants={Scale_delay2}
+            initial="initial"
+            animate="animate"
+          >
             Offering The Best Remodeling Services Shaped to Fit Your Needs
-          </h2>
-        </div>
+          </motion.h2>
+        </motion.div>
       </header>
 
       <main className="w-full h-full bg-[#F6F5F2]">
@@ -79,12 +104,23 @@ const HeroPage = () => {
           </h2>
 
           <div className="px-5  md:px-10 max-w-md md:max-w-lg lg:max-w-fit  2xl:w-[90%]   mx-auto lg:grid grid-cols-3 ">
-            <div className="h-full lg:grid grid-cols-3  gap-10 overflow-hidden   w-full col-span-3 space-y-6 lg:space-y-0 ">
+            <motion.div
+              className="h-full lg:grid grid-cols-3  gap-10 overflow-hidden   w-full col-span-3 space-y-6 lg:space-y-0 "
+              ref={gridRef}
+              variants={Scale_1}
+              initial="initial"
+              animate={gridControls}
+            >
               {SERVICES_DATA.map((service, index) => (
                 <ServicesGrid service={service} key={index} imageTitle={true} />
               ))}
 
-              <div className="md:h-[23rem]  w-full col-span-3 border-2   bg-white overflow-hidden text-slate-800 ">
+              <motion.div
+                className="md:h-[23rem]  w-full col-span-3 border-2   bg-white overflow-hidden text-slate-800 "
+                variants={Scale_2}
+                initial="initial"
+                animate={gridControls}
+              >
                 <div className="flex h-full  items-center">
                   <div className="flex flex-col items-center py-5 md:py-0 gap-5 w-full  text-center  ">
                     <h3 className="text-center  w-full text-xl md:text-3xl font-bold ">
@@ -110,8 +146,8 @@ const HeroPage = () => {
                     height={200}
                   />
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
         </section>
 
@@ -126,8 +162,10 @@ const HeroPage = () => {
           <h2 className="text-center font-bold text-xl md:text-4xl py-10 md:py-32 ">
             OUR PROJECTS
           </h2>
-          {/* PROJECT GRID COMPONENT */}
-          <ProjectGrid />
+          <motion.div ref={projectsRef}>
+            {/* PROJECT GRID COMPONENT */}
+            <ProjectGrid projectsControls={projectsControls} />
+          </motion.div>
 
           {/* LEARN MORE BUTTON */}
           <div className="w-full  h-full flex  justify-center items-center pt-20">
@@ -145,25 +183,39 @@ const HeroPage = () => {
             arrayData={DIVIDER_DATA[0]}
           />
 
-          <h2 className="text-center font-bold text-2xl lg:text-4xl py-10 lg:py-32 ">
+          <motion.h2
+            className="text-center font-bold text-2xl lg:text-4xl py-10 lg:py-32 "
+            ref={testimonialsRef}
+            variants={Scale_1}
+            initial="initial"
+            animate={testimonialControls}
+          >
             WHAT OUR CLIENTS SAY ABOUT US
-          </h2>
-          <div className=" pb-20 ">
+          </motion.h2>
+          <motion.div
+            className=" pb-20 "
+            variants={Scale_2}
+            initial="initial"
+            animate={testimonialControls}
+          >
             <Review
               mainContainer="items-center justify-center flex-col"
               containerReview="flex-col md:flex-row"
               linkButton={true}
               arrayData={true}
             />
-          </div>
+          </motion.div>
         </section>
         {/* CONTACT SECTION */}
-        <section className="relative  w-full h-full bg-[#F6F5F2] py-16 md:py-32  lg:pr-10 overflow-hidden">
+        <section
+          className="relative  w-full h-full bg-[#F6F5F2] py-16 md:py-32  lg:pr-10 overflow-hidden"
+          ref={contactRef}
+        >
           <div className="absolute top-0 h-[2rem] w-full bg-yellow-600/80 z-[2]"></div>
           <h2 className="text-center font-bold text-2xl md:text-4xl pb-10 md:pb-12 col-span-2  ">
             CONTACT US TO GET A FREE QUOTE
           </h2>
-          <ContactInfo />
+          <ContactInfo contactControls={contactControls} />
         </section>
       </main>
     </div>
