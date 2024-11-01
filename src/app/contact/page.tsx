@@ -4,19 +4,20 @@ import Image from "next/image";
 
 const ContactPage = () => {
   return (
-    <div className="h-full pt-10 bg-[#F6F5F2] ">
-      <div className=" ml-[15rem] h-full  grid grid-cols-2   ">
-        <div className="flex flex-col pt-10  w-[35rem] px-10 h-full  z-10 bg-yellow-600 ">
+    <div className="h-full pt-10 bg-[#F6F5F2] px-5">
+      <div className=" lg:ml-[10rem]  lg:grid grid-cols-2  relative h-svh  md:h-[70rem] xl:h-[49rem]   ">
+        {/* LEFT SIDE */}
+        <div className="flex flex-col   pt-10 max-w-lg lg:max-w-fit mx-auto  lg:w-[35rem] lg:px-10 h-full  lg:z-10 bg-yellow-600 md:translate-x-16 lg:translate-x-2 ">
           <h1 className="text-white font-extrabold text-2xl md:text-4xl pb-10 z-10 text-center  drop-shadow-[0_.2px_.6px_rgba(0,0,0,0.8)]   ">
             CONTACT
           </h1>
-          <h2 className="text-3xl font-semibold drop-shadow-[0_.2px_.6px_rgba(0,0,0,0.8)]   leading-[3.5rem]  text-white z-10 pl-5">
+          <h2 className="text-xl md:text-3xl font-semibold drop-shadow-[0_.2px_.6px_rgba(0,0,0,0.8)]   md:leading-[3.5rem]  text-white z-10 pl-5">
             Are You Looking For Highly Rated Home Remodeling Contractor Near
             You?
           </h2>
         </div>
 
-        <div className="absolute top-[33rem] left-[10rem]  z-10 ">
+        <div className="absolute top-[22rem] left-[5rem] md:left-[-3rem] lg:left-[1rem]  z-10 hidden xl:block ">
           <Image
             src="/images/remo-contractor.jpg"
             width={450}
@@ -26,16 +27,17 @@ const ContactPage = () => {
           />
         </div>
 
-        <div className="h-full py-20 px-20  z-10  -translate-x-20 ">
+        {/* RIGHT SIDE */}
+        <div className="z-10 md:translate-x-5  2xl:-translate-x-10 absolute max-w-sm md:max-w-md lg:max-w-lg top-[13rem] md:top-[19rem] md:left-[10rem] lg:left-[20rem] ml-2   xl:static h-fit">
           <Image
             src="/images/contractor.jpeg"
             width={300}
             height={800}
             alt="hero-background"
-            className="w-full h-[25rem] border-[1rem] border-gray-200 rounded-tr-[10rem]"
+            className="w-full md:h-[25rem] border-[10px] md:border-[1rem] border-gray-200 rounded-tr-[10rem] z-10"
           />
           <div className=" px-10 py-5 bg-gray-200 ">
-            <p className="text-2xl font-extralight leading-[2.8rem]   bg-gray-200">
+            <p className="text-xl md:text-2xl font-extralight md:leading-[2.8rem]   bg-gray-200">
               We offer a wide range of services. Our Home Remodeling services is
               exactly what you&apos;re looking for.
               <span className=" text-yellow-600 font-extrabold ml-1  ">
@@ -47,7 +49,7 @@ const ContactPage = () => {
         </div>
       </div>
 
-      <div className="relative pt-5 h-[40rem]">
+      <div className="relative pt-20 md:pt-10 py-10 h-full lg:h-[40rem] ">
         <ContactInfo />
       </div>
     </div>

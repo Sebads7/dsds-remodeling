@@ -16,10 +16,10 @@ const ProjectPage = () => {
       <div className="fixed top-0 left-0 w-full h-full -z-10  opacity-20">
         <Image
           src="/images/hero-bg.webp"
-          width={2000}
-          height={2000}
-          className="0"
-          alt="hero-background"
+          width={200}
+          height={200}
+          className="h-full w-full object-cover"
+          alt="hero-background "
         />
       </div>
       <div className=" lg:pt-20  ">
@@ -35,10 +35,12 @@ const ProjectPage = () => {
               Take a look at some of the beautiful transformations we&apos;ve
               done for our clients.
             </p>
-            <p className="bg-yellow-600 text-lg md:text-2xl font-extralight text-white p-2  mr-auto ml-20 w-3/4 md:w-fit    ">
-              We specialize in various home remodeling services to meet all your
-              needs.
-            </p>
+            <div className="mr-auto ml-10 md:ml-20 w-4/5 md:w-fit bg-yellow-600 p-2">
+              <p className=" text-lg md:text-2xl font-extralight text-white ">
+                We specialize in various home remodeling services to meet all
+                your needs.
+              </p>
+            </div>
           </div>
         </div>
 

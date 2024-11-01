@@ -60,7 +60,7 @@ const ReviewForm = ({
       onSubmit={handleSubmit}
       className="space-y-4 max-w-lg mx-auto p-4 bg-gray-100 rounded-md"
     >
-      <h2 className="text-2xl font-bold mb-4 text-slate-700">
+      <h2 className="text-xl md:text-2xl font-bold mb-4 text-slate-700">
         Are You a Previous Client? Leave a Review!
       </h2>
 

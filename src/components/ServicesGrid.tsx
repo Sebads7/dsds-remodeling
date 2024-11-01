@@ -37,13 +37,13 @@ const ServicesGrid = ({
         </div>
 
         <p
-          className={`px-5 md:h-[8rem] p-3 md:pt-5 border-b-2 text-center text-sm md:text-base ${descriptionClass}`}
+          className={`px-5 lg:h-[10rem] xl:h-[8rem] p-3 md:pt-5 border-b-2 text-center text-sm md:text-base ${descriptionClass}`}
         >
           {service.description}
         </p>
 
-        <ul className="flex flex-col-reverse  md:flex-row justify-center items-center mx-auto  py-3 text-sm md:text-base ">
-          <li className="flex gap-2 items-center md:pr-10 ">
+        <ul className="flex flex-col-reverse  xl:flex-row justify-center items-center mx-auto  py-3 text-sm 2xl:text-base ">
+          <li className="flex gap-2 items-center xl:pr-5 2xl:pr-10 ">
             <FaDollarSign className="text-green-500" />
             We beat any price
           </li>

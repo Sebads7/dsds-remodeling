@@ -10,7 +10,7 @@ export const DIVIDER_DATA = [
     },
     {
       title: "Built To Last",
-      icon: "/images/icons/hammer-crash.png",
+      icon: "/images/icons/hammer-brush.svg",
     },
   ],
   [

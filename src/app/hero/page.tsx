@@ -55,30 +55,31 @@ const HeroPage = () => {
           width={2000}
           height={2000}
           alt="hero-background"
-          className="h-screen object-cover"
+          className="h-screen lg:h-[65rem] object-cover"
         />
       </div>
 
       {/* TITLE SECTION */}
-      <header className="display-column h-[25rem]  md:h-[40rem] lg:h-[50rem]  px-5  sm:px-20  ">
-        <div className="display-column px-10 w-full lg:w-[60rem] h-[15rem] md:h-[22rem] lg:h-[26rem] shadow-sm  lg:-translate-y-10 text-slate-700 my-5  bg-gray-50/50">
-          <h1 className="text-2xl md:text-5xl  xl:text-6xl font-bold mb-5  ">
+      <header className="display-column h-[33rem]  md:h-[40rem] lg:h-[60rem]  px-5  sm:px-20  ">
+        <div className="display-column px-5 md:px-10 w-full lg:w-[60rem] h-[22rem] lg:h-[26rem] shadow-sm  lg:-translate-y-10 text-slate-700 my-5  bg-gray-50/50 border-2 border-gray-50">
+          <h1 className="text-3xl md:text-5xl  xl:text-6xl font-bold mb-5 ">
             Transforming Atlanta Homes with Expert Craftsmanship
           </h1>
-          <h2 className="text-lg md:text-2xl md:bg-yellow-600 text-yellow-600 md:text-white  px-5 md:p-2 w-full lg:w-fit mx-auto lg:translate-x-10  text-center">
-            We Offer The Best Remodeling Services Shaped to Fit Your Needs
+          <h2 className="text-xl md:text-2xl md:bg-yellow-600 text-yellow-600 md:text-white  sm:px-5 md:p-2 w-full lg:w-fit mx-auto lg:translate-x-10  text-center font-bold">
+            Offering The Best Remodeling Services Shaped to Fit Your Needs
           </h2>
         </div>
       </header>
 
-      <main className="w-full h-full bg-white">
+      <main className="w-full h-full bg-[#F6F5F2]">
         {/* SERVICE SECTION */}
         <section className=" w-full h-full  bg-[#F6F5F2] md:py-32 z-[10] text-slate-800">
           <h2 className="text-center font-bold text-xl md:text-4xl md:pb-32 py-10  ">
             OUR SERVICES
           </h2>
-          <div className="container px-10 md:px-0   mx-auto md:grid grid-cols-3 ">
-            <div className="h-full md:grid grid-cols-3  gap-10 overflow-hidden   w-full col-span-3 space-y-6 md:space-y-0 ">
+
+          <div className="px-5  md:px-10 max-w-md md:max-w-lg lg:max-w-fit  2xl:w-[90%]   mx-auto lg:grid grid-cols-3 ">
+            <div className="h-full lg:grid grid-cols-3  gap-10 overflow-hidden   w-full col-span-3 space-y-6 lg:space-y-0 ">
               {SERVICES_DATA.map((service, index) => (
                 <ServicesGrid service={service} key={index} imageTitle={true} />
               ))}

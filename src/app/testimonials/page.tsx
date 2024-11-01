@@ -32,21 +32,23 @@ const TestimonialPage = () => {
   }, []);
 
   return (
-    <div className="w-full h-full pb-20 bg-[#F6F5F2] ">
+    <div className="w-full h-full pb-20 bg-[#F6F5F2]  px-5">
       <h1 className="text-slate-700 text-center text-4xl font-bold py-10">
         Testimonials
       </h1>
-      <h2 className="bg-yellow-600 w-fit p-2 text-white text-2xl font-semibold ml-[15rem]">
+      <h2 className="bg-yellow-600 w-fit p-2 text-white text-xl md:text-2xl font-semibold xl:ml-[15rem] mx-auto text-center">
         The Remodeling Company You’re Looking For!
       </h2>
-      <div className=" pl-32 grid grid-cols-2  pt-10">
-        <Review
-          containerReview="flex-col items-center"
-          mainContainer="justify-center "
-          reviewBox="border-none"
-          arrayData={true}
-        />
-        <div>
+      <div className=" xl:pl-32 grid xl:grid-cols-2   pt-10">
+        <div className="mx-auto md:w-3/4">
+          <Review
+            containerReview="flex-col items-center  "
+            mainContainer="justify-center "
+            reviewBox="border-none"
+            arrayData={true}
+          />
+        </div>
+        <div className="hidden md:block mx-auto">
           <Image
             src="/images/happy-customer.jpg"
             width={300}
@@ -57,10 +59,10 @@ const TestimonialPage = () => {
         </div>
       </div>
 
-      <div className=" grid grid-cols-2 pt-20">
+      <div className=" grid grid-cols-1  xl:grid-cols-2 pt-10 lg:pt-20">
         <div className="flex flex-col ">
-          <div className="px-10 mx-20 h-[15rem] flex  justify-center items-center  border bg-yellow-600/80 ">
-            <h2 className="text-2xl font-semibold text-center text-white drop-shadow-[0_.2px_.7px_rgba(0,0,0,0.8)] ">
+          <div className="sm:w-3/4 mx-auto xl:mx-20 xl:h-[15rem] flex  justify-center items-center  lg:border lg:bg-yellow-600/80  p-2">
+            <h2 className="text-xl md:text-2xl font-semibold text-center text-yellow-600 lg:text-white lg:drop-shadow-[0_.2px_.7px_rgba(0,0,0,0.8)] ">
               We take pride in transforming homes and bringing our clients’
               visions to life. Our dedication to quality craftsmanship and
               customer satisfaction speaks for itself. Don’t just take our word
@@ -71,8 +73,8 @@ const TestimonialPage = () => {
             <ReviewForm onAddReview={addReview} />
           </div>
         </div>
-        <div>
-          <h4 className="text-2xl font-bold mb-3 text-slate-700">
+        <div className=" mx-auto">
+          <h4 className="text-xl md:text-2xl font-bold mb-3 text-slate-700 mt-10">
             More of Our Clients Reviews!
           </h4>
           <ReviewListdb reviews={reviews} />

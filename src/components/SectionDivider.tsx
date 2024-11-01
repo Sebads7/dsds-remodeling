@@ -33,15 +33,16 @@ const SectionDivider = ({
             {Array.isArray(arrayData) &&
               arrayData.map((item, index) => (
                 <div
-                  className="flex flex-col justify-center items-center h-full "
+                  className="flex flex-col justify-center items-center h-full  "
                   key={index}
                 >
                   <Image
-                    className="w-8 h-8 md:w-10 md:h-10 lg:w-14 lg:h-14 text-white fill-white icon-white "
+                    className="w-9 h-9 md:w-10 md:h-10 lg:w-14 lg:h-14 icon-white"
                     width={200}
                     height={200}
                     alt={item.title}
                     src={item.icon}
+                    color="white"
                   ></Image>
 
                   <h3 className="text-center text-sm lg:text-xl font-semibold pt-2">

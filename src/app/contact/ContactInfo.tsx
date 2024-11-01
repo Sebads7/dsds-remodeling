@@ -19,7 +19,7 @@ const ContactInfo = () => {
 
       <div className="md:grid grid-cols-2 md:pt-20 xl:pl-20 z-10 b ">
         <div className=" text-slate-700 w-full h-full  flex flex-col justify-center items-center  z-10  ">
-          <h3 className="font-extrabold text-xl md:text-3xl pb-10 w-7/12 lg:w-9/12  2xl:w-7/12  mx-auto ">
+          <h3 className="font-extrabold text-xl md:text-3xl pb-10 w-10/12 md:w-7/12 lg:w-9/12  2xl:w-7/12  mx-auto ">
             We are located in Lawrenceville and serving all the Greater
             <strong className="text-yellow-500 pl-1">Atlanta Area!</strong>
           </h3>
@@ -27,27 +27,25 @@ const ContactInfo = () => {
           <div className="flex flex-col md:flex-row justify-center   items-center  gap-5   w-full mx-auto  opacity-95 z-10 ">
             <div>
               <p className="flex flex-col justify-center h-full items-center gap-2 text-sm md:text-lg ">
-                <strong className="flex justify-center items-center text-xl md:text-2xl">
-                  <MdOutlinePhoneIphone className=" text-2xl md:text-4xl" />{" "}
+                <span className="flex justify-center items-center text-xl md:text-2xl">
+                  <MdOutlinePhoneIphone className=" text-2xl md:text-4xl" />
                   Phone
-                </strong>
-
-                <strong className="">(678) 226-5000</strong>
+                </span>
+                <strong>404-641-2994</strong>
               </p>
             </div>
             <div>
               <p className="flex flex-col justify-center items-center h-full gap-2 text-sm md:text-lg ">
-                <strong className="flex justify-center items-center text-xl md:text-2xl">
+                <span className="flex justify-center items-center text-xl md:text-2xl">
                   <MdEmail className="text-2xl md:text-4xl mr-1" /> Email
-                </strong>
-
-                <strong className="">dsdsatlanta@gmail.com</strong>
+                </span>
+                <strong>dsdsatlanta@gmail.com</strong>
               </p>
             </div>
           </div>
         </div>
 
-        <div className="z-10 pt-10 md:pt-0 ">
+        <div className="z-10 pt-10 md:pt-0  ">
           <ContactForm showTextInput={true} />
         </div>
       </div>

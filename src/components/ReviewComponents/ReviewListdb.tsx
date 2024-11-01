@@ -12,7 +12,7 @@ interface Review {
 
 const ReviewListdb = ({ reviews }: { reviews: Review[] }) => {
   return (
-    <div className="flex flex-col gap-10 h-[50rem] w-[40rem] p-10 border-[1rem] border-gray-200 overflow-y-auto">
+    <div className="flex flex-col gap-10 h-[30rem]  md:h-[50rem] lg:w-[40rem] p-2 md:p-10 border-[8px] lg:border-[1rem] border-yellow-600 overflow-y-auto">
       {reviews.length === 0 ? (
         <div className="flex flex-col gap-5 justify-start items-center h-full w-full pt-20">
           <p>Loading Reviews</p>

@@ -69,8 +69,8 @@ const Footer = () => {
           {/* Contact Info */}
           <div className="flex flex-col justify-center gap-2 lg:gap-5 items-center lg:items-start mt-5 lg:mt-0  lg:max-w-sm lg:ml-16 xl:ml-32 ">
             <p className="text-sm flex">
-              <strong className="mr-3">CALL US:</strong>{" "}
-              <MdOutlinePhoneIphone className=" text-xl" /> (404) 641-2994
+              <strong className="mr-3">CALL US:</strong>
+              <MdOutlinePhoneIphone className=" text-xl" /> 404-641-2994
             </p>
             <p className="text-sm flex">
               <strong className="mr-2">EMAIL US:</strong>{" "}

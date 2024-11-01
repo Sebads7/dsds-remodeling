@@ -120,10 +120,10 @@ const ContactForm: React.FC<ContactFormProps> = ({
   };
 
   return (
-    <div className=" w-full  z-10 ">
+    <div className="w-full  z-10 ">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8   ">
-          <div className="grid grid-cols-2 pb-3 gap-5 px-10 xl:px-32 m-0 w-svw md:w-full  z-10 ">
+          <div className="grid grid-cols-2 pb-3 gap-5  xl:px-32 m-0 max-w-md lg:max-w-4xl mx-auto md:w-full  z-10 ">
             <FormField
               control={form.control}
               name="fullname"
