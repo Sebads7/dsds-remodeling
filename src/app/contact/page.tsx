@@ -3,9 +3,11 @@ import useInViewAnimation from "@/hooks/useView";
 import ContactInfo from "./ContactInfo";
 
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const ContactPage = () => {
-  const { mainControls: contactControls } = useInViewAnimation();
+  const { ref: contactRef, mainControls: contactControls } =
+    useInViewAnimation();
   return (
     <div className="h-full pt-10 bg-[#F6F5F2] px-5">
       <div className=" lg:ml-[10rem]  lg:grid grid-cols-2  relative h-svh  md:h-[70rem] xl:h-[49rem]   ">
@@ -52,9 +54,14 @@ const ContactPage = () => {
         </div>
       </div>
 
-      <div className="relative pt-20 md:pt-10 py-10 h-full lg:h-[40rem] ">
+      <motion.div
+        className="relative pt-20 md:pt-10 py-10 h-full lg:h-[40rem] "
+        ref={contactRef}
+        initial="initial"
+        animate={contactControls}
+      >
         <ContactInfo contactControls={contactControls} />
-      </div>
+      </motion.div>
     </div>
   );
 };

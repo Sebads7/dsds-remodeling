@@ -78,21 +78,24 @@ const HeroPage = () => {
           animate="animate"
         >
           <motion.h1
-            className="text-3xl md:text-5xl  xl:text-6xl font-bold mb-5 "
+            className="text-3xl md:text-5xl  xl:text-6xl font-extrabold md:font-bold mb-5 "
             variants={Scale_delay1}
             initial="initial"
             animate="animate"
           >
             Transforming Atlanta Homes with Expert Craftsmanship
           </motion.h1>
-          <motion.h2
-            className="text-xl md:text-2xl md:bg-yellow-600 text-yellow-600 md:text-white  sm:px-5 md:p-2 w-full lg:w-fit mx-auto lg:translate-x-10  text-center font-bold"
-            variants={Scale_delay2}
-            initial="initial"
-            animate="animate"
-          >
-            Offering The Best Remodeling Services Shaped to Fit Your Needs
-          </motion.h2>
+          <div className="relative">
+            <motion.h2
+              className="text-xl md:text-2xl md:bg-yellow-600 text-yellow-600 md:text-white  sm:px-5 md:p-2 w-full lg:w-fit mx-auto lg:translate-x-10 md:text-center font-light md:font-bold ml-3 "
+              variants={Scale_delay2}
+              initial="initial"
+              animate="animate"
+            >
+              Offering The Best Remodeling Services Shaped to Fit Your Needs
+            </motion.h2>
+            <div className="h-14 w-2 bg-gray-200 border shadow-sm absolute left-0 top-0 md:hidden "></div>
+          </div>
         </motion.div>
       </header>
 
@@ -184,7 +187,7 @@ const HeroPage = () => {
           />
 
           <motion.h2
-            className="text-center font-bold text-2xl lg:text-4xl py-10 lg:py-32 "
+            className="text-center font-bold text-2xl lg:text-4xl py-10 lg:py-32 px-5"
             ref={testimonialsRef}
             variants={Scale_1}
             initial="initial"
@@ -200,7 +203,7 @@ const HeroPage = () => {
           >
             <Review
               mainContainer="items-center justify-center flex-col"
-              containerReview="flex-col md:flex-row"
+              containerReview="flex-col lg:flex-row"
               linkButton={true}
               arrayData={true}
             />

@@ -28,14 +28,14 @@ const ProjectGrid: React.FC<ProjectGridProps> = ({ projectsControls }) => {
   return (
     <div className=" md:px-20">
       {/* BUTTONS */}
-      <ul className="w-full flex gap-5 text-center md:text-start justify-center items-center pt-10 bg-[#b6b1a4] text-xs sm:text-sm md:text-base px-5 md:px-0 ">
+      <ul className="w-full flex  md:gap-5 text-center md:text-start justify-center items-center pt-10 bg-[#b6b1a4] text-xs sm:text-sm md:text-base px-5 md:px-0 ">
         {PROJECTS_PAGE.map((project, index) => (
           <motion.div
             onClick={() => handleImage(index)}
             key={index}
-            className={`  md:border py-1 md:p-2 cursor-pointer md:text-white  hover:bg-yellow-600 hover:border-yellow-600 hover:text-white ${
+            className={`  md:border py-1 md:p-2 cursor-pointer md:text-white  md:hover:bg-yellow-600 md:hover:border-yellow-600 md:hover:text-white ${
               isSelectedImage === index &&
-              "bg-yellow-600 border-yellow-600 border-2 "
+              "md:bg-yellow-600 md:border-yellow-600 md:border-2 text-yellow-600 font-extrabold md:font-bold "
             } `}
             variants={Scale_1}
             initial="initial"

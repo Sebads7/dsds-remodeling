@@ -57,14 +57,16 @@ const NavBar = () => {
     >
       <div className="xl:pr-20 xl:pl-32 px-16 md:px-10  w-full flex  justify-between items-center ">
         {/* MOBILE MENU BUTTON */}
-        <button
-          title="Mobile Menu"
-          type="button"
-          onClick={() => setShowMenu(true)}
-          className="block md:hidden"
-        >
-          <GiHamburgerMenu className="text-4xl" />
-        </button>
+        <div className=" pt-3 h-full flex justify-center items-center">
+          <button
+            title="Mobile Menu"
+            type="button"
+            onClick={() => setShowMenu(true)}
+            className="block md:hidden"
+          >
+            <GiHamburgerMenu className="text-4xl" />
+          </button>
+        </div>
         {/* LOGO */}
         <Logo
           imgSize=" w-[7rem] h-[4.2rem] lg:w-[9rem] lg:h-[5.2rem]"
@@ -73,7 +75,7 @@ const NavBar = () => {
 
         {/* NAVBAR */}
         <nav className="hidden md:block text-slate-80 ">
-          <ul className="w-full flex lg:gap-5 text-sm lg:text-base ">
+          <ul className="w-full flex  gap-5 text-sm lg:text-base ">
             {NAV_LINKS.map((link, index) => (
               <Link
                 href={link.href}
@@ -84,7 +86,7 @@ const NavBar = () => {
               >
                 <li
                   onClick={() => setActiveIndex(link.href)}
-                  className={`  px-4 py-1 ${
+                  className={`  lg:px-4 py-1 ${
                     activeIndex === link.href
                       ? "text-yellow-500 font-semibold"
                       : ""

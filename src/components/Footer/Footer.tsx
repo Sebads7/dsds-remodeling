@@ -22,12 +22,12 @@ const Footer = () => {
 
           {/* Links */}
           <div className="flex flex-col  justify-center items-center ">
-            <ul className=" grid grid-cols-2 md:flex  gap-3 pt-5 md:pt-0">
+            <ul className="flex flex-row  gap-3 pt-5 lg:pt-0">
               {NAV_LINKS.map((link, index) => (
                 <Link
                   href={link.href}
                   key={index}
-                  className="underline lg:no-underline hover:lg:underline"
+                  className="underline lg:no-underline hover:lg:underline text-xs sm:text-sm md:text-base"
                 >
                   <li> {link.name}</li>
                 </Link>
@@ -35,7 +35,7 @@ const Footer = () => {
             </ul>
 
             {/* Social Media */}
-            <div className="mt-8 flex justify-center space-x-4">
+            <div className="mt-8 flex justify-center space-x-4 ">
               <a
                 href="https://facebook.com"
                 className="hover:text-gray-700"
@@ -60,22 +60,24 @@ const Footer = () => {
             </div>
 
             {/* Copyright */}
-            <div className="mt-8 text-center text-sm">
+            <div className="mt-8 text-center text-xs sm:text-sm">
               &copy; {new Date().getFullYear()} Designed and Developed by
               Digital-Solutions. All rights reserved.
             </div>
           </div>
 
           {/* Contact Info */}
-          <div className="flex flex-col justify-center gap-2 lg:gap-5 items-center lg:items-start mt-5 lg:mt-0  lg:max-w-sm lg:ml-16 xl:ml-32 ">
-            <p className="text-sm flex">
-              <strong className="mr-3">CALL US:</strong>
-              <MdOutlinePhoneIphone className=" text-xl" /> 404-641-2994
-            </p>
-            <p className="text-sm flex">
-              <strong className="mr-2">EMAIL US:</strong>{" "}
-              <MdEmail className=" text-xl mr-1" /> dsdsatlanta@gmail.com
-            </p>
+          <div className="flex justify-center items-center mt-5 lg:mt-0  lg:max-w-sm lg:ml-16 xl:ml-32 ">
+            <div className="flex flex-col justify-center items-center lg:items-start gap-2 lg:gap-5 text-sm">
+              <p className=" flex">
+                <strong className="mr-3 hidden lg:block">CALL US:</strong>
+                <MdOutlinePhoneIphone className=" text-xl" /> 404-641-2994
+              </p>
+              <p className=" flex">
+                <strong className="mr-2 hidden lg:block">EMAIL US:</strong>{" "}
+                <MdEmail className=" text-xl mr-1" /> dsdsatlanta@gmail.com
+              </p>
+            </div>
           </div>
         </div>
       </div>

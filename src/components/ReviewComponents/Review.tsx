@@ -22,12 +22,14 @@ const Review = ({
 }: Props) => {
   return (
     <>
-      <div className={`flex ${mainContainer}  mx-auto w-full gap-5  md:gap-20`}>
+      <div
+        className={`flex ${mainContainer}  mx-auto w-full gap-5  md:gap-20 px-10`}
+      >
         {arrayData && (
           <div className={`flex  ${containerReview}   md:gap-10`}>
             {REVIEW.map((review, index) => (
               <div
-                className={`xl:w-[40rem]  md:gap-5  flex flex-col md:flex-row  border-yellow-500 md:border p-2 md:p-5 ${reviewBox}  justify-center items-center`}
+                className={`md:max-w-xl  xl:w-[40rem]  md:gap-5  flex flex-col lg:flex-row  border-yellow-500 md:border p-2 md:p-5 ${reviewBox}  justify-center items-center`}
                 key={index}
               >
                 <ul className="text-center   p-5">

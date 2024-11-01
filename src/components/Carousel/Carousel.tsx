@@ -52,7 +52,7 @@ const Carousel: React.FC<CarouselProps> = ({
             .map((image, index) => (
               <div
                 key={index}
-                className={`relative flex items-center group  border-white border-[6px] h-[25rem] md:h-[30rem] md:hover:h-[32rem] w-[8rem] hover:w-[9rem] md:w-[10rem] md:hover:w-[30rem]  hover:scale-110 transition-all  duration-300 ease-in-out   md:hover:mx-10  hover:z-10   shadow-[rgba(0,_0,_0,_0.25)_0px_25px_50px_-12px] `}
+                className={`relative flex items-center group  border-white border-[6px] h-[25rem] md:h-[30rem] md:hover:h-[32rem] w-[8rem] hover:max-w-xl hover:w-full md:w-[10rem] md:hover:w-[30rem]  hover:scale-110 transition-all  duration-300 ease-in-out   md:hover:mx-10  hover:z-10   shadow-[rgba(0,_0,_0,_0.25)_0px_25px_50px_-12px] `}
               >
                 <Image
                   src={image}

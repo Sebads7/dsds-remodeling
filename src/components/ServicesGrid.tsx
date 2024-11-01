@@ -23,7 +23,7 @@ const ServicesGrid = ({
       <div className="flex flex-col  h-full border-2 bg-white text-slate-800">
         <div className="relative overflow-hidden ">
           <Image
-            className="w-full h-[13rem] md:h-[16rem]  lg:h-[18rem] hover:scale-110 image-hover hover:opacity-90  "
+            className="w-full h-[13rem] sm:h-[15rem] md:h-[17rem]  lg:h-[18rem] hover:scale-110 image-hover hover:opacity-90  "
             src={service.image}
             width={200}
             height={200}
