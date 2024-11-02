@@ -6,6 +6,11 @@
   animation-play-state: paused; /* Pause the animation on hover */
 }
 
+/* main text-color: #383838 */
+/* banner-color: #534E52 */
+/* light-text-color: #F2F2F2 */
+/* light-bg-color: #F6F5F2 */
+
 .image-hover {
   transition-duration: 450ms;
   transition-timing-function: ease-in-out;

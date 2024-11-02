@@ -26,17 +26,18 @@ const ContactInfo: React.FC<ContactInfoProps> = ({ contactControls }) => {
       <div className="lg:grid grid-cols-2 lg:pt-20 xl:pl-20 z-10">
         {/* LEFT SIDE */}
         <motion.div
-          className=" text-slate-700 w-full h-full  flex flex-col justify-center items-center  z-10  "
+          className=" text-banner-color  z-10  w-9/12 mx-auto "
           variants={LeftLoading}
           initial="initial"
           animate={contactControls}
         >
-          <h3 className="font-extrabold text-xl md:text-3xl pb-10 w-10/12 md:w-7/12 lg:w-9/12  2xl:w-7/12  mx-auto text-center md:text-start ">
+          <h3 className="font-extrabold text-xl md:text-3xl pt-5 pb-10 w-10/12 md:w-7/12 lg:w-9/12    mx-auto text-center md:text-start ">
             We are located in Lawrenceville and serving all the Greater
             <strong className="text-yellow-500 pl-1">Atlanta Area!</strong>
           </h3>
 
-          <div className="flex flex-col md:flex-row justify-center   items-center  gap-5   w-full mx-auto  opacity-95 z-10 ">
+          <div className="flex flex-col justify-center   items-center  gap-5   w-full   opacity-95 z-10 ">
+            {/* PHONE CONTAINER */}
             <div>
               <p className="flex flex-col justify-center h-full items-center gap-2 text-sm md:text-lg ">
                 <span className="flex justify-center items-center text-xl md:text-2xl">
@@ -46,6 +47,7 @@ const ContactInfo: React.FC<ContactInfoProps> = ({ contactControls }) => {
                 <strong>404-641-2994</strong>
               </p>
             </div>
+            {/* EMAIL CONTAINER */}
             <div>
               <p className="flex flex-col justify-center items-center h-full gap-2 text-sm md:text-lg ">
                 <span className="flex justify-center items-center text-xl md:text-2xl">

@@ -51,20 +51,20 @@ const NavBar = () => {
 
   return (
     <div
-      className={` pt-5 pb-8  bg-[#F6F5F2]/90    z-10 ${
+      className={` pt-5 pb-8  bg-light-bg/90    z-10 ${
         isSticky ? " top-0 border-b-2 border-yellow-500   " : ""
       }  `}
     >
       <div className="xl:pr-20 xl:pl-32 px-16 md:px-10  w-full flex  justify-between items-center ">
         {/* MOBILE MENU BUTTON */}
-        <div className=" pt-3 h-full flex justify-center items-center">
+        <div className=" pt-3 h-full flex justify-center items-center  md:hidden">
           <button
             title="Mobile Menu"
             type="button"
             onClick={() => setShowMenu(true)}
-            className="block md:hidden"
+            className=""
           >
-            <GiHamburgerMenu className="text-4xl" />
+            <GiHamburgerMenu className="text-4xl text-main-dark" />
           </button>
         </div>
         {/* LOGO */}
@@ -89,7 +89,7 @@ const NavBar = () => {
                   className={`  lg:px-4 py-1 ${
                     activeIndex === link.href
                       ? "text-yellow-500 font-semibold"
-                      : ""
+                      : "text-banner-color"
                   } `}
                 >
                   {link.name}

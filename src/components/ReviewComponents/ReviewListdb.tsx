@@ -12,12 +12,12 @@ interface Review {
 
 const ReviewListdb = ({ reviews }: { reviews: Review[] }) => {
   return (
-    <div className="flex flex-col gap-10 h-[30rem]  md:h-[50rem] lg:w-[40rem] p-2 md:p-10 border-[8px] lg:border-[1rem] border-yellow-600 overflow-y-auto">
+    <div className="flex flex-col gap-10  p-2 md:p-10 border-[8px] border-light-bg overflow-y-auto">
       {reviews.length === 0 ? (
         <div className="flex flex-col gap-5 justify-start items-center h-full w-full pt-20">
           <p>Loading Reviews</p>
           <svg
-            className="animate-spin -ml-1 mr-3 h-10 w-10 text-black"
+            className="animate-spin -ml-1 mr-3 h-10 w-10 text-light-color"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -41,7 +41,7 @@ const ReviewListdb = ({ reviews }: { reviews: Review[] }) => {
         <>
           {reviews.map((review, index) => (
             <div
-              className={`w-full border-[1px] border-gray-300 flex justify-center items-center  gap-5   `}
+              className={`w-full border-b-[1px] border-b-light-bg flex justify-center items-center  gap-5  text-light-color  `}
               key={index}
             >
               <ul className="text-center   p-5">
@@ -57,7 +57,7 @@ const ReviewListdb = ({ reviews }: { reviews: Review[] }) => {
                     className=""
                   />
                 </li>
-                <li className="text-muted-foreground text-left text-sm md:text-base">
+                <li className=" text-left text-sm md:text-base">
                   {review.reviewDetail}
                 </li>
               </ul>

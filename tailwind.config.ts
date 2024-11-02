@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
 import tailwindcssAnimate from "tailwindcss-animate";
+import scrollbarPlugin from "tailwind-scrollbar";
 
 const config: Config = {
   darkMode: ["class"],
@@ -29,6 +30,10 @@ const config: Config = {
         sm: "calc(var(--radius) - 4px)",
       },
       colors: {
+        "main-dark": "#383838",
+        "banner-color": "#534E52",
+        "light-color": "#F2F2F2",
+        "light-bg": "#F6F5F2",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         "dark-gray": "rgb(61,59,64)",
@@ -74,6 +79,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [tailwindcssAnimate],
+  plugins: [tailwindcssAnimate, scrollbarPlugin],
 };
 export default config;

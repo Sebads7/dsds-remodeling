@@ -10,15 +10,8 @@ import { DIVIDER_DATA } from "@/constant/divider";
 import { SERVICES_DATA } from "@/constant/services-data";
 
 const ServicesPage = () => {
-  /*************  ✨ Codeium Command ⭐  *************/
-  /**
-   * ServicesPage is a page component which displays all the services provided by the company.
-   * It contains a brief description of each service and a link to view the projects related to each service.
-   * The page is divided into sections, each section showcasing a different service.
-   * The page also contains a section for "Why Choose Us" which highlights the benefits of choosing the company.
-   */
-  /******  014d2287-6411-407c-812e-f56eaea0ae72  *******/ return (
-    <div className="w-full h-full bg-[#F6F5F2] text-dark-gray">
+  return (
+    <div className="w-full h-full bg-[#F6F5F2] text-main-dark">
       <h2 className="text-center font-bold text-xl md:text-4xl pt-10">
         OUR SERVICES
       </h2>

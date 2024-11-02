@@ -29,7 +29,7 @@ const Review = ({
           <div className={`flex  ${containerReview}   md:gap-10`}>
             {REVIEW.map((review, index) => (
               <div
-                className={`md:max-w-xl  xl:w-[40rem]  md:gap-5  flex flex-col lg:flex-row  border-yellow-500 md:border p-2 md:p-5 ${reviewBox}  justify-center items-center`}
+                className={`md:max-w-xl  xl:max-w-2xl  md:gap-5  flex flex-col lg:flex-row  border-yellow-500 md:border p-2 md:p-5 ${reviewBox}  justify-center items-center`}
                 key={index}
               >
                 <ul className="text-center   p-5">

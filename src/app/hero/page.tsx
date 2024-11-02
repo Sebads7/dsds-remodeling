@@ -42,7 +42,7 @@ const HeroPage = () => {
   return (
     <div className="w-full h-full relative">
       {/* BANNER */}
-      <div className="bg-yellow-500 z-[10] text-slate-700 py-4 text-center font-bold text-sm md:text-lg overflow-hidden ">
+      <div className="bg-yellow-500 z-[10] text-banner-color py-4 text-center font-bold text-sm md:text-lg overflow-hidden ">
         <motion.div variants={Scale_1} initial="initial" animate="animate">
           <div className=" flex gap-[20rem]  whitespace-nowrap animate-marque hover:pause ">
             {BANNER.map((banner, index) => (
@@ -72,7 +72,7 @@ const HeroPage = () => {
       {/* TITLE SECTION */}
       <header className="display-column h-[33rem]  md:h-[40rem] lg:h-[60rem]  px-5  sm:px-20  ">
         <motion.div
-          className="display-column px-5 md:px-10 w-full lg:w-[60rem] h-[22rem] lg:h-[26rem] shadow-sm  lg:-translate-y-10 text-slate-700 my-5  bg-gray-50/50 border-2 border-gray-50"
+          className="display-column px-5 md:px-10 w-full lg:w-[60rem] h-[22rem] lg:h-[26rem] shadow-sm  lg:-translate-y-10 text-main-dark  my-5  bg-gray-50/50 border-2 border-gray-50"
           variants={LeftLoading}
           initial="initial"
           animate="animate"
@@ -87,21 +87,21 @@ const HeroPage = () => {
           </motion.h1>
           <div className="relative">
             <motion.h2
-              className="text-xl md:text-2xl md:bg-yellow-600 text-yellow-600 md:text-white  sm:px-5 md:p-2 w-full lg:w-fit mx-auto lg:translate-x-10 md:text-center font-light md:font-bold ml-3 "
+              className="text-xl md:text-2xl md:bg-yellow-600 text-yellow-600 md:text-light-color sm:px-5 md:p-2 w-full lg:w-fit mx-auto lg:translate-x-10 md:text-center font-light md:font-bold ml-3 "
               variants={Scale_delay2}
               initial="initial"
               animate="animate"
             >
               Offering The Best Remodeling Services Shaped to Fit Your Needs
             </motion.h2>
-            <div className="h-14 w-2 bg-gray-200 border shadow-sm absolute left-0 top-0 md:hidden "></div>
+            <div className="h-14 w-2 bg-light-bg border shadow-sm absolute left-0 top-0 md:hidden "></div>
           </div>
         </motion.div>
       </header>
 
-      <main className="w-full h-full bg-[#F6F5F2]">
+      <main className="w-full h-full bg-light-bg">
         {/* SERVICE SECTION */}
-        <section className=" w-full h-full  bg-[#F6F5F2] md:py-32 z-[10] text-slate-800">
+        <section className=" w-full h-full  bg-light-bg md:py-32 z-[10] text-main-dark">
           <h2 className="text-center font-bold text-xl md:text-4xl md:pb-32 py-10  ">
             OUR SERVICES
           </h2>
@@ -119,20 +119,20 @@ const HeroPage = () => {
               ))}
 
               <motion.div
-                className="md:h-[23rem]  w-full col-span-3 border-2   bg-white overflow-hidden text-slate-800 "
+                className="md:h-[23rem]  w-full col-span-3 border-2   bg-white overflow-hidden text-main-dark "
                 variants={Scale_2}
                 initial="initial"
                 animate={gridControls}
               >
                 <div className="flex h-full  items-center">
-                  <div className="flex flex-col items-center py-5 md:py-0 gap-5 w-full  text-center  ">
+                  <div className="flex flex-col items-center py-5 md:py-0 gap-5 w-full  text-center  text-main-dark ">
                     <h3 className="text-center  w-full text-xl md:text-3xl font-bold ">
                       GET A FREE ESTIMATE
                     </h3>
                     <p className="px-5 md:px-20  text-sm md:text-base">
-                      Contact us today for a free consultation! We&apos;ll work
-                      with you to create a plan that fits your budget and
-                      timeline.
+                      Call us today at <strong> 404-641-2994</strong> for a free
+                      consultation! We&apos;ll work with you to create a plan
+                      that fits your budget and timeline.
                     </p>
                     <div className=" gap-5">
                       <LinkButton
@@ -142,7 +142,7 @@ const HeroPage = () => {
                     </div>
                   </div>
                   <Image
-                    className="w-full hidden md:block right-0 hover:scale-110 image-hover bg-black hover:opacity-90 "
+                    className="w-full hidden lg:block right-0 hover:scale-110 image-hover bg-black hover:opacity-90 "
                     src="/images/home-remo/home-rem1.jpg"
                     alt="image-1"
                     width={200}
@@ -155,14 +155,14 @@ const HeroPage = () => {
         </section>
 
         {/* PROJECTS SECTION */}
-        <section className=" relative w-full h-full py-32 bg-[#F6F5F2]">
+        <section className=" relative w-full h-full py-32 bg-light-bg">
           {/* SECTION DIVIDER */}
           <SectionDivider
             imageSrc="/images/hero-bg.webp"
             arrayData={DIVIDER_DATA[1]}
           />
           {/* TITLE */}
-          <h2 className="text-center font-bold text-xl md:text-4xl py-10 md:py-32 ">
+          <h2 className="text-center font-bold text-xl md:text-4xl py-10 md:py-32 text-main-dark ">
             OUR PROJECTS
           </h2>
           <motion.div ref={projectsRef}>
@@ -180,14 +180,14 @@ const HeroPage = () => {
         </section>
 
         {/* TESTIMONIALS SECTION */}
-        <section className="w-full full md:px-0  bg-[#F6F5F2]">
+        <section className="w-full full md:px-0  bg-light-bg">
           <SectionDivider
             imageSrc="/images/hero-bg.webp"
             arrayData={DIVIDER_DATA[0]}
           />
 
           <motion.h2
-            className="text-center font-bold text-2xl lg:text-4xl py-10 lg:py-32 px-5"
+            className="text-center font-bold text-2xl lg:text-4xl py-10 lg:py-32 px-5 text-main-dark"
             ref={testimonialsRef}
             variants={Scale_1}
             initial="initial"
@@ -211,11 +211,11 @@ const HeroPage = () => {
         </section>
         {/* CONTACT SECTION */}
         <section
-          className="relative  w-full h-full bg-[#F6F5F2] py-16 md:py-32  lg:pr-10 overflow-hidden"
+          className="relative  w-full h-full bg-light-bg py-16 md:py-32  lg:pr-10 overflow-hidden"
           ref={contactRef}
         >
           <div className="absolute top-0 h-[2rem] w-full bg-yellow-600/80 z-[2]"></div>
-          <h2 className="text-center font-bold text-2xl md:text-4xl pb-10 md:pb-12 col-span-2  ">
+          <h2 className="text-center font-bold text-2xl md:text-4xl pb-10 md:pb-12 col-span-2 text-main-dark ">
             CONTACT US TO GET A FREE QUOTE
           </h2>
           <ContactInfo contactControls={contactControls} />

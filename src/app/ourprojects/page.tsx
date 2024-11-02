@@ -13,7 +13,7 @@ import { motion } from "framer-motion";
 const ProjectPage = () => {
   const { isMobile } = useScreen();
   return (
-    <div className="w-full h-full pb-20  bg-page-bg/50 text-dark-gray">
+    <div className="w-full h-full pb-20  bg-page-bg/50 text-main-dark">
       <div className="fixed top-0 left-0 w-full h-full -z-10  opacity-20">
         <Image
           src="/images/hero-bg.webp"
@@ -44,7 +44,7 @@ const ProjectPage = () => {
               Take a look at some of the beautiful transformations we&apos;ve
               done for our clients.
             </p>
-            <div className="mr-auto ml-10 md:ml-20 w-4/5 md:w-fit bg-yellow-600 p-2">
+            <div className="mr-auto ml-10 md:ml-[4.5rem] w-4/5 md:w-fit bg-yellow-600 p-2">
               <p className=" text-lg md:text-2xl font-extralight text-white ">
                 We specialize in various home remodeling services to meet all
                 your needs.

@@ -58,13 +58,13 @@ const ReviewForm = ({
   return (
     <form
       onSubmit={handleSubmit}
-      className="space-y-4 max-w-lg mx-auto p-4 bg-gray-100 rounded-md"
+      className="space-y-4 max-w-lg mx-auto p-4 bg-light-bg "
     >
-      <h2 className="text-xl md:text-2xl font-bold mb-4 text-slate-700">
+      <h2 className="text-xl md:text-2xl font-bold mb-4 text-main-dark">
         Are You a Previous Client? Leave a Review!
       </h2>
 
-      <div className="text-slate-700">
+      <div className="text-banner-color">
         <label className="block font-medium mb-1">Name</label>
         <input
           title="Please enter your name"
