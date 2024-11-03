@@ -4,7 +4,8 @@ export const SERVICES_DATA = [
     description:
       "Our kitchen remodeling services include new construction, renovation, and repairs to build or refresh your kitchen",
     image: "/images/kitchen/kitchen1.jpg",
-    p: " Our kitchen remodeling services cover everything from new construction to renovation and repairs. Whether you're looking to build a brand-new kitchen or refresh an existing one, we’ve got you covered",
+    service_description:
+      " Create the kitchen of your dreams with our professional remodeling services. From custom cabinetry and elegant countertops we bring your vision to life with high-quality materials and expert craftsmanship, we bring style, convenience, and value to the heart of your home.",
     link: "/ourprojects#kitchenremodeling",
     linkName: "View Our Kitchen Projects",
     flexDirection: "flex-row",
@@ -14,7 +15,8 @@ export const SERVICES_DATA = [
     description:
       "We specialize in bathroom remodeling, offering new construction, renovation, and repair services for all types of bathrooms",
     image: "/images/bath/bathroom1.jpg",
-    p: " Enhance your home’s curb appeal with our exterior remodeling services. From siding and painting to roofing and gutter installation, we use only the highest quality materials to ensure your home not only looks great but is also protected from the elements ",
+    service_description:
+      " Transform your bathroom into a stylish and functional oasis with our expert remodeling services. From custom tile work and modern fixtures to updated lighting and spacious vanities, we bring your vision to life with high-quality materials and meticulous craftsmanship.",
     link: "/ourprojects#bathremodeling",
     linkName: "View Our Bathroom Projects",
     flexDirection: "flex-row-reverse",
@@ -24,7 +26,8 @@ export const SERVICES_DATA = [
     description:
       "We offer a full range of residential services, including interior and exterior painting, furniture refinishing, deck staining, and more",
     image: "/images/home-remo/home-rem1.jpg",
-    p: " Enhance your home’s curb appeal with our exterior remodeling services. From siding and painting to roofing and gutter installation, we use only the highest quality materials to ensure your home not only looks great but is also protected from the elements ",
+    service_description:
+      "Elevate your home's style and protection with our comprehensive painting services. Our exterior painting enhances curb appeal and safeguards your home from weather, while our interior painting transforms spaces with fresh, vibrant colors. We use only premium materials, ensuring a durable and beautiful finish that adds lasting value to your home.",
     link: "/ourprojects#exteriorpainting",
     linkName: "View Our Exterior Projects",
     link2: "/ourprojects#interiorpainting",

@@ -16,6 +16,7 @@ interface CarouselProps {
   dots?: boolean;
   controlButtons?: boolean;
   elmPerPge: number;
+  setIsGalleryOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const Carousel: React.FC<CarouselProps> = ({
@@ -23,8 +24,14 @@ const Carousel: React.FC<CarouselProps> = ({
   dots,
   controlButtons,
   elmPerPge,
+  setIsGalleryOpen,
 }) => {
   const [activeIndex, setActiveIndex] = useState(0);
+
+  const handleGalleryOpen = () => {
+    console.log("Gallery Opened");
+    setIsGalleryOpen(true);
+  };
 
   const handleDotClick = (index: number) => {
     setActiveIndex(index * elmPerPge);
@@ -64,7 +71,10 @@ const Carousel: React.FC<CarouselProps> = ({
                 <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10 ">
                   <div className="text-center flex flex-col items-center gap-1 text-white px-4">
                     <p className="">Click to View Image</p>
-                    <FaCirclePlus className="text-xl  cursor-pointer hover:scale-105 transition duration-300 ease-in-out hover:shadow-lg hover:text-yellow-400 " />
+                    <FaCirclePlus
+                      className="text-xl  cursor-pointer hover:scale-105 transition duration-300 ease-in-out hover:shadow-lg hover:text-yellow-400 "
+                      onClick={handleGalleryOpen}
+                    />
                   </div>
                 </div>
               </div>

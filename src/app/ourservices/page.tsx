@@ -67,14 +67,10 @@ const ServicesPage = () => {
                 <h3 className="font-bold xl:my-5 pt-5 xl:pt-10 text-lg md:text-xl  lg:text-2xl  ">
                   {service.title}
                 </h3>
-                <p className="mb-5 h-full mx-5 lg:mx-20 text-center pt-5 text-sm md:text-base  lg:text-lg  ">
-                  Enhance your home’s curb appeal with our exterior remodeling
-                  services. From siding and painting to roofing and gutter
-                  installation, we use only the highest quality materials to
-                  ensure your home not only looks great but is also protected
-                  from the elements.
+                <p className="mb-5 md:mb-0 h-full mx-5 lg:mx-14 text-center pt-5 text-sm md:text-base  lg:text-lg  ">
+                  {service.service_description}
                 </p>
-                <div className=" h-full flex flex-col lg:flex-row  items-start gap-2 my-5  ">
+                <div className=" h-full flex flex-col lg:flex-row  items-start gap-2 my-5 lg:my-0 pt-3  ">
                   <LinkButton
                     href={service.link}
                     name={service.linkName}
@@ -100,13 +96,13 @@ const ServicesPage = () => {
       />
 
       {/* WHY CHOOSE US */}
-      <section className="flex flex-col items-center lg:items-start px-5 md:px-10 lg:pr-20  lg:pl-28 pt-20  pb-20">
+      <section className="flex flex-col items-center justify-center lg:items-start px-5 md:px-10 lg:pr-20  lg:pl-28 pt-20  pb-20">
         <h3 className="font-bold text-xl sm:text-2xl md:text-3xl text-dark-gray mb-5 ">
           Ready to Transform Your Home?
         </h3>
-        <div className="flex flex-col-reverse xl:grid grid-cols-2 ">
+        <div className="flex flex-col-reverse xl:grid grid-cols-2  ">
           {/* LEFT COLUMN */}
-          <div className="px-5 md:px-0 md:pr-20 space-y-5 ">
+          <div className="px-5 space-y-5 ">
             <p className="pt-10 text-muted-foreground  md:text-lg ">
               <strong> Experienced Craftsmanship: </strong>
               Our team of skilled professionals is committed to delivering
@@ -118,7 +114,7 @@ const ServicesPage = () => {
               closely with you to understand your vision and preferences,
               ensuring the final result exceeds your expectations.
             </p>
-            <div className="pt-10 flex flex-col sm:flex-row items-center justify-center xl:justify-start gap-10">
+            <div className="pt-10 flex flex-col sm:flex-row items-center justify-center xl:justify-start gap-10 ">
               <LinkButton
                 href="/contact"
                 name="CONTACT US"

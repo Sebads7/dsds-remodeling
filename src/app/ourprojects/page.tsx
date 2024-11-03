@@ -9,11 +9,14 @@ import { PROJECTS_PAGE } from "@/constant/projects-data";
 import { DIVIDER_DATA } from "@/constant/divider";
 import useScreen from "@/hooks/useScreenSize";
 import { motion } from "framer-motion";
+import { useState } from "react";
+import { MdClose } from "react-icons/md";
 
 const ProjectPage = () => {
+  const [isGalleyOpen, setIsGalleryOpen] = useState(false);
   const { isMobile } = useScreen();
   return (
-    <div className="w-full h-full pb-20  bg-page-bg/50 text-main-dark">
+    <div className="w-full h-full pb-20  bg-page-bg/50 text-main-dark relative">
       <div className="fixed top-0 left-0 w-full h-full -z-10  opacity-20">
         <Image
           src="/images/hero-bg.webp"
@@ -54,7 +57,7 @@ const ProjectPage = () => {
         </motion.div>
 
         {/* Gallery Grid */}
-        <section className="mb-20">
+        <section className="mb-20 ">
           {/* RENDERING DATA FROM ARRAY  */}
           {PROJECTS_PAGE.map((service, index) => (
             <div key={index}>
@@ -77,6 +80,7 @@ const ProjectPage = () => {
                     elmPerPge={isMobile ? 3 : 4}
                     controlButtons={true}
                     dots={true}
+                    setIsGalleryOpen={setIsGalleryOpen}
                   />
                 </div>
               </div>
@@ -92,6 +96,20 @@ const ProjectPage = () => {
               )}
             </div>
           ))}
+
+          {isGalleyOpen && (
+            <div className="fixed  top-0 left-0 bg-black/80 w-full h-svh z-[99999] flex items-center justify-center ">
+              <div>
+                <MdClose
+                  className="text-white w-7 h-7 right-10 lg:right-32 top-20 absolute"
+                  onClick={() => setIsGalleryOpen(false)}
+                />
+                <div className="  bg-white w-[30rem] h-[30rem]   z-10 ">
+                  THIS IS MODAL
+                </div>
+              </div>
+            </div>
+          )}
         </section>
       </div>
     </div>
