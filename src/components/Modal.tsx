@@ -1,15 +1,9 @@
-import React, { useEffect } from "react";
 import { IoMdClose } from "react-icons/io";
 import ContactForm from "./FormComponents/ContactForm";
+import { useBodyOverflow } from "@/hooks/useBodyOverflow";
 
 const Modal = ({ closeModal }: { closeModal: () => void }) => {
-  useEffect(() => {
-    document.body.style.overflow = "hidden";
-
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, []);
+  useBodyOverflow(true);
   return (
     <div
       className=" w-svw h-svh flex justify-center md:items-center bg-black/80"

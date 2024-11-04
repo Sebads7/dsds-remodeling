@@ -2,8 +2,8 @@ import React from "react";
 import { MdOutlineArrowCircleLeft } from "react-icons/md";
 
 type Props = {
-  activeIndex: number;
-  handlePrevClick: () => void;
+  activeIndex?: number;
+  handlePrevClick?: () => void;
 };
 
 const LeftButton: React.FC<Props> = ({ activeIndex, handlePrevClick }) => {

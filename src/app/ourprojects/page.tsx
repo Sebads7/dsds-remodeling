@@ -11,10 +11,40 @@ import useScreen from "@/hooks/useScreenSize";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { MdClose } from "react-icons/md";
+import { useBodyOverflow } from "@/hooks/useBodyOverflow";
+import LeftButton from "@/components/Carousel/LeftButton";
+import RightButton from "@/components/Carousel/RightButton";
 
 const ProjectPage = () => {
   const [isGalleyOpen, setIsGalleryOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [totalImages, setTotalImages] = useState<number | null>(null);
   const { isMobile } = useScreen();
+
+  useBodyOverflow(isGalleyOpen);
+
+  const handlePrevClick = () => {
+    if (selectedIndex !== null && selectedIndex > 0) {
+      setSelectedIndex((prevIndex) => (prevIndex as number) - 1);
+      setSelectedImage(PROJECTS_PAGE[selectedIndex - 1]?.images[0]);
+    }
+  };
+
+  const handleNextClick = () => {
+    if (selectedIndex !== null && selectedIndex < (totalImages ?? 0) - 1) {
+      setSelectedIndex((prevIndex) => (prevIndex as number) + 1);
+
+      setSelectedImage(PROJECTS_PAGE[selectedIndex + 1]?.images[0]);
+    }
+  };
+
+  const closeGallery = () => {
+    setIsGalleryOpen(false);
+    setSelectedImage(null);
+    setSelectedIndex(null);
+  };
+
   return (
     <div className="w-full h-full pb-20  bg-page-bg/50 text-main-dark relative">
       <div className="fixed top-0 left-0 w-full h-full -z-10  opacity-20">
@@ -81,6 +111,9 @@ const ProjectPage = () => {
                     controlButtons={true}
                     dots={true}
                     setIsGalleryOpen={setIsGalleryOpen}
+                    setSelectedImage={setSelectedImage}
+                    setSelectedIndex={setSelectedIndex}
+                    setTotalImages={setTotalImages}
                   />
                 </div>
               </div>
@@ -97,15 +130,46 @@ const ProjectPage = () => {
             </div>
           ))}
 
-          {isGalleyOpen && (
-            <div className="fixed  top-0 left-0 bg-black/80 w-full h-svh z-[99999] flex items-center justify-center ">
-              <div>
-                <MdClose
-                  className="text-white w-7 h-7 right-10 lg:right-32 top-20 absolute"
-                  onClick={() => setIsGalleryOpen(false)}
-                />
-                <div className="  bg-white w-[30rem] h-[30rem]   z-10 ">
-                  THIS IS MODAL
+          {isGalleyOpen && selectedImage && (
+            <div className="fixed  top-0 left-0 bg-black/95 w-full h-svh z-[99999] flex items-center justify-center ">
+              <div className="flex flex-col gap-5  top-0 w-5/6 md:w-3/4 ">
+                <div className="w-full flex items-center justify-between text-white">
+                  <p>
+                    {selectedIndex !== null && totalImages !== null
+                      ? `${selectedIndex + 1} of ${totalImages}`
+                      : ""}
+                  </p>
+                  <div
+                    className="  flex justify-center items-center gap-2  hover:bg-white/20 text-white  rounded-md w-24 h-8 cursor-pointer transition-all duration-200 ease-in-out"
+                    onClick={closeGallery}
+                  >
+                    <MdClose className="w-5 h-5 " />
+                    <p className="text-sm ">Close</p>
+                  </div>
+                </div>
+                <div className="flex w-full  items-center">
+                  <div className="hidden md:block">
+                    <LeftButton
+                      activeIndex={selectedIndex as number}
+                      handlePrevClick={handlePrevClick}
+                    />
+                  </div>
+
+                  <div className="  bg-black/90 md:w-[60%] mx-auto h-[40rem] md:h-[50rem]   z-10  ">
+                    <Image
+                      src={selectedImage}
+                      alt="gallery-image"
+                      width={1000}
+                      height={300}
+                      className="object-cover w-full h-full"
+                    />
+                  </div>
+                  <div className="hidden md:block">
+                    <RightButton
+                      activeIndex={selectedIndex as number}
+                      handleNextClick={handleNextClick}
+                    />
+                  </div>
                 </div>
               </div>
             </div>

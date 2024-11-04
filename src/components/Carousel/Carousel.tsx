@@ -16,7 +16,10 @@ interface CarouselProps {
   dots?: boolean;
   controlButtons?: boolean;
   elmPerPge: number;
+  setTotalImages: React.Dispatch<React.SetStateAction<number | null>>;
   setIsGalleryOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setSelectedImage: React.Dispatch<React.SetStateAction<string | null>>;
+  setSelectedIndex: React.Dispatch<React.SetStateAction<number | null>>;
 }
 
 const Carousel: React.FC<CarouselProps> = ({
@@ -25,11 +28,16 @@ const Carousel: React.FC<CarouselProps> = ({
   controlButtons,
   elmPerPge,
   setIsGalleryOpen,
+  setSelectedImage,
+  setSelectedIndex,
+  setTotalImages,
 }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const handleGalleryOpen = () => {
-    console.log("Gallery Opened");
+  const handleGalleryOpen = (image: string, index: number, total: number) => {
+    setSelectedIndex(index);
+    setSelectedImage(image);
+    setTotalImages(total);
     setIsGalleryOpen(true);
   };
 
@@ -73,7 +81,13 @@ const Carousel: React.FC<CarouselProps> = ({
                     <p className="">Click to View Image</p>
                     <FaCirclePlus
                       className="text-xl  cursor-pointer hover:scale-105 transition duration-300 ease-in-out hover:shadow-lg hover:text-yellow-400 "
-                      onClick={handleGalleryOpen}
+                      onClick={() =>
+                        handleGalleryOpen(
+                          image,
+                          activeIndex + index,
+                          data.images.length
+                        )
+                      }
                     />
                   </div>
                 </div>
