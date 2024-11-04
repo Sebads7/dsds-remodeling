@@ -4,6 +4,7 @@ import ContactInfo from "./ContactInfo";
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { LeftLoading, RightLoading } from "@/constant/framer_effects";
 
 const ContactPage = () => {
   const { ref: contactRef, mainControls: contactControls } =
@@ -21,7 +22,12 @@ const ContactPage = () => {
             You?
           </h2>
 
-          <div className="absolute top-[22rem] left-[5rem] md:left-[-3rem] lg:left-[-6rem]  z-10 hidden xl:block ">
+          <motion.div
+            className="absolute top-[22rem] left-[5rem] md:left-[-3rem] lg:left-[-6rem]  z-10 hidden xl:block "
+            variants={LeftLoading}
+            initial="initial"
+            animate="animate"
+          >
             <Image
               src="/images/remo-contractor.jpg"
               width={450}
@@ -29,11 +35,16 @@ const ContactPage = () => {
               alt="image"
               className="border-[1rem] rounded-bl-[10rem]  border-gray-200/30 w-[30rem] h-[21rem]"
             />
-          </div>
+          </motion.div>
         </div>
 
         {/* RIGHT SIDE */}
-        <div className="w-full max-w-xl md:max-w-3xl  lg:max-w-5xl mx-auto">
+        <motion.div
+          className="w-full max-w-xl md:max-w-3xl  lg:max-w-5xl mx-auto"
+          variants={RightLoading}
+          initial="initial"
+          animate="animate"
+        >
           <div className="z-10 xl:max-w-lg  lg:h-full flex flex-col md:flex-row-reverse xl:flex-col  items-center ">
             <Image
               src="/images/contractor.jpeg"
@@ -53,7 +64,7 @@ const ContactPage = () => {
               </p>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
 
       <motion.div

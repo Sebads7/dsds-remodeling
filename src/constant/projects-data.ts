@@ -2,6 +2,8 @@ export const PROJECTS_PAGE = [
   {
     id: "interiorpainting",
     title: "Interior Painting",
+    description:
+      "Step into a home that feels fresh, vibrant, and perfectly aligned with your taste. Our interior painting projects breathe new life into each room, creating inviting spaces that reflect your personality and elevate your home’s aesthetic. From bold accent walls to subtle, calming tones, we focus on every detail to deliver a flawless finish.",
     images: [
       "/images/interior/inter1.jpg",
       "/images/interior/inter2.jpg",
@@ -21,6 +23,8 @@ export const PROJECTS_PAGE = [
   {
     id: "exteriorpainting",
     title: "Exterior Painting",
+    description:
+      "Your home’s exterior is the first impression—it deserves to shine. Our exterior painting services provide more than just beautiful colors; they offer durability and protection from the elements. With top-quality materials and expert craftsmanship, our work ensures your home remains stunning and well-protected for years to come.",
     images: [
       "/images/home-remo/home-rem1.jpg",
       "/images/exterior/ext1.jpg",
@@ -40,6 +44,8 @@ export const PROJECTS_PAGE = [
   {
     id: "bathremodeling",
     title: "Bathroom Remodeling",
+    description:
+      "Your bathroom should be more than just functional—it should be a relaxing oasis. Our bathroom remodeling services transform outdated spaces into elegant, spa-like retreats. With modern fixtures, high-quality materials, and thoughtful design, we create bathrooms that offer comfort, style, and lasting value.",
     images: [
       "/images/bath/bathroom1.jpg",
       "/images/bath/bath2.jpg",
@@ -58,6 +64,8 @@ export const PROJECTS_PAGE = [
   {
     id: "kitchenremodeling",
     title: "Kitchen Remodeling",
+    description:
+      "A well-designed kitchen is the centerpiece of any home, where functionality meets style. Our kitchen remodeling projects are crafted to enhance both form and function, providing you with a space that’s not only beautiful but perfectly suited to your lifestyle. From custom cabinetry to modern countertops, each detail is tailored to create the kitchen of your dreams.",
     images: [
       "/images/kitchen/kitch1.jpg",
       "/images/kitchen/kitch2.jpg",

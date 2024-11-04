@@ -20,24 +20,14 @@ const ProjectPage = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [totalImages, setTotalImages] = useState<number | null>(null);
+
   const { isMobile } = useScreen();
 
   useBodyOverflow(isGalleyOpen);
 
-  const handlePrevClick = () => {
-    if (selectedIndex !== null && selectedIndex > 0) {
-      setSelectedIndex((prevIndex) => (prevIndex as number) - 1);
-      setSelectedImage(PROJECTS_PAGE[selectedIndex - 1]?.images[0]);
-    }
-  };
+  const handlePrevClick = () => {};
 
-  const handleNextClick = () => {
-    if (selectedIndex !== null && selectedIndex < (totalImages ?? 0) - 1) {
-      setSelectedIndex((prevIndex) => (prevIndex as number) + 1);
-
-      setSelectedImage(PROJECTS_PAGE[selectedIndex + 1]?.images[0]);
-    }
-  };
+  const handleNextClick = () => {};
 
   const closeGallery = () => {
     setIsGalleryOpen(false);
@@ -98,12 +88,7 @@ const ProjectPage = () => {
                 >
                   {service.title}
                 </h2>
-                <p className="px-5 md:pl-0 md:w-6/12">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Error quia quam odit iste magnam modi consectetur sequi.
-                  Obcaecati laborum deleniti iste, officia reiciendis sunt,
-                  fugiat tempore repudiandae, maxime vel repellendus!
-                </p>
+                <p className="px-5 md:pl-0 md:w-6/12">{service.description}</p>
                 <div className="flex  items-center justify-center overflow-x-hidden ">
                   <Carousel
                     data={service}
@@ -131,14 +116,17 @@ const ProjectPage = () => {
           ))}
 
           {isGalleyOpen && selectedImage && (
-            <div className="fixed  top-0 left-0 bg-black/95 w-full h-svh z-[99999] flex items-center justify-center ">
-              <div className="flex flex-col gap-5  top-0 w-5/6 md:w-3/4 ">
+            <div className="fixed  top-0 left-0 bg-black/95 w-full h-full  z-[99999] flex items-center justify-center ">
+              <div className="flex flex-col gap-5  w-5/6 md:w-3/4 ">
                 <div className="w-full flex items-center justify-between text-white">
+                  {/* IMAGE COUNT */}
                   <p>
                     {selectedIndex !== null && totalImages !== null
                       ? `${selectedIndex + 1} of ${totalImages}`
                       : ""}
                   </p>
+
+                  {/* CLOSE BUTTON */}
                   <div
                     className="  flex justify-center items-center gap-2  hover:bg-white/20 text-white  rounded-md w-24 h-8 cursor-pointer transition-all duration-200 ease-in-out"
                     onClick={closeGallery}
@@ -147,8 +135,9 @@ const ProjectPage = () => {
                     <p className="text-sm ">Close</p>
                   </div>
                 </div>
-                <div className="flex w-full  items-center">
-                  <div className="hidden md:block">
+                <div className="flex w-full h-full  items-center">
+                  {/* LEFT BUTTON */}
+                  <div className="hidden">
                     <LeftButton
                       activeIndex={selectedIndex as number}
                       handlePrevClick={handlePrevClick}
@@ -164,7 +153,8 @@ const ProjectPage = () => {
                       className="object-cover w-full h-full"
                     />
                   </div>
-                  <div className="hidden md:block">
+                  {/* RIGHT BUTTON */}
+                  <div className="hidden">
                     <RightButton
                       activeIndex={selectedIndex as number}
                       handleNextClick={handleNextClick}

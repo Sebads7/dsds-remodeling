@@ -67,7 +67,7 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div className="flex flex-col justify-center items-center mt-5 lg:mt-0  lg:max-w-sm lg:ml-16 xl:ml-32 ">
-            <div className="flex flex-col justify-center items-center lg:items-start gap-2 lg:gap-5 text-sm">
+            <div className="flex flex-col justify-center items-center  gap-2 lg:gap-5 text-sm">
               <p className=" flex">
                 <strong className="mr-3 hidden lg:block">CALL US:</strong>
                 <MdOutlinePhoneIphone className=" text-xl" /> 404-641-2994
