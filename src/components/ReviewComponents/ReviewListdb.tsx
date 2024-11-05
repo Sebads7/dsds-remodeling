@@ -41,7 +41,7 @@ const ReviewListdb = ({ reviews }: { reviews: Review[] }) => {
         <>
           {reviews.map((review, index) => (
             <div
-              className={`w-full border-b-[1px] border-b-light-bg flex justify-center items-center  gap-5  text-light-color  `}
+              className={`w-full border-b-[1px] border-b-light-bg flex justify-center items-center  gap-5  text-white/80  `}
               key={index}
             >
               <ul className="text-center   p-5">

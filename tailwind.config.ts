@@ -20,9 +20,18 @@ const config: Config = {
             transform: "translateX(-100%)",
           },
         },
+        "fade-in": {
+          "0%": {
+            opacity: "0",
+          },
+          "100%": {
+            opacity: "1",
+          },
+        },
       },
       animation: {
         marque: "marque 30s linear infinite",
+        "fade-in": "fade-in 2s  ease-in-out  forwards",
       },
       borderRadius: {
         lg: "var(--radius)",

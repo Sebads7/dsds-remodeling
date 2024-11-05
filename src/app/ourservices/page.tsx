@@ -60,6 +60,7 @@ const ServicesPage = () => {
                   service={service}
                   descriptionClass="hidden"
                   imageTitle={false}
+                  imageSrc={service.image2}
                 />
               </div>
 

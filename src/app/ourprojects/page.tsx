@@ -15,25 +15,61 @@ import { useBodyOverflow } from "@/hooks/useBodyOverflow";
 import LeftButton from "@/components/Carousel/LeftButton";
 import RightButton from "@/components/Carousel/RightButton";
 
+import { useSwipeable } from "react-swipeable";
+
 const ProjectPage = () => {
   const [isGalleyOpen, setIsGalleryOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [totalImages, setTotalImages] = useState<number | null>(null);
 
+  // const [imageLoading, setImageLoading] = useState(false);
+
+  // const imageLoaded = () => {
+  //   setImageLoading(false);
+  // };
+
   const { isMobile } = useScreen();
 
   useBodyOverflow(isGalleyOpen);
 
-  const handlePrevClick = () => {};
+  const setImageAndIndex = (index: number) => {
+    setSelectedIndex(index);
 
-  const handleNextClick = () => {};
+    const updatedImage = PROJECTS_PAGE.find((p) =>
+      p.images.includes(selectedImage!)
+    )?.images[index];
+    setSelectedImage(updatedImage as string);
+  };
+
+  const handlePrevClick = () => {
+    const currentImage = selectedIndex !== null && selectedIndex > 0;
+    const updatedIndex = currentImage ? selectedIndex - 1 : totalImages! - 1;
+
+    setImageAndIndex(updatedIndex);
+  };
+
+  const handleNextClick = () => {
+    const currentImage =
+      selectedIndex !== null && selectedIndex < (totalImages as number) - 1;
+    const updatedIndex = currentImage ? selectedIndex + 1 : 0;
+
+    setImageAndIndex(updatedIndex);
+  };
 
   const closeGallery = () => {
     setIsGalleryOpen(false);
     setSelectedImage(null);
     setSelectedIndex(null);
   };
+
+  const handlers = useSwipeable({
+    onSwipedLeft: () => handleNextClick(),
+    onSwipedRight: () => handlePrevClick(),
+    preventScrollOnSwipe: true,
+    trackTouch: true,
+    trackMouse: false,
+  });
 
   return (
     <div className="w-full h-full pb-20  bg-page-bg/50 text-main-dark relative">
@@ -137,14 +173,21 @@ const ProjectPage = () => {
                 </div>
                 <div className="flex w-full h-full  items-center">
                   {/* LEFT BUTTON */}
-                  <div className="hidden">
+                  <div className="hidden md:block">
                     <LeftButton
                       activeIndex={selectedIndex as number}
                       handlePrevClick={handlePrevClick}
                     />
                   </div>
-
-                  <div className="  bg-black/90 md:w-[60%] mx-auto h-[40rem] md:h-[50rem]   z-10  ">
+                  {/* IMAGES  */}
+                  <motion.div
+                    className={` bg-black/90 md:w-[55%] mx-auto h-[85dvh]   z-10  `}
+                    {...handlers}
+                    key={selectedImage}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                  >
                     <Image
                       src={selectedImage}
                       alt="gallery-image"
@@ -152,9 +195,9 @@ const ProjectPage = () => {
                       height={300}
                       className="object-cover w-full h-full"
                     />
-                  </div>
+                  </motion.div>
                   {/* RIGHT BUTTON */}
-                  <div className="hidden">
+                  <div className="hidden md:block">
                     <RightButton
                       activeIndex={selectedIndex as number}
                       handleNextClick={handleNextClick}

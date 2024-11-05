@@ -115,7 +115,12 @@ const HeroPage = () => {
               animate={gridControls}
             >
               {SERVICES_DATA.map((service, index) => (
-                <ServicesGrid service={service} key={index} imageTitle={true} />
+                <ServicesGrid
+                  service={service}
+                  key={index}
+                  imageTitle={true}
+                  imageSrc={service.image}
+                />
               ))}
 
               <motion.div

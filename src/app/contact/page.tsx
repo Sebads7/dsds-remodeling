@@ -51,7 +51,7 @@ const ContactPage = () => {
               width={300}
               height={800}
               alt="hero-background"
-              className="w-[16rem] md:w-[23rem] lg:w-[30rem] h-[13rem] md:h-[20rem] lg:h-[25rem] border-[10px] md:border-[1rem] rounded-tr-[5rem]  lg:rounded-tr-[10rem] border-transparent z-10"
+              className="w-[20rem] md:w-[23rem] lg:w-[30rem] h-[13rem] md:h-[20rem] lg:h-[25rem] border-[10px] md:border-[1rem] r  lg:rounded-tr-[10rem] border-transparent z-10"
             />
             <div className="px-3 md:px-10 lg:py-5 text-center md:text-start ">
               <p className="sm:text-xl md:text-2xl font-extralight lg:leading-[2.8rem] ">

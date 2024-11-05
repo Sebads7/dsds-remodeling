@@ -7,24 +7,27 @@ interface Service {
   title: string;
   description: string;
   image: string;
+  image2: string;
 }
 
 const ServicesGrid = ({
   service,
   descriptionClass,
   imageTitle,
+  imageSrc,
 }: {
   service: Service;
   descriptionClass?: string;
   imageTitle: boolean;
+  imageSrc: string;
 }) => {
   return (
     <>
       <div className="flex flex-col  h-full border-2 bg-white text-slate-800">
         <div className="relative overflow-hidden ">
           <Image
-            className="w-full h-[13rem] sm:h-[15rem] md:h-[17rem]  lg:h-[18rem] hover:scale-110 image-hover hover:opacity-90  "
-            src={service.image}
+            className={`w-full h-[13rem] sm:h-[15rem] md:h-[17rem]  lg:h-[20rem] hover:scale-110 image-hover hover:opacity-90   `}
+            src={imageSrc}
             width={200}
             height={200}
             alt="image-1"
@@ -42,19 +45,18 @@ const ServicesGrid = ({
           {service.description}
         </p>
 
-        <ul className="flex flex-col-reverse  xl:flex-row justify-center items-center mx-auto  py-3 text-sm 2xl:text-base ">
-          <li className="flex gap-2 items-center xl:pr-5 2xl:pr-10 ">
+        <ul className="flex flex-col-reverse  lg:my-auto lg:h-[4rem]  xl:flex-row justify-center items-center mx-auto  py-3 text-sm 2xl:text-base ">
+          <li className="flex gap-2 items-center xl:pr-5 h-full ">
             <FaDollarSign className="text-green-500" />
-            We beat any price
+            Quality On Your Budget
           </li>
 
-          <li className="flex gap-2 items-center ">
+          <li className="flex gap-2 items-center h-full ">
             <Image
               src="/images/icons/100-percent.png"
               alt="100-Percent"
               width={30}
               height={30}
-              className=" md:mr-3"
             />
             Customer Satisfaction
           </li>

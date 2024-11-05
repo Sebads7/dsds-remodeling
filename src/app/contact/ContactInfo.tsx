@@ -26,7 +26,7 @@ const ContactInfo: React.FC<ContactInfoProps> = ({ contactControls }) => {
       <div className="lg:grid grid-cols-2 lg:pt-20 xl:pl-20 z-10">
         {/* LEFT SIDE */}
         <motion.div
-          className=" text-banner-color  z-10  w-9/12 mx-auto "
+          className=" text-banner-color  z-10 px-3   md:w-9/12 mx-auto "
           variants={LeftLoading}
           initial="initial"
           animate={contactControls}

@@ -73,7 +73,7 @@ const ReviewForm = ({
           value={formData.name}
           onChange={handleChange}
           required
-          className="w-full p-2 border border-yellow-500 focus-visible:ring-yellow-500 focus-visible:ring-[1px] focus-visible:outline-none"
+          className="w-full p-2 border border-yellow-500 focus-visible:ring-yellow-500 focus-visible:ring-[1px] focus-visible:outline-none rounded-none"
         />
       </div>
 

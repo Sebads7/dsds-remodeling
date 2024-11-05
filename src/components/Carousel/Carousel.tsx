@@ -6,6 +6,7 @@ import { FaCirclePlus } from "react-icons/fa6";
 import Dots from "./Dots";
 import LeftButton from "./LeftButton";
 import RightButton from "./RightButton";
+import { motion } from "framer-motion";
 
 interface CarouselProps {
   data: {
@@ -33,6 +34,16 @@ const Carousel: React.FC<CarouselProps> = ({
   setTotalImages,
 }) => {
   const [activeIndex, setActiveIndex] = useState(0);
+
+  // const [imageLoading, setImageLoading] = useState(
+  //   Array(data.images.length).fill(true)
+  // );
+
+  // const handleImageLoad = (index: number) => {
+  //   const newLoadingState = [...imageLoading];
+  //   newLoadingState[index] = false;
+  //   setImageLoading(newLoadingState);
+  // };
 
   const handleGalleryOpen = (image: string, index: number, total: number) => {
     setSelectedIndex(index);
@@ -65,9 +76,12 @@ const Carousel: React.FC<CarouselProps> = ({
           {data.images
             .slice(activeIndex, activeIndex + elmPerPge)
             .map((image, index) => (
-              <div
+              <motion.div
                 key={index}
-                className={`relative flex items-center group  border-white border-[6px] h-[25rem] md:h-[30rem] md:hover:h-[32rem] w-[8rem] hover:max-w-xl hover:w-full md:w-[10rem] md:hover:w-[30rem]  hover:scale-110 transition-all  duration-300 ease-in-out   md:hover:mx-10  hover:z-10   shadow-[rgba(0,_0,_0,_0.25)_0px_25px_50px_-12px] `}
+                className={`relative flex items-center group  border-white border-[6px] h-[25rem] md:h-[30rem] md:hover:h-[32rem] w-[8rem] hover:max-w-xl hover:w-full md:w-[10rem] md:hover:w-[30rem]  hover:scale-110 transition-all  duration-300 ease-in-out   md:hover:mx-10  hover:z-10   shadow-[rgba(0,_0,_0,_0.25)_0px_25px_50px_-12px]  `}
+                initial={{ opacity: 0.4 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1, ease: "easeInOut" }}
               >
                 <Image
                   src={image}
@@ -76,6 +90,7 @@ const Carousel: React.FC<CarouselProps> = ({
                   alt={data.title}
                   className="w-full h-full object-cover"
                 />
+
                 <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10 ">
                   <div className="text-center flex flex-col items-center gap-1 text-white px-4">
                     <p className="">Click to View Image</p>
@@ -91,7 +106,7 @@ const Carousel: React.FC<CarouselProps> = ({
                     />
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
         </div>
       </div>
