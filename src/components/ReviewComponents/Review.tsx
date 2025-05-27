@@ -1,7 +1,14 @@
 import Rating from "@mui/material/Rating";
-import { IoPersonCircleOutline } from "react-icons/io5";
 import { REVIEW } from "@/constant/review";
 import LinkButton from "../LinkButton";
+import Image from "next/image";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselDots,
+  CarouselItem,
+} from "../ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 type Props = {
   linkButton?: boolean;
@@ -27,33 +34,93 @@ const Review = ({
       >
         {arrayData && (
           <div className={`flex  ${containerReview}   md:gap-10`}>
-            {REVIEW.map((review, index) => (
+            {/* {REVIEW.map((review, index) => (
               <div
-                className={` md:max-w-xl  xl:max-w-2xl  md:gap-5  flex flex-col lg:flex-row  border-yellow-500 md:border p-2 md:p-5 ${reviewBox}  justify-center items-center`}
+                className={` md:max-w-xl  xl:max-w-2xl  md:gap-5  flex flex-col lg:flex-row  bg-neutral-50 shadow-2xl rounded-lg md:border p-2 md:p-5 ${reviewBox}  justify-center items-center`}
                 key={index}
               >
-                <ul className="text-center   p-5">
-                  <li className="font-bold flex items-center gap-2   ">
+                <ul className="text-center   p-3">
+                  <li className="font-bold flex flex-col  items-center gap-2   ">
                     <span>
-                      <IoPersonCircleOutline size={30} />
+                      <Image
+                        className="size-10  [filter:drop-shadow(2px_-2px_2px_rgba(155,155,155,0.3))]"
+                        width={1200}
+                        height={1200}
+                        src="/reviews/rating2.png"
+                        loading="eager"
+                        color="black"
+                        alt="user-icon"
+                      />
                     </span>
                     {review.name}
-                    <Rating name="read-only" value={5} readOnly className="" />
+                    <Rating
+                      name="read-only"
+                      value={5}
+                      readOnly
+                      precision={0.5}
+                      className="text-amber-500"
+                    />
                   </li>
                   <li className="text-muted-foreground text-left text-sm md:text-base">
                     {review.description}
                   </li>
                 </ul>
               </div>
-            ))}
+            ))} */}
+            <Carousel
+              className="max-w-sm  md:max-w-2xl xl:max-w-3xl "
+              opts={{ loop: true }}
+              plugins={[Autoplay({ delay: 5000, stopOnInteraction: false })]}
+            >
+              <CarouselContent className="px-10 py-5 flex gap-5">
+                {REVIEW.map((review, index) => (
+                  <CarouselItem
+                    key={index}
+                    className={`shadow-md rounded-lg   bg-neutral-50 md:border p-2 md:p-5 ${reviewBox} `}
+                  >
+                    <ul className="text-center   p-3">
+                      <li className="font-bold flex flex-col  items-center gap-2   ">
+                        <span>
+                          <Image
+                            className="size-10  [filter:drop-shadow(2px_-2px_2px_rgba(155,155,155,0.3))]"
+                            width={1200}
+                            height={1200}
+                            src="/reviews/rating2.png"
+                            loading="eager"
+                            color="black"
+                            alt="user-icon"
+                          />
+                        </span>
+                        {review.name}
+                        <Rating
+                          name="read-only"
+                          value={5}
+                          readOnly
+                          precision={0.5}
+                          className="text-amber-600  -translate-y-1"
+                        />
+                      </li>
+                      <li className="text-muted-foreground text-left text-sm md:text-base pt-2">
+                        {review.description}
+                      </li>
+                    </ul>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <div className="mt-4">
+                <CarouselDots />
+              </div>
+            </Carousel>
           </div>
         )}
 
         {linkButton && (
-          <LinkButton href="/testimonials" name="View All Our Testimonials" />
+          <LinkButton
+            href="/testimonials"
+            name="Read More Reviews"
+            className="bg-amber-600 hover:bg-amber-600/90 hover:shadow-lg text-white"
+          />
         )}
-
-        {fetchedData && <div></div>}
       </div>
     </>
   );

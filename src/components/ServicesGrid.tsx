@@ -1,7 +1,6 @@
 import React from "react";
 
 import Image from "next/image";
-import { FaDollarSign } from "react-icons/fa";
 
 interface Service {
   title: string;
@@ -23,44 +22,27 @@ const ServicesGrid = ({
 }) => {
   return (
     <>
-      <div className="flex flex-col  h-full border-2 bg-white text-slate-800">
-        <div className="relative overflow-hidden ">
+      <div className="flex flex-col w-full  h-full shadow-xl rounded-md bg-white  text-slate-800 xl:max-w-lg">
+        <div className="overflow-hidden rounded-t-md">
           <Image
-            className={`w-full h-[13rem] sm:h-[15rem] md:h-[17rem]  lg:h-[20rem] hover:scale-110 image-hover hover:opacity-90   `}
+            className={`w-full h-[13rem] sm:h-[15rem] md:h-[15rem]  lg:h-[16rem] hover:scale-[1.01] image-hover hover:opacity-90   `}
             src={imageSrc}
-            width={200}
-            height={200}
+            width={1200}
+            height={1200}
             alt="image-1"
           />
-          {imageTitle && (
-            <h3 className="text-center bg-black/60 text-white p-2 md:p-5 absolute w-full bottom-0 ">
-              {service.title}
-            </h3>
-          )}
         </div>
+        {imageTitle && (
+          <h3 className="text-center text-lg mt-3  font-bold  ">
+            {service.title}
+          </h3>
+        )}
 
         <p
-          className={`px-5 lg:h-[10rem] xl:h-[8rem] p-3 md:pt-5 border-b-2 text-center text-sm md:text-base ${descriptionClass}`}
+          className={`px-5 mt-2 pb-5 h-[5rem]  text-sm text-center ${descriptionClass}`}
         >
           {service.description}
         </p>
-
-        <ul className="flex flex-col-reverse  lg:my-auto lg:h-[4rem]  xl:flex-row justify-center items-center mx-auto  py-3 text-sm 2xl:text-base ">
-          <li className="flex gap-2 items-center xl:pr-5 h-full ">
-            <FaDollarSign className="text-green-500" />
-            Quality On Your Budget
-          </li>
-
-          <li className="flex gap-2 items-center h-full ">
-            <Image
-              src="/images/icons/100-percent.png"
-              alt="100-Percent"
-              width={30}
-              height={30}
-            />
-            Customer Satisfaction
-          </li>
-        </ul>
       </div>
     </>
   );

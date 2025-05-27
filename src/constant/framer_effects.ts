@@ -31,7 +31,7 @@ export const Scale_delay1 = {
   animate: {
     opacity: 1,
     scale: 1,
-    transition: { duration: 1, ease: "easeInOut", delay: 1 },
+    transition: { duration: 1, ease: "easeInOut", delay: 0.5 },
   },
 };
 
@@ -40,6 +40,6 @@ export const Scale_delay2 = {
   animate: {
     opacity: 1,
     scale: 1,
-    transition: { duration: 1, ease: "easeInOut", delay: 2 },
+    transition: { duration: 1, ease: "easeInOut", delay: 1 },
   },
 };

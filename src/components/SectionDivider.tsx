@@ -7,10 +7,8 @@ type Data = {
 };
 
 const SectionDivider = ({
-  imageSrc,
   sectionClass,
   arrayData,
-  imgClass,
 }: {
   imageSrc: string;
   sectionClass?: string;
@@ -20,37 +18,30 @@ const SectionDivider = ({
   return (
     <>
       <div
-        className={`relative w-full h-[10rem]  overflow-hidden ${sectionClass} `}
+        className={`relative z-20 w-full py-7 shadow-lg  overflow-hidden ${sectionClass} `}
       >
-        <div className={`absolute top-0 inset-x-0 h-[10rem] overflow-hidden  `}>
-          <Image
-            src={imageSrc}
-            width={2000}
-            height={2000}
-            alt={`hero-background ${imgClass}`}
-          />
-          <div className=" absolute bg-black/70 top-0 h-full  w-full text-white flex justify-between sm:justify-evenly   items-center  ">
-            {Array.isArray(arrayData) &&
-              arrayData.map((item, index) => (
-                <div
-                  className="flex flex-col justify-center items-center h-full  "
-                  key={index}
-                >
+        <div className="w-full lg:px-32 flex justify-between sm:justify-evenly   items-center  ">
+          {Array.isArray(arrayData) &&
+            arrayData.map((item, index) => (
+              <div className="flex items-center w-[14rem]" key={index}>
+                <div className="bg-light-bg px-8 py-8 rounded-full scale-75">
                   <Image
-                    className="w-9 h-9 md:w-10 md:h-10 lg:w-14 lg:h-14 icon-white"
-                    width={200}
-                    height={200}
+                    className="size-14"
+                    width={1200}
+                    height={1200}
                     alt={item.title}
                     src={item.icon}
-                    color="white"
-                  ></Image>
-
-                  <h3 className="text-center text-sm lg:text-xl font-semibold pt-2 w-10/12 md:w-full ">
-                    {item.title}
-                  </h3>
+                    loading="eager"
+                    color="black"
+                  />
                 </div>
-              ))}
-          </div>
+                <div className="w-2/4   text-center flex justify-center mx-auto ">
+                  <p className=" text-sm mx-auto lg:text-xl font-bold   text-zinc-700  ">
+                    {item.title}
+                  </p>
+                </div>
+              </div>
+            ))}
         </div>
       </div>
     </>

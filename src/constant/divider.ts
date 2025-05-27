@@ -2,29 +2,29 @@ export const DIVIDER_DATA = [
   [
     {
       title: "Customer Satisfaction",
-      icon: "/images/icons/handshake.svg",
+      icon: "/divider/satisfaction.png",
     },
     {
       title: "Quality Work",
-      icon: "/images/icons/comment-check.svg",
+      icon: "/divider/quality.png",
     },
     {
       title: "Built To Last",
-      icon: "/images/icons/hammer-brush.svg",
+      icon: "/divider/build-last.png",
     },
   ],
   [
     {
       title: "Professional Expertise",
-      icon: "/images/icons/user-helmet-safety.svg",
+      icon: "/divider/worker.png",
     },
     {
       title: "Guaranteed Results",
-      icon: "/images/icons/duration.svg",
+      icon: "/divider/five-star.png",
     },
     {
       title: "Attention to Detail",
-      icon: "/images/icons/pan.svg",
+      icon: "/divider/detail.png",
     },
   ],
   [

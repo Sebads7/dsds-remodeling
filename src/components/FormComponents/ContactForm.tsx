@@ -120,10 +120,13 @@ const ContactForm: React.FC<ContactFormProps> = ({
   };
 
   return (
-    <div className="w-full ">
+    <div className="w-full bg-white border shadow-xl p-6 rounded-md max-w-md md:max-w-lg lg:py-12 lg:px-7 mx-auto">
+      <p className="pb-5 font-bold text-lg text-banner-color">
+        Send us your project details{" "}
+      </p>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 ">
-          <div className="grid grid-cols-2 pb-3 gap-5  xl:px-32 m-0 max-w-xs md:max-w-md lg:max-w-4xl mx-auto md:w-full  ">
+          <div className=" grid grid-cols-2  gap-5  ">
             <FormField
               control={form.control}
               name="fullname"
@@ -231,7 +234,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
 
             <Button
               type="submit"
-              className={` rounded-none w-full relative xs:text-sm lg:text-base z-0 bg-yellow-500 hover:bg-yellow-600 ${
+              className={` w-full relative xs:text-sm lg:text-base z-0 rounded-md bg-amber-600 hover:bg-amber-600/90  ${
                 showTextInput ? "col-span-2 h-12" : "col-span-1 h-10"
               } `}
               disabled={submitting}

@@ -1,12 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer/Footer";
-
-export const metadata: Metadata = {
-  title: "Atlanta Home Remodeling",
-  description: "Home Remodeling Services",
-};
+import Header from "@/components/Header";
 
 export default function RootLayout({
   children,
@@ -14,9 +9,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body suppressHydrationWarning={true}>
-        <NavBar />
+    <html suppressHydrationWarning={true} lang="en">
+      <head />
+      <body>
+        <Header />
         {children}
         <Footer />
       </body>

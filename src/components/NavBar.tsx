@@ -9,6 +9,7 @@ import Modal from "./Modal";
 import { IoMdClose } from "react-icons/io";
 import { NAV_LINKS } from "@/constant/navlinks";
 import { motion } from "framer-motion";
+import { Mail, Phone } from "lucide-react";
 
 const NavBar = () => {
   const [isSticky, setIsSticky] = useState(false);
@@ -51,13 +52,24 @@ const NavBar = () => {
 
   return (
     <div
-      className={` pt-5 pb-8  bg-light-bg/90    z-10 ${
+      className={` py-4  bg-light-bg/90    z-10 ${
         isSticky ? " top-0 border-b-2 border-yellow-500   " : ""
       }  `}
     >
-      <div className="xl:pr-20 xl:pl-32 px-16 md:px-10  w-full flex  justify-between items-center ">
+      <div className=" justify-end gap-4 text-stone-600 text-base font-light pr-24 hidden lg:flex ">
+        <p className="flex items-center gap-1">
+          <span>
+            <Phone className="size-5" />
+          </span>
+          <span> (404) 555-0123</span>
+        </p>
+        <p className="flex items-center gap-1">
+          <Mail className="size-5" /> info@dsdsatlanta.com
+        </p>
+      </div>
+      <div className="xl:pr-20 xl:pl-32 lg:px-16 md:px-10  w-full flex  justify-between items-center ">
         {/* MOBILE MENU BUTTON */}
-        <div className=" pt-3 h-full flex justify-center items-center  md:hidden">
+        <div className=" pt-3 pl-10 h-full flex justify-center items-center  md:hidden">
           <button
             title="Mobile Menu"
             type="button"
@@ -69,48 +81,48 @@ const NavBar = () => {
         </div>
         {/* LOGO */}
         <Logo
-          imgSize=" w-[7rem] h-[4.2rem] lg:w-[9rem] lg:h-[5.2rem]"
+          imgSize="h-18 w-28  lg:-translate-y-4"
           src="/images/LOGO-COLOR.png"
         />
-
-        {/* NAVBAR */}
-        <nav className="hidden md:block text-slate-80 ">
-          <ul className="w-full flex  gap-5 text-sm lg:text-base ">
-            {NAV_LINKS.map((link, index) => (
-              <Link
-                href={link.href}
-                key={index}
-                className="h-full w-full "
-                onMouseEnter={() => setIsHovered(link.name)}
-                onMouseLeave={() => setIsHovered(null)}
-              >
-                <li
-                  onClick={() => setActiveIndex(link.href)}
-                  className={`  lg:px-4 py-1 ${
-                    activeIndex === link.href
-                      ? "text-yellow-500 font-semibold"
-                      : "text-banner-color"
-                  } `}
+        <div className="flex items-center gap-10">
+          {/* NAVBAR */}
+          <nav className="hidden md:block text-slate-80 ">
+            <ul className="w-full flex  gap-1 text-sm lg:text-base ">
+              {NAV_LINKS.map((link, index) => (
+                <Link
+                  href={link.href}
+                  key={index}
+                  className="h-full w-full "
+                  onMouseEnter={() => setIsHovered(link.name)}
+                  onMouseLeave={() => setIsHovered(null)}
                 >
-                  {link.name}
-                </li>
-                <li
-                  className={`${
-                    link.href === activeIndex
-                      ? "w-0"
-                      : link.name === isHovered
-                      ? "bg-yellow-500 w-3/5 rounded-2xl"
-                      : "w-0"
-                  }  h-1 transition-all duration-300 ease-in-out mx-auto`}
-                ></li>
-              </Link>
-            ))}
-          </ul>
-        </nav>
-        {/* CONTACT-MODAL */}
-        <div className="text-sm lg:text-base hidden sm:block">
+                  <li
+                    onClick={() => setActiveIndex(link.href)}
+                    className={` md:px-1  lg:px-4 py-1 ${
+                      activeIndex === link.href
+                        ? "text-amber-600 font-semibold"
+                        : "text-banner-color"
+                    } `}
+                  >
+                    {link.name}
+                  </li>
+                  <li
+                    className={`${
+                      link.href === activeIndex
+                        ? "w-0"
+                        : link.name === isHovered
+                        ? "bg-amber-600 w-3/5 rounded-2xl"
+                        : "w-0"
+                    }  h-1 transition-all duration-300 ease-in-out mx-auto`}
+                  ></li>
+                </Link>
+              ))}
+            </ul>
+          </nav>
+          {/* CONTACT-MODAL */}
+
           <button
-            className={`text-white bg-yellow-500  py-3 px-3 lg:px-6 font-semibold hover:bg-yellow-600 mr-1 `}
+            className={`text-white bg-amber-500 text-sm lg:text-base hidden sm:block  py-3 px-3 lg:px-5 rounded-3xl font-semibold hover:bg-amber-500/90 mr-1 `}
             onClick={handleModal}
           >
             Get a Free Quote
