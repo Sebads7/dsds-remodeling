@@ -18,12 +18,12 @@ const RightButton: React.FC<Props> = ({
       <button
         type="button"
         title="Next"
-        className={`hidden md:block text-5xl ml-10 mr-auto   -translate-x-10  ${
+        className={`text-5xl lg:ml-10 lg:mr-auto   lg:-translate-x-10  ${
           elmPerPge !== undefined
             ? activeIndex === PROJECTS_PAGE[0].images.length - elmPerPge
             : activeIndex === PROJECTS_PAGE[0].images.length - 1
             ? "disabled text-gray-400/50 cursor-default "
-            : "hover:scale-105 cursor-pointer hover:text-yellow-700 text-gray-600"
+            : "hover:scale-105 cursor-pointer lg:hover:text-yellow-700 text-neutral-100/70 lg:text-gray-600"
         } `}
         onClick={handleNextClick}
       >

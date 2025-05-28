@@ -24,7 +24,7 @@ const ProjectSection = () => {
         </motion.div>
 
         {/* LEARN MORE BUTTON */}
-        <div className="w-full  h-full flex  justify-center items-center pt-20">
+        <div className="w-full  h-full flex  justify-center items-center pt-10 lg:pt-20">
           <LinkButton
             href="ourprojects"
             name=" Learn More About Our Projects"

@@ -52,11 +52,17 @@ const NavBar = () => {
 
   return (
     <div
-      className={` py-4  bg-light-bg/90    z-10 ${
-        isSticky ? " top-0 border-b-2 border-yellow-500   " : ""
+      className={` py-4      z-10 ${
+        isSticky
+          ? "fixed z-[999] w-full top-0 lg:border-b-2 lg:border-orange-300 lg:bg-light-bg/90   "
+          : "bg-light-bg/90"
       }  `}
     >
-      <div className=" justify-end gap-4 text-stone-600 text-base font-light pr-24 hidden lg:flex ">
+      <div
+        className={` justify-end gap-4 text-stone-600 text-base font-light pr-24 hidden  ${
+          isSticky ? "hidden" : "lg:flex"
+        } `}
+      >
         <p className="flex items-center gap-1">
           <span>
             <Phone className="size-5" />
@@ -67,23 +73,35 @@ const NavBar = () => {
           <Mail className="size-5" /> info@dsdsatlanta.com
         </p>
       </div>
-      <div className="xl:pr-20 xl:pl-32 lg:px-16 md:px-10  w-full flex  justify-between items-center ">
+      <div className="xl:pr-20 xl:pl-32 lg:px-16   w-full flex  justify-between items-center ">
         {/* MOBILE MENU BUTTON */}
-        <div className=" pt-3 pl-10 h-full flex justify-center items-center  md:hidden">
+        <div
+          className={`   h-full flex justify-center items-center  md:hidden ${
+            isSticky
+              ? " top-0 inset-0 z-[999] p-1  shadow-lg ml-10 w-fit bg-stone-100/90 border-2 border-stone-200 rounded-md"
+              : "static pl-10 pt-3"
+          }`}
+        >
           <button
             title="Mobile Menu"
             type="button"
             onClick={() => setShowMenu(true)}
             className=""
           >
-            <GiHamburgerMenu className="text-4xl text-main-dark" />
+            <GiHamburgerMenu className="text-4xl text-stone-700" />
           </button>
         </div>
         {/* LOGO */}
+
         <Logo
-          imgSize="h-18 w-28  lg:-translate-y-4"
+          imgSize={`   translate-x-10 md:translate-x-0 -translate-y-1 ${
+            isSticky
+              ? "hidden lg:block h-10 w-16"
+              : "block h-18 w-28 lg:-translate-y-4"
+          }`}
           src="/images/LOGO-COLOR.png"
         />
+
         <div className="flex items-center gap-10">
           {/* NAVBAR */}
           <nav className="hidden md:block text-slate-80 ">
@@ -100,7 +118,7 @@ const NavBar = () => {
                     onClick={() => setActiveIndex(link.href)}
                     className={` md:px-1  lg:px-4 py-1 ${
                       activeIndex === link.href
-                        ? "text-amber-600 font-semibold"
+                        ? "text-orange-400 font-semibold"
                         : "text-banner-color"
                     } `}
                   >
@@ -161,7 +179,7 @@ const NavBar = () => {
               <IoMdClose className=" text-2xl right-0 ml-auto mr-10" />
             </button>
 
-            <ul className=" flex flex-col gap-5 pt-5  ">
+            <ul className=" flex flex-col gap-4 pt-5 pl-3  ">
               {NAV_LINKS.map((link, index) => (
                 <Link
                   href={link.href}
@@ -173,9 +191,9 @@ const NavBar = () => {
                 >
                   <li
                     onClick={() => setActiveIndex(link.href)}
-                    className={`  px-4 py-1 ${
+                    className={`  px-4 ${
                       activeIndex === link.href
-                        ? "text-yellow-500 font-semibold"
+                        ? "text-orange-500 font-semibold text-xl"
                         : ""
                     } `}
                   >

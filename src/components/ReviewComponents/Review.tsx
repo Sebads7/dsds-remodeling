@@ -33,39 +33,6 @@ const Review = ({
       >
         {arrayData && (
           <div className={`flex  ${containerReview}   md:gap-10`}>
-            {/* {REVIEW.map((review, index) => (
-              <div
-                className={` md:max-w-xl  xl:max-w-2xl  md:gap-5  flex flex-col lg:flex-row  bg-neutral-50 shadow-2xl rounded-lg md:border p-2 md:p-5 ${reviewBox}  justify-center items-center`}
-                key={index}
-              >
-                <ul className="text-center   p-3">
-                  <li className="font-bold flex flex-col  items-center gap-2   ">
-                    <span>
-                      <Image
-                        className="size-10  [filter:drop-shadow(2px_-2px_2px_rgba(155,155,155,0.3))]"
-                        width={1200}
-                        height={1200}
-                        src="/reviews/rating2.png"
-                        loading="eager"
-                        color="black"
-                        alt="user-icon"
-                      />
-                    </span>
-                    {review.name}
-                    <Rating
-                      name="read-only"
-                      value={5}
-                      readOnly
-                      precision={0.5}
-                      className="text-amber-500"
-                    />
-                  </li>
-                  <li className="text-muted-foreground text-left text-sm md:text-base">
-                    {review.description}
-                  </li>
-                </ul>
-              </div>
-            ))} */}
             <Carousel
               className="w-full "
               opts={{ loop: true }}
@@ -75,7 +42,7 @@ const Review = ({
                 {REVIEW.map((review, index) => (
                   <CarouselItem
                     key={index}
-                    className={`shadow-md max-w-sm md:max-w-lg lg:max-w-none rounded-lg  lg:w-[30rem] bg-neutral-50 md:border p-2 md:p-5 ${reviewBox} `}
+                    className={`shadow-md max-w-xs sm:max-w-sm md:max-w-lg lg:max-w-none rounded-lg  lg:w-[30rem] bg-neutral-50 md:border p-2 md:p-5 ${reviewBox} `}
                   >
                     <ul className="text-center   p-3">
                       <li className="font-bold flex flex-col  items-center gap-2   ">
@@ -99,7 +66,7 @@ const Review = ({
                           className="text-amber-600  -translate-y-1"
                         />
                       </li>
-                      <li className="text-muted-foreground text-left text-sm md:text-base pt-2">
+                      <li className="text-center text-muted-foreground md:text-left text-sm md:text-base pt-2">
                         {review.description}
                       </li>
                     </ul>

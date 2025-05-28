@@ -9,9 +9,9 @@ const Testimonials = () => {
     useInViewAnimation();
   return (
     <>
-      <section className="w-full full md:px-0 pt-10 lg:pt-32 bg-light-bg">
+      <section className="w-full overflow-hidden full md:px-0 pt-10 lg:pt-32 bg-light-bg">
         <motion.h3
-          className="text-center max-w-sm md:max-w-lg mx-auto font-bold text-3xl md:text-5xl mb-5 text-main-dark "
+          className="text-center max-w-xs  sm:max-w-sm md:max-w-lg mx-auto font-bold text-3xl md:text-5xl mb-5 text-main-dark "
           ref={testimonialsRef}
           variants={Scale_1}
           initial="initial"
@@ -19,7 +19,7 @@ const Testimonials = () => {
         >
           WHAT OUR CLIENTS SAY ABOUT US
         </motion.h3>
-        <p className=" text-center   mx-auto max-w-2xl text-lg lg:text-xl px-5 mb-10 text-zinc-700">
+        <p className=" md:text-center   mx-auto max-w-2xl text-lg lg:text-xl px-5 mb-10 text-zinc-700">
           We take pride in delivering high-quality craftsmanship and exceptional
           service. But don’t just take our word for it—read what our satisfied
           clients have to say about their experience working with us.

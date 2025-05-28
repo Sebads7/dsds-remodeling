@@ -8,7 +8,7 @@ const Banner = () => {
     <>
       <div className=" shadow-2xl bg-orange-50  z-[10] text-stone-600 py-2 text-center font-bold text-base md:text-xl overflow-hidden ">
         <motion.div variants={Scale_1} initial="initial" animate="animate">
-          <div className=" flex gap-[20rem]  whitespace-nowrap animate-marque hover:pause ">
+          <div className=" flex gap-[20rem]  whitespace-nowrap animate-mobilemarque md:animate-marque hover:pause ">
             {BANNER.map((banner, index) => (
               <div key={index} className="flex  ">
                 <p>{banner.title}</p>

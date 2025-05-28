@@ -88,7 +88,7 @@ const Hero = () => {
                   <LinkButton
                     href="ourprojects"
                     name="View Our Work"
-                    className=" border  hover:border-white/40 hover:bg-amber-50 border-amber-500 text-dark"
+                    className=" border  hover:border-white/40 hover:bg-amber-50 border-amber-300 text-stone-600  hover:text-zinc-600"
                   />
                 </div>
               </div>

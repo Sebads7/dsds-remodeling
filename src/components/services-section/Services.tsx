@@ -20,7 +20,7 @@ const Services = () => {
         <h3 className="text-center font-bold text-3xl md:text-5xl mb-5 ">
           OUR SERVICES
         </h3>
-        <p className="text-center  text-base md:text-lg px-10 pb-10 md:pb-20 max-w-3xl mx-auto">
+        <p className="text-center  text-base md:text-lg px-10 sm:pb-5 md:pb-20 max-w-3xl mx-auto">
           From small repairs to complete home renovations, we provide
           comprehensive services to meet all your home improvement needs.
         </p>

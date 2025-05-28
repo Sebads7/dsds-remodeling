@@ -59,7 +59,7 @@ const TestimonialPage = () => {
 
       <div className=" h-full  flex flex-col">
         <div className="flex flex-col ">
-          <div className="px-2 max-w-4xl text-center mx-auto  mt-5 mb-10 md:mb-20">
+          <div className="px-2 max-w-4xl md:text-center mx-auto  mt-5 mb-10 md:mb-20">
             <h2 className=" text-lg md:text-xl xl:text-2xl   ">
               We take pride in transforming homes and bringing our clients’
               visions to life. Our dedication to quality craftsmanship and
@@ -69,7 +69,7 @@ const TestimonialPage = () => {
           </div>
 
           {/* ICONS */}
-          <div className="flex items-center justify-between gap-10 max-w-sm  md:max-w-3xl mx-auto w-full">
+          <div className="flex items-center justify-between gap-5 px-4 md:px-0 lg:gap-10 max-w-sm  md:max-w-3xl mx-auto w-full">
             {iconsData.map((icon, index) => (
               <div
                 className="flex flex-col justify-center items-center text-center gap-2"
@@ -102,7 +102,7 @@ const TestimonialPage = () => {
           renovations
         </p>
 
-        <div className="mt-10 flex flex-col-reverse lg:flex-row md:mx-auto gap-10 bg-stone-200 p-10 border rounded-md h-[60rem] lg:h-[40rem]">
+        <div className="mt-10 flex flex-col-reverse lg:flex-row md:mx-auto gap-10 bg-stone-200 py-4 px-2 lg:p-10 border rounded-md h-[60rem] lg:h-[40rem]">
           <ReviewForm onAddReview={addReview} />
           <ReviewListdb reviews={reviews} />
         </div>

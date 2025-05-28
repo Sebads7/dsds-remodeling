@@ -39,7 +39,7 @@ const ServicesGrid = ({
         )}
 
         <p
-          className={`px-5 mt-2 pb-5 h-[5rem]  text-sm text-center ${descriptionClass}`}
+          className={`px-5 sm:mt-2 mb-5 md:mb-0 md:pb-5 h-[5rem]text-sm text-center ${descriptionClass}`}
         >
           {service.description}
         </p>

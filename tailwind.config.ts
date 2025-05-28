@@ -30,7 +30,8 @@ const config: Config = {
         },
       },
       animation: {
-        marque: "marque 30s linear infinite",
+        marque: "marque 25s linear infinite",
+        mobilemarque: "marque 10s linear infinite",
         "fade-in": "fade-in 2s  ease-in-out  forwards",
       },
       borderRadius: {

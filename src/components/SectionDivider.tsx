@@ -18,7 +18,7 @@ const SectionDivider = ({
   return (
     <>
       <div
-        className={`relative z-20 w-full py-7 shadow-lg  overflow-hidden ${sectionClass} `}
+        className={`relative z-20 w-full py-4 lg:py-7 shadow-lg  overflow-hidden ${sectionClass} `}
       >
         <div className="w-full lg:px-32 flex justify-between sm:justify-evenly   items-center  ">
           {Array.isArray(arrayData) &&

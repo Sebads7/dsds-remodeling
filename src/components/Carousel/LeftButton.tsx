@@ -13,10 +13,10 @@ const LeftButton: React.FC<Props> = ({ activeIndex, handlePrevClick }) => {
         type="button"
         title="Previous"
         onClick={handlePrevClick}
-        className={`hidden md:block text-5xl mr-10 ml-auto translate-x-10  ${
+        className={` text-5xl lg:mr-10 lg:ml-auto lg:translate-x-10  ${
           activeIndex === 0
             ? "disabled text-gray-400/50 cursor-default"
-            : "hover:scale-105 cursor-pointer hover:text-yellow-700 text-gray-600"
+            : "hover:scale-105 cursor-pointer lg:hover:text-yellow-700 text-neutral-100/70 lg:text-gray-600"
         } `}
       >
         <MdOutlineArrowCircleLeft />

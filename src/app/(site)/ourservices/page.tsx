@@ -12,15 +12,15 @@ const ServicesPage = () => {
   return (
     <div className="w-full h-full bg-[#F6F5F2] text-main-dark">
       <div className="pt-10 container mx-auto px-4">
-        <h1 className="text-3xl md:text-5xl font-bold text-center mb-12">
+        <h1 className="text-3xl md:text-5xl font-bold text-center mb-5 lg:mb-12">
           Our Services
         </h1>
         <div className="max-w-7xl px-4 md:px-0 mx-auto">
-          <h2 className="text-xl md:text-3xl font-semibold    mb-10 text-gray-800">
+          <h2 className="text-xl md:text-3xl font-semibold   mb-5 md:mb-10 text-gray-800">
             Why Choose Us for Your Next Renovation?
           </h2>
 
-          <div className="flex flex-col md:flex-row  w-fit  gap-12 mx-auto ">
+          <div className="flex flex-col md:flex-row  w-fit gap-5  md:gap-12 mx-auto ">
             {/* Service 1 */}
             <div className="flex items-start gap-4 bg-stone-50 border p-4 rounded-md">
               <div className="px-4 py-1 bg-orange-100 text-orange-500 flex items-center justify-center rounded-full text-2xl font-bold">
@@ -118,11 +118,11 @@ const ServicesPage = () => {
       </div>
 
       {/* WHY CHOOSE US */}
-      <section className="flex flex-col items-center justify-center lg:items-start px-5 md:px-10 lg:pr-20  lg:pl-28 pt-20  pb-20">
-        <h3 className="font-bold  mx-auto text-xl sm:text-2xl text-center md:text-4xl text-dark-gray mb-5 ">
+      <section className="flex flex-col items-center justify-center lg:items-start px-5 md:px-10 lg:pr-20  lg:pl-28 pt-10 lg:pt-20  pb-20">
+        <h3 className="font-bold  mx-auto text-2xl sm:text-3xl text-center md:text-4xl text-dark-gray mb-5 ">
           Ready to Transform Your Home?
         </h3>
-        <div className="flex mt-10 flex-col-reverse mx-auto gap-y-5 xl:grid grid-cols-2 lg:items-center  ">
+        <div className="flex lg:mt-10 flex-col-reverse mx-auto gap-y-5 xl:grid grid-cols-2 lg:items-center  ">
           {/* LEFT COLUMN */}
           <div className="mx-auto">
             <p className="font-semibold text-xl"> Experienced Craftsmanship</p>

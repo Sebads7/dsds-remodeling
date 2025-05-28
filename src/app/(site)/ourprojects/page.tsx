@@ -92,11 +92,9 @@ const ProjectPage = () => {
             ease: "easeInOut",
           }}
         >
-          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4 text-center mx-auto  ">
-            Welcome To Our
-            <span className="text-yellow-600 p-2  ml-1">
-              Remodeling Gallery
-            </span>
+          <h2 className="text-3xl flex flex-col md:text-4xl lg:text-5xl font-bold mb-4 text-center mx-auto  ">
+            <span className="truncate">Welcome To Our</span>
+            <span className="text-yellow-600   ml-1">Remodeling Gallery</span>
           </h2>
           <div className="flex  flex-col gap-2 md:mt-10 md:mb-20 ">
             <p className="text-xl md:text-2xl md:font-medium max-w-5xl text-center mx-auto">
@@ -119,7 +117,7 @@ const ProjectPage = () => {
                 >
                   {service.title}
                 </h2>
-                <p className="max-w-md lg:max-w-3xl mx-auto text-center text-lg">
+                <p className="max-w-sm px-3 sm:max-w-md lg:max-w-3xl mx-auto md:text-center text-lg">
                   {service.description}
                 </p>
                 <div className="flex  items-center justify-center overflow-x-hidden ">
@@ -149,7 +147,7 @@ const ProjectPage = () => {
           ))}
 
           {isGalleyOpen && selectedImage && (
-            <div className="fixed  top-0 left-0 bg-black/95 w-full h-full  z-[99999] flex items-center justify-center ">
+            <div className="fixed  top-0 left-0 bg-black/95 w-full h-full  z-[99999999] flex items-center justify-center ">
               <div className="flex flex-col gap-5  w-5/6 md:w-3/4 ">
                 <div className="w-full flex items-center justify-between text-white">
                   {/* IMAGE COUNT */}
@@ -168,9 +166,9 @@ const ProjectPage = () => {
                     <p className="text-sm ">Close</p>
                   </div>
                 </div>
-                <div className="flex w-full h-full  items-center">
+                <div className="relative flex w-full h-full  items-center">
                   {/* LEFT BUTTON */}
-                  <div className="hidden md:block">
+                  <div className=" absolute md:static z-20 bottom-0 left-0 ">
                     <LeftButton
                       activeIndex={selectedIndex as number}
                       handlePrevClick={handlePrevClick}
@@ -191,10 +189,11 @@ const ProjectPage = () => {
                       width={1000}
                       height={300}
                       className="object-cover w-full h-full"
+                      loading="eager"
                     />
                   </motion.div>
                   {/* RIGHT BUTTON */}
-                  <div className="hidden md:block">
+                  <div className="absolute md:static z-20 bottom-0 right-0">
                     <RightButton
                       activeIndex={selectedIndex as number}
                       handleNextClick={handleNextClick}

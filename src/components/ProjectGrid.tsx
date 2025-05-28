@@ -78,7 +78,7 @@ const ProjectGrid: React.FC<ProjectGridProps> = ({ projectsControls }) => {
       </div>
 
       {/* CAROUSEL: ONE SLIDE PER CATEGORY */}
-      <div className="lg:hidden border border-neutral-300 max-w-[22rem] sm:max-w-lg md:max-w-2xl  w-full  mx-auto  bg-neutral-200  shadow-3xl rounded-md pb-5 px-3 sm:px-5">
+      <div className="lg:hidden border border-neutral-300 max-w-sm  sm:max-w-lg md:max-w-2xl  w-full  mx-auto  bg-neutral-200  shadow-3xl rounded-md pb-5 px-4 sm:px-5">
         {/* CAROUSEL: ONE SLIDE PER CATEGORY */}
         <Carousel>
           <CarouselContent>
@@ -91,7 +91,7 @@ const ProjectGrid: React.FC<ProjectGridProps> = ({ projectsControls }) => {
                   {project.images.slice(0, 6).map((imgSrc, index) => (
                     <motion.div
                       key={index}
-                      className={`w-full h-[13rem] overflow-hidden relative col-span-${project.colSpan[index]}`}
+                      className={`w-full h-[10rem] md:h-[13rem] overflow-hidden relative col-span-${project.colSpan[index]}`}
                       variants={Scale_1}
                       initial="initial"
                       animate={projectsControls}
