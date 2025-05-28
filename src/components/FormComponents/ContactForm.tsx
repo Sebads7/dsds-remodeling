@@ -13,8 +13,8 @@ import { Button } from "../ui/button";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import SelectInput from "./SelectInput";
 import SuccessModal from "./SuccessModal";
+import SelectProjectInput from "./SelectProjectInput";
 
 //  COMPONENTS type.
 type ContactFormProps = {
@@ -120,7 +120,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
   };
 
   return (
-    <div className="w-full bg-white border shadow-xl p-6 rounded-md max-w-md md:max-w-lg lg:py-12 lg:px-7 mx-auto">
+    <div className="w-full bg-white border shadow-xl p-6 rounded-md max-w-[22.5rem] sm:max-w-md md:max-w-lg lg:py-12 lg:px-7 mx-auto">
       <p className="pb-5 font-bold text-lg text-banner-color">
         Send us your project details{" "}
       </p>
@@ -214,7 +214,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
                 render={({ field }) => (
                   <FormItem>
                     <FormControl>
-                      <SelectInput
+                      <SelectProjectInput
                         value={field.value as string}
                         onChange={field.onChange}
                         options={[

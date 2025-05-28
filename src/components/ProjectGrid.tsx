@@ -33,14 +33,14 @@ const ProjectGrid: React.FC<ProjectGridProps> = ({ projectsControls }) => {
 
   return (
     <div className="z-10 md:px-20 ">
-      <div className="hidden  lg:flex flex-col container mx-auto p-5  md:p-10 border-2 bg-neutral-200  shadow-2xl rounded-md  ">
+      <div className="hidden  lg:flex flex-col container mx-auto p-5  md:p-10 border border-neutral-300 bg-neutral-200  shadow-2xl rounded-md max-w-[85rem] ">
         {/* BUTTONS */}
         <ul className="w-full flex z-10  md:gap-5 text-center md:text-start justify-center items-start pb-8  text-xs sm:text-sm md:text-base px-5 md:px-0 ">
           {PROJECTS_PAGE.map((project, index) => (
             <motion.div
               onClick={() => handleImage(index)}
               key={index}
-              className={`  rounded-sm  py-1 md:p-2       text-white ${
+              className={`  rounded-sm  py-1 md:p-2  ${
                 isSelectedImage === index
                   ? "md:bg-amber-600 hover:text-white shadow-2xl cursor-default md:border-amber-600 text-white font-semibold "
                   : "md:hover:bg-stone-400/90  border border-neutral-600 hover:text-neutral-100 text-neutral-600  md:hover:border-stone-400/90 cursor-pointer "
@@ -78,13 +78,13 @@ const ProjectGrid: React.FC<ProjectGridProps> = ({ projectsControls }) => {
       </div>
 
       {/* CAROUSEL: ONE SLIDE PER CATEGORY */}
-      <div className="xl:hidden  md:flex md:justify-center rounded-md shadow-2xl bg-[#787366] pb-8 px-8">
+      <div className="lg:hidden border border-neutral-300 max-w-[22rem] sm:max-w-lg md:max-w-2xl  w-full  mx-auto  bg-neutral-200  shadow-3xl rounded-md pb-5 px-3 sm:px-5">
         {/* CAROUSEL: ONE SLIDE PER CATEGORY */}
         <Carousel>
           <CarouselContent>
             {PROJECTS_PAGE.map((project, categoryIndex) => (
               <CarouselItem key={categoryIndex}>
-                <div className="text-center mt-5 mb-5 text-white font-semibold text-lg">
+                <div className="text-center mt-5 mb-5 text-neutral-600 font-semibold text-lg">
                   {project.title}
                 </div>
                 <div className="grid grid-cols-3 grid-rows-3 gap-4 md:gap-8">

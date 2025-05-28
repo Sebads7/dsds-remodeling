@@ -11,12 +11,15 @@ const itemVariants: Variants = {
   closed: { opacity: 0, y: 20, transition: { duration: 0.2 } },
 };
 
-const HoverList = "py-2 px-3 hover:bg-stone-200 cursor-pointer";
+const HoverList =
+  "py-2 px-3 hover:bg-yellow-500 hover:text-white cursor-pointer";
 
 interface SelectInputProps {
-  value: string | number | null;
-  onChange: (value: string | number | null) => void;
-  options: { value: string | number; label: React.ReactNode }[];
+  value: string | number;
+  onChange: {
+    (value: string | number): void;
+  };
+  options: string[];
 }
 
 const SelectInput: React.FC<SelectInputProps> = ({
@@ -25,12 +28,12 @@ const SelectInput: React.FC<SelectInputProps> = ({
   options,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState<string | number>(value || "");
+  const [selected, setSelected] = useState(value);
   const selectRef = useRef<HTMLDivElement>(null);
   // console.log(selected);
 
   useEffect(() => {
-    setSelected(value || "");
+    setSelected(value);
   }, [value]);
 
   useEffect(() => {
@@ -50,18 +53,15 @@ const SelectInput: React.FC<SelectInputProps> = ({
     };
   }, []);
 
-  const handleSelect = (option: {
-    value: string | number;
-    label: React.ReactNode;
-  }) => {
-    setSelected(option.value);
-    onChange(option.value);
+  const handleSelect = (option: string) => {
+    setSelected(option);
+    onChange(option);
     setIsOpen(false);
   };
 
   return (
     <motion.div
-      className={`flex w-full bg-white border    border-neutral-500 focus-visible:ring-stone-400 focus-visible:ring-[1px] focus-visible:outline-none   text-sm  text-neutral-700 h-[2.5rem]  `}
+      className={`flex w-full bg-white border  border-neutral-500 focus-visible:ring-stone-400 focus-visible:ring-[1px] focus-visible:outline-none   text-sm  text-slate-500 h-[2.5rem]  `}
       whileTap={{ scale: 0.97 }}
       ref={selectRef}
     >
@@ -85,7 +85,7 @@ const SelectInput: React.FC<SelectInputProps> = ({
                 {options.map((option, index) => (
                   <motion.li
                     variants={itemVariants}
-                    key={option.value}
+                    key={option}
                     className={
                       index === 0
                         ? `  ${HoverList}`
@@ -95,7 +95,7 @@ const SelectInput: React.FC<SelectInputProps> = ({
                     }
                     onClick={() => handleSelect(option)}
                   >
-                    {option.label}
+                    {option}
                   </motion.li>
                 ))}
               </motion.ul>
@@ -104,17 +104,16 @@ const SelectInput: React.FC<SelectInputProps> = ({
         )}
 
         <motion.div
-          className="relative flex items-center w-full h-full  px-2.5 cursor-pointer focus:border-neutral-600 focus:border-2    "
+          className="relative flex items-center w-full h-full px-2.5 cursor-pointer focus:border-neutral-600 focus:border-2    "
           onClick={() => setIsOpen(!isOpen)}
         >
           <div
             className={`w-full border-none ring-white z-50   ${
               selected ? "text-black" : " text-slate-500"
             }`}
+            // contentEditable={false}
           >
-            {selected
-              ? options.find((option) => option.value === selected)?.label
-              : "Select a rating"}
+            {selected ? selected : "Select a Project"}
           </div>
           <motion.div
             className="cursor-pointer z-50"

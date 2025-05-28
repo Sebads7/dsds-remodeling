@@ -67,6 +67,7 @@ const Services = () => {
 
           <motion.div
             className=" border  z-10  rounded-md w-full lg:max-w-[101rem] mx-auto mt-10 shadow-xl h-[20rem]   bg-white overflow-hidden text-main-dark "
+            ref={gridRef}
             variants={Scale_2}
             initial="initial"
             animate={gridControls}

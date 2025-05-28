@@ -27,7 +27,7 @@ const Hero = () => {
   return (
     <>
       <section className="  h-full lg:mt-10 pb-20 mx-4 xl:px-20">
-        <div className="flex ml-4 sm:ml-0 justify-between xl:container  md:mx-4 xl:mx-auto text-zinc-700 bg-">
+        <div className="flex ml-4 sm:ml-0 justify-between xl:container xl:max-w-[90rem]  md:mx-4 xl:mx-auto text-zinc-700 bg-">
           <motion.div
             className="mt-10  "
             variants={LeftLoading}
@@ -57,7 +57,7 @@ const Hero = () => {
             <div className="flex justify-between sm:justify-normal">
               <div className="pr-2">
                 <motion.h2
-                  className="text-xl max-w-sm lg:max-w-xl ml-1 md:ml-0"
+                  className="text-xl max-w-sm lg:max-w-lg 2xl:max-w-xl ml-1 md:ml-0"
                   variants={Scale_delay2}
                   initial="initial"
                   animate="animate"
@@ -96,7 +96,7 @@ const Hero = () => {
           </motion.div>
           <div className="hidden md:block">
             <Carousel
-              className=" rounded-md shadow-2xl mt-20 md:mt-0  md:w-[20rem] md:h-[35rem] xl:w-[35rem] xl:h-[39rem]"
+              className=" rounded-md shadow-2xl mt-20 lg:mt-0  md:w-[20rem] md:h-[35rem] xl:w-[35rem] xl:h-[39rem]"
               opts={{ loop: true }}
               plugins={[Autoplay({ delay: 3000, stopOnInteraction: false })]}
             >

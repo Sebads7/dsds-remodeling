@@ -6,18 +6,18 @@ import { IoPersonCircleOutline } from "react-icons/io5";
 interface Review {
   _id?: string;
   name: string;
-  rating: number;
+  rating: number | null;
   reviewDetail: string;
 }
 
 const ReviewListdb = ({ reviews }: { reviews: Review[] }) => {
   return (
-    <div className="flex flex-col gap-10  p-2 md:p-10 border-[8px] border-light-bg overflow-y-auto">
+    <div className="flex flex-col gap-10  p-2 px-4 max-w-xl  overflow-y-auto">
       {reviews.length === 0 ? (
-        <div className="flex flex-col gap-5 justify-start items-center h-full w-full pt-20">
+        <div className="flex flex-col gap-5 justify-start items-center h-full w-[20rem] pt-20">
           <p>Loading Reviews</p>
           <svg
-            className="animate-spin -ml-1 mr-3 h-10 w-10 text-light-color"
+            className="animate-spin -ml-1 mr-3 h-10 w-10 "
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -41,15 +41,13 @@ const ReviewListdb = ({ reviews }: { reviews: Review[] }) => {
         <>
           {reviews.map((review, index) => (
             <div
-              className={`w-full border-b-[1px] border-b-light-bg flex justify-center items-center  gap-5  text-white/80  `}
+              className={`w-full  max-w-lg rounded-md shadow-xl bg-white `}
               key={index}
             >
               <ul className="text-center   p-5">
-                <li className="font-bold flex items-center gap-2   ">
-                  <span>
-                    <IoPersonCircleOutline size={30} />
-                  </span>
-                  {review.name}
+                <li className="font-bold gap-2  flex items-center w-full  ">
+                  <IoPersonCircleOutline size={30} />
+                  <p className="max-w-[10rem] truncate  "> {review.name}</p>
                   <Rating
                     name="read-only"
                     value={review.rating}
@@ -57,7 +55,7 @@ const ReviewListdb = ({ reviews }: { reviews: Review[] }) => {
                     className=""
                   />
                 </li>
-                <li className=" text-left text-sm md:text-base">
+                <li className=" text-left text-sm md:text-base max-w-md">
                   {review.reviewDetail}
                 </li>
               </ul>

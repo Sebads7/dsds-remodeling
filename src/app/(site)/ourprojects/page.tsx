@@ -84,7 +84,7 @@ const ProjectPage = () => {
       </div>
       <div className=" lg:pt-20  ">
         <motion.div
-          className="xl:text-center my-12 mx-4 md:mx-0"
+          className="my-12 mx-4 md:mx-0"
           initial={{ opacity: 0, x: -100 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{
@@ -92,23 +92,18 @@ const ProjectPage = () => {
             ease: "easeInOut",
           }}
         >
-          <h2 className="text-2xl md:text-4xl font-bold mb-4 text-center  ">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4 text-center mx-auto  ">
             Welcome To Our
             <span className="text-yellow-600 p-2  ml-1">
               Remodeling Gallery
             </span>
           </h2>
-          <div className="flex flex-col gap-2 md:mt-10 md:mb-20  mx-auto md:w-3/4">
-            <p className="text-xl md:text-3xl md:font-bold ">
+          <div className="flex  flex-col gap-2 md:mt-10 md:mb-20 ">
+            <p className="text-xl md:text-2xl md:font-medium max-w-5xl text-center mx-auto">
               Take a look at some of the beautiful transformations we&apos;ve
-              done for our clients.
+              done for our clients, We specialize in various home remodeling
+              services to meet all your needs.
             </p>
-            <div className="mr-auto ml-10 md:ml-[4.5rem] w-4/5 md:w-fit bg-yellow-600 p-2">
-              <p className=" text-lg md:text-2xl font-extralight text-white ">
-                We specialize in various home remodeling services to meet all
-                your needs.
-              </p>
-            </div>
           </div>
         </motion.div>
 
@@ -117,14 +112,16 @@ const ProjectPage = () => {
           {/* RENDERING DATA FROM ARRAY  */}
           {PROJECTS_PAGE.map((service, index) => (
             <div key={index}>
-              <div className="bg-page-bg/70  md:p-10 lg:mx-20 border-white border-[1px] py-10">
+              <div className="bg-page-bg/70  bg-stone-50 md:p-10 lg:mx-20 border-white border-[1px] py-10">
                 <h2
-                  className="pl-5 sm:pl-0 py-10 text-2xl font-bold underline underline-offset-4 decoration-yellow-500"
+                  className="pb-5 pt-10 text-center text-2xl lg:text-4xl font-bold underline underline-offset-4 decoration-yellow-500"
                   id={service.id}
                 >
                   {service.title}
                 </h2>
-                <p className="px-5 md:pl-0 md:w-6/12">{service.description}</p>
+                <p className="max-w-md lg:max-w-3xl mx-auto text-center text-lg">
+                  {service.description}
+                </p>
                 <div className="flex  items-center justify-center overflow-x-hidden ">
                   <Carousel
                     data={service}
@@ -140,7 +137,7 @@ const ProjectPage = () => {
               </div>
               {/* Section Divider - RENDERS DATA FROM ARRAY IF INDEX IS NOT LAST */}
               {index < PROJECTS_PAGE.length - 1 && (
-                <div className="my-20">
+                <div className="my-20 bg-white">
                   {/* Section Divider */}
                   <SectionDivider
                     imageSrc="/images/hero-bg.webp"

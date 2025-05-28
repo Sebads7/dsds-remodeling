@@ -30,15 +30,15 @@ export const DIVIDER_DATA = [
   [
     {
       title: "Reliable Service",
-      icon: "/images/icons/membership.svg",
+      icon: "/divider/reliable.png",
     },
     {
       title: "Expert Craftsmanship",
-      icon: "/images/icons/hammer-brush.svg",
+      icon: "/divider/expert.png",
     },
     {
       title: " Innovative Solutions",
-      icon: "/images/icons/puzzle-alt.svg",
+      icon: "/divider/detail.png",
     },
   ],
 ];

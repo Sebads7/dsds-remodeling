@@ -5,12 +5,92 @@ import axios from "axios";
 import SelectInput from "./SelectInput";
 import SuccessModal from "./SuccessModal";
 
+import Rating from "@mui/material/Rating";
+
 type ReviewData = {
   _id?: string;
   name: string;
-  rating: number;
+  rating: number | null;
   reviewDetail: string;
 };
+
+const ratingOptions = [
+  {
+    value: 1,
+    label: (
+      <div className="flex items-center gap-2">
+        <Rating
+          name="read-only"
+          value={1}
+          readOnly
+          precision={0.5}
+          className="text-yellow-500"
+        />
+        Poor
+      </div>
+    ),
+  },
+  {
+    value: 2,
+    label: (
+      <div className="flex items-center gap-2">
+        <Rating
+          name="read-only"
+          value={2}
+          readOnly
+          precision={0.5}
+          className="text-yellow-500"
+        />
+        Fair
+      </div>
+    ),
+  },
+  {
+    value: 3,
+    label: (
+      <div className="flex items-center gap-2">
+        <Rating
+          name="read-only"
+          value={3}
+          readOnly
+          precision={0.5}
+          className="text-yellow-500"
+        />
+        Good
+      </div>
+    ),
+  },
+  {
+    value: 4,
+    label: (
+      <div className="flex items-center gap-2">
+        <Rating
+          name="read-only"
+          value={4}
+          readOnly
+          precision={0.5}
+          className="text-yellow-500"
+        />
+        Very Good
+      </div>
+    ),
+  },
+  {
+    value: 5,
+    label: (
+      <div className="flex items-center gap-2">
+        <Rating
+          name="read-only"
+          value={5}
+          readOnly
+          precision={0.5}
+          className="text-yellow-500"
+        />
+        Excellent
+      </div>
+    ),
+  },
+];
 
 const ReviewForm = ({
   onAddReview,
@@ -19,11 +99,17 @@ const ReviewForm = ({
 }) => {
   const [formData, setFormData] = useState<ReviewData>({
     name: "",
-    rating: 1,
+    rating: null,
     reviewDetail: "",
   });
 
   const [showSuccessModal, setShowSuccessModal] = useState(false);
+
+  const castValueByField = (name: string, value: string) => {
+    const numberFields = ["rating"];
+    if (numberFields.includes(name)) return Number(value);
+    return value;
+  };
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -31,13 +117,12 @@ const ReviewForm = ({
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [name]: name === "rating" ? Number(value) : value,
+      [name]: castValueByField(name, value),
     }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // setMessage(null); // Clear any previous messages
 
     try {
       const response = await axios.post("/api/reviews", formData);
@@ -47,10 +132,8 @@ const ReviewForm = ({
       }
 
       setShowSuccessModal(true);
-      // setMessage("Review submitted successfully!");
-      setFormData({ name: "", rating: 1, reviewDetail: "" });
+      setFormData({ name: "", rating: null, reviewDetail: "" });
     } catch (error) {
-      // setMessage("Error submitting review");
       console.error(error);
     }
   };
@@ -58,13 +141,13 @@ const ReviewForm = ({
   return (
     <form
       onSubmit={handleSubmit}
-      className="space-y-4 max-w-lg mx-auto p-4 bg-light-bg "
+      className="space-y-4 max-w-lg mx-auto p-6 bg-white  rounded-md shadow-2xl "
     >
       <h2 className="text-xl md:text-2xl font-bold mb-4 text-main-dark">
         Are You a Previous Client? Leave a Review!
       </h2>
 
-      <div className="text-banner-color">
+      <div className="text-neutral-700">
         <label className="block font-medium mb-1">Name</label>
         <input
           title="Please enter your name"
@@ -72,8 +155,9 @@ const ReviewForm = ({
           name="name"
           value={formData.name}
           onChange={handleChange}
+          placeholder="Enter your full name"
           required
-          className="w-full p-2 border border-yellow-500 focus-visible:ring-yellow-500 focus-visible:ring-[1px] focus-visible:outline-none rounded-none"
+          className="w-full p-2 border border-neutral-500-500 focus-visible:ring-neutral-600 focus-visible:ring-[1px] focus-visible:outline-none rounded-none"
         />
       </div>
 
@@ -86,26 +170,27 @@ const ReviewForm = ({
           onChange={(value) =>
             setFormData({ ...formData, rating: value as number })
           }
-          options={["1", "2", "3", "4", " 5"]}
+          options={ratingOptions}
         />
       </div>
 
       <div>
-        <label className="block font-medium mb-1">Review</label>
+        <label className="block font-medium mb-1">Your Review</label>
         <textarea
           rows={5}
           title="Please enter a review"
+          placeholder="Write your review here..."
           name="reviewDetail"
           value={formData.reviewDetail}
           onChange={handleChange}
           required
-          className="w-full p-2 border border-yellow-500 focus-visible:ring-yellow-500 focus-visible:ring-[1px] focus-visible:outline-none"
+          className="w-full p-2 border border-neutral-500 focus-visible:ring-neutral-600 focus-visible:ring-[1px] focus-visible:outline-none"
         />
       </div>
 
       <button
         type="submit"
-        className="px-4 py-3 bg-yellow-600 text-white w-full hover:bg-yellow-500 transition duration-200 ease-in-out"
+        className="px-4 py-3 bg-amber-500 text-white w-full hover:bg-amber-500/90 transition duration-200 ease-in-out"
       >
         Submit Review
       </button>

@@ -1,10 +1,8 @@
-import { DIVIDER_DATA } from "@/constant/divider";
 import { Scale_1, Scale_2 } from "@/constant/framer_effects";
 import { motion } from "framer-motion";
 import React from "react";
 import Review from "@/components/ReviewComponents/Review";
 import useInViewAnimation from "@/hooks/useView";
-import SectionDivider from "../SectionDivider";
 
 const Testimonials = () => {
   const { ref: testimonialsRef, mainControls: testimonialControls } =

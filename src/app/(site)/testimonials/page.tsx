@@ -1,6 +1,5 @@
 "use client";
 
-import Review from "@/components/ReviewComponents/Review";
 import ReviewForm from "@/components/FormComponents/ReviewForm";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
@@ -9,9 +8,30 @@ import ReviewListdb from "@/components/ReviewComponents/ReviewListdb";
 
 type ReviewData = {
   name: string;
-  rating: number;
+  rating: number | null;
   reviewDetail: string;
 };
+
+const iconsData = [
+  {
+    src: "/divider/satisfaction.png",
+    alt: "Client Satisfaction Image",
+    title: "500 +",
+    label: "Happy Clients",
+  },
+  {
+    src: "/divider/expert.png",
+    alt: " Expert Team Image",
+    title: "+15 ",
+    label: "Years Experience",
+  },
+  {
+    src: "/divider/quality.png",
+    alt: " Quality Work Image",
+    title: "100%",
+    label: "Satisfaction Guaranteed",
+  },
+];
 
 const TestimonialPage = () => {
   const [reviews, setReviews] = useState<ReviewData[]>([]);
@@ -33,58 +53,58 @@ const TestimonialPage = () => {
 
   return (
     <div className="w-full h-full pb-20 bg-[#F6F5F2]  px-5">
-      <h1 className="text-main-dark text-center text-4xl font-bold py-10">
+      <h1 className="text-main-dark text-center text-5xl font-bold pt-10">
         Testimonials
       </h1>
 
-      <div className=" h-full  md:grid lg:grid-cols-2  md:pt-20">
-        {/* LEFT SIDE */}
-        <div className="w-full">
-          <h2 className="bg-yellow-600 w-fit mx-auto p-2 text-white text-xl md:text-2xl font-semibold   text-center">
-            The Remodeling Company You’re Looking For!
-          </h2>
-          <div className="xl:ml-16">
-            <Review
-              containerReview="flex-col items-center  "
-              mainContainer="justify-center "
-              reviewBox="border-none"
-              arrayData={true}
-            />
+      <div className=" h-full  flex flex-col">
+        <div className="flex flex-col ">
+          <div className="px-2 max-w-4xl text-center mx-auto  mt-5 mb-10 md:mb-20">
+            <h2 className=" text-lg md:text-xl xl:text-2xl   ">
+              We take pride in transforming homes and bringing our clients’
+              visions to life. Our dedication to quality craftsmanship and
+              customer satisfaction speaks for itself. Don’t just take our word
+              for it—hear from those who’ve trusted us with their homes.
+            </h2>
           </div>
 
-          <div className="flex flex-col ">
-            <div className="px-2 md:w-3/4 mx-auto my-5 md:my-10">
-              <h2 className=" text-lg md:text-xl xl:text-2xl font-semibold text-center text-yellow-600  ">
-                We take pride in transforming homes and bringing our clients’
-                visions to life. Our dedication to quality craftsmanship and
-                customer satisfaction speaks for itself. Don’t just take our
-                word for it—hear from those who’ve trusted us with their homes.
-              </h2>
-            </div>
-            <div className="mt-10">
-              <ReviewForm onAddReview={addReview} />
-            </div>
+          {/* ICONS */}
+          <div className="flex items-center justify-between gap-10 max-w-sm  md:max-w-3xl mx-auto w-full">
+            {iconsData.map((icon, index) => (
+              <div
+                className="flex flex-col justify-center items-center text-center gap-2"
+                key={index}
+              >
+                <div className="bg-amber-50 p-3 md:px-6 md:py-6 rounded-full w-fit ">
+                  <Image
+                    className="size-10 md:size-14"
+                    width={1200}
+                    height={1200}
+                    alt={icon.alt}
+                    src={icon.src}
+                    loading="eager"
+                    color="black"
+                  />
+                </div>
+                <p className="font-bold text-xl">{icon.title}</p>
+                <p className="max-w-[5rem]">{icon.label}</p>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* RIGHT SIDE */}
-        <div className="relative w-full  mt-10 lg:mt-0  ">
-          <div className="sm:w-[90%] h-[35rem] lg:h-[60rem] sticky top-0 overflow-hidden overflow-y-scroll scrollbar-thin  scrollbar-thumb-white  mx-auto bg-banner-color/60 p-5 lg:p-10">
-            <Image
-              src="/images/happy-customer.jpg"
-              width={300}
-              height={800}
-              alt="hero-background"
-              className="w-full  2xl:h-[28rem] border-[8px] border-light-bg hidden lg:block opacity-55"
-            />
+        <h4 className="text-xl md:mt-20 md:text-3xl lg:text-4xl font-bold mb-3 text-center  mt-10">
+          What Our Clients Say
+        </h4>
 
-            <div className=" mx-auto">
-              <h4 className="text-xl md:text-2xl font-bold mb-3 text-light-color  mt-10">
-                More of Our Clients Reviews!
-              </h4>
-              <ReviewListdb reviews={reviews} />
-            </div>
-          </div>
+        <p className="text-center text-lg">
+          Real experiences from real customers who trusted us with their home
+          renovations
+        </p>
+
+        <div className="mt-10 flex flex-col-reverse lg:flex-row md:mx-auto gap-10 bg-stone-200 p-10 border rounded-md h-[60rem] lg:h-[40rem]">
+          <ReviewForm onAddReview={addReview} />
+          <ReviewListdb reviews={reviews} />
         </div>
       </div>
     </div>

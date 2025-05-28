@@ -23,10 +23,13 @@ const SectionDivider = ({
         <div className="w-full lg:px-32 flex justify-between sm:justify-evenly   items-center  ">
           {Array.isArray(arrayData) &&
             arrayData.map((item, index) => (
-              <div className="flex items-center w-[14rem]" key={index}>
-                <div className="bg-light-bg px-8 py-8 rounded-full scale-75">
+              <div
+                className="flex flex-col md:flex-row items-center w-[14rem]"
+                key={index}
+              >
+                <div className="bg-light-bg p-3 md:px-8 md:py-8 rounded-full scale-75">
                   <Image
-                    className="size-14"
+                    className="size-10 md:size-14"
                     width={1200}
                     height={1200}
                     alt={item.title}

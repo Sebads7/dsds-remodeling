@@ -24,7 +24,6 @@ const Review = ({
   containerReview,
   mainContainer,
   reviewBox,
-  fetchedData,
   arrayData,
 }: Props) => {
   return (
@@ -68,15 +67,15 @@ const Review = ({
               </div>
             ))} */}
             <Carousel
-              className="max-w-sm  md:max-w-2xl xl:max-w-3xl "
+              className="w-full "
               opts={{ loop: true }}
               plugins={[Autoplay({ delay: 5000, stopOnInteraction: false })]}
             >
-              <CarouselContent className="px-10 py-5 flex gap-5">
+              <CarouselContent className="px-10 py-5 w-full gap-5 max-w-lg lg:max-w-3xl">
                 {REVIEW.map((review, index) => (
                   <CarouselItem
                     key={index}
-                    className={`shadow-md rounded-lg   bg-neutral-50 md:border p-2 md:p-5 ${reviewBox} `}
+                    className={`shadow-md max-w-sm md:max-w-lg lg:max-w-none rounded-lg  lg:w-[30rem] bg-neutral-50 md:border p-2 md:p-5 ${reviewBox} `}
                   >
                     <ul className="text-center   p-3">
                       <li className="font-bold flex flex-col  items-center gap-2   ">

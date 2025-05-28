@@ -1,4 +1,4 @@
-import { MdEmail, MdOutlinePhoneIphone } from "react-icons/md";
+import { MdEmail } from "react-icons/md";
 import React from "react";
 import ContactForm from "@/components/FormComponents/ContactForm";
 import { AnimationControls, motion } from "framer-motion";
@@ -58,11 +58,16 @@ const ContactInfo: React.FC<ContactInfoProps> = ({ contactControls }) => {
             ))}
           </div>
 
-          <div className="border bg-amber-50 rounded-sm p-2 mt-8 max-w-md mx-auto">
-            <p className="text-sm md:text-base text-neutral-600">
+          <div className="border  bg-amber-50 rounded-sm p-2 mt-8 max-w-md mx-auto">
+            <p className="text-sm hidden lg:block  md:text-base text-neutral-600">
               If you have any questions or would like to schedule a
               consultation, please fill out the form on the right or contact us
               directly at the phone number or email provided.
+            </p>
+            <p className="text-sm lg:hidden  md:text-base text-neutral-600">
+              If you have any questions or would like to schedule a
+              consultation, please fill out the form or contact us directly at
+              the phone number or email provided.
             </p>
           </div>
         </motion.div>
