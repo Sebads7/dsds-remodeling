@@ -18,6 +18,7 @@ const Contact = () => {
           Ready to start your home renovation project? Contact us today for a
           free, detailed estimate.
         </p>
+
         <ContactInfo contactControls={contactControls} />
       </section>
     </>

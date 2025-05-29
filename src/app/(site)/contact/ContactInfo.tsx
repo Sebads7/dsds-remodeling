@@ -74,12 +74,15 @@ const ContactInfo: React.FC<ContactInfoProps> = ({ contactControls }) => {
 
         {/* RIGHT SIDE */}
         <motion.div
-          className="!z-[50] pt-10 lg:pt-0  "
+          className="!z-[50] pt-10 lg:pt-0 "
           variants={RightLoading}
           initial="initial"
           animate={contactControls}
         >
-          <ContactForm showTextInput={true} />
+          <ContactForm
+            showTextInput={true}
+            className="shadow-2xl border border-neutral-200"
+          />
         </motion.div>
       </div>
     </>

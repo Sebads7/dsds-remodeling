@@ -67,7 +67,7 @@ const NavBar = () => {
           <span>
             <Phone className="size-5" />
           </span>
-          <span> (404) 555-0123</span>
+          <span>404-641-2994</span>
         </p>
         <p className="flex items-center gap-1">
           <Mail className="size-5" /> info@dsdsatlanta.com

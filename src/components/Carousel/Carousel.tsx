@@ -72,7 +72,13 @@ const Carousel: React.FC<CarouselProps> = ({
     <div>
       <div className="flex items-center justify-between ">
         {/* IMAGES - DATA IS PASSED AS PROPS TO THE CAROUSEL */}
-        <div className="flex justify-center  w-[90%] sm:w-full  mx-auto gap-3 md:px-10 pt-14 pb-24  transition-all duration-500 ease-in-out overflow-hidden">
+        <motion.div
+          key={activeIndex}
+          className="flex justify-center  w-[90%] sm:w-full  mx-auto gap-3 md:px-10 pt-14 pb-24  transition-all duration-500 ease-in-out overflow-hidden"
+          initial={{ x: 50, opacity: 1 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.2, ease: "easeInOut" }}
+        >
           {data.images
             .slice(activeIndex, activeIndex + elmPerPge)
             .map((image, index) => (
@@ -81,7 +87,7 @@ const Carousel: React.FC<CarouselProps> = ({
                 className={`relative flex items-center group  border-white border-[6px] h-[25rem] md:h-[30rem] md:hover:h-[32rem] w-[8rem] hover:max-w-xl hover:w-full md:w-[10rem] md:hover:w-[30rem]  hover:scale-110 transition-all  duration-300 ease-in-out   md:hover:mx-10  hover:z-10   shadow-[rgba(0,_0,_0,_0.25)_0px_25px_50px_-12px]  `}
                 initial={{ opacity: 0.4 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 1, ease: "easeInOut" }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
               >
                 <Image
                   src={image}
@@ -108,7 +114,7 @@ const Carousel: React.FC<CarouselProps> = ({
                 </div>
               </motion.div>
             ))}
-        </div>
+        </motion.div>
       </div>
 
       {/* Custom Navigation Dots */}

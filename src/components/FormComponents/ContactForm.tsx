@@ -21,11 +21,13 @@ type ContactFormProps = {
   showTextInput?: boolean;
   showSelectOption?: boolean;
   checkBox?: boolean;
+  className?: string; // Optional className prop for custom styling
 };
 
 const ContactForm: React.FC<ContactFormProps> = ({
   showTextInput = false,
   showSelectOption = false,
+  className,
 }) => {
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
@@ -120,7 +122,9 @@ const ContactForm: React.FC<ContactFormProps> = ({
   };
 
   return (
-    <div className="w-full bg-white border shadow-xl p-6 rounded-md max-w-[22.5rem] sm:max-w-md md:max-w-lg lg:py-12 lg:px-7 mx-auto">
+    <div
+      className={`w-full border border-stone-300 rounded-md  p-6  max-w-[22.5rem] sm:max-w-md md:max-w-lg lg:py-12 lg:px-7 mx-auto ${className} `}
+    >
       <p className="pb-5 font-bold text-lg text-banner-color">
         Send us your project details{" "}
       </p>

@@ -16,13 +16,13 @@ const iconsData = [
   {
     src: "/divider/satisfaction.png",
     alt: "Client Satisfaction Image",
-    title: "500 +",
+    title: "+500",
     label: "Happy Clients",
   },
   {
     src: "/divider/expert.png",
     alt: " Expert Team Image",
-    title: "+15 ",
+    title: "+10 ",
     label: "Years Experience",
   },
   {
@@ -60,7 +60,7 @@ const TestimonialPage = () => {
       <div className=" h-full  flex flex-col">
         <div className="flex flex-col ">
           <div className="px-2 max-w-4xl md:text-center mx-auto  mt-5 mb-10 md:mb-20">
-            <h2 className=" text-lg md:text-xl xl:text-2xl   ">
+            <h2 className=" text-lg md:text-xl xl:text-xl   ">
               We take pride in transforming homes and bringing our clients’
               visions to life. Our dedication to quality craftsmanship and
               customer satisfaction speaks for itself. Don’t just take our word

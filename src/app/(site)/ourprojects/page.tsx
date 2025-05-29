@@ -23,12 +23,6 @@ const ProjectPage = () => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [totalImages, setTotalImages] = useState<number | null>(null);
 
-  // const [imageLoading, setImageLoading] = useState(false);
-
-  // const imageLoaded = () => {
-  //   setImageLoading(false);
-  // };
-
   const { isMobile } = useScreen();
 
   useBodyOverflow(isGalleyOpen);
@@ -97,7 +91,7 @@ const ProjectPage = () => {
             <span className="text-yellow-600   ml-1">Remodeling Gallery</span>
           </h2>
           <div className="flex  flex-col gap-2 md:mt-10 md:mb-20 ">
-            <p className="text-xl md:text-2xl md:font-medium max-w-5xl text-center mx-auto">
+            <p className="text-xl md:text-2xl md:font-medium max-w-4xl text-center mx-auto">
               Take a look at some of the beautiful transformations we&apos;ve
               done for our clients, We specialize in various home remodeling
               services to meet all your needs.

@@ -22,7 +22,7 @@ const ContactPage = () => {
           animate="animate"
         >
           <div className="lg:z-10    text-main-dark ">
-            <h2 className="text-xl max-w-md md:text-5xl font-semibold   md:pl-5 pb-3 text-center lg:text-start ">
+            <h2 className="text-xl max-w-md md:text-5xl font-semibold   pb-3 text-center lg:text-start ">
               Are You Looking For Highly Rated Home Remodeling Contractor Near
               You?
             </h2>
@@ -32,7 +32,7 @@ const ContactPage = () => {
             width={300}
             height={800}
             alt="hero-background"
-            className="w-full rounded-lg max-w-sm lg:max-w-md "
+            className="w-full object-cover rounded-lg max-w-sm lg:max-w-md "
           />
         </motion.div>
 
@@ -44,7 +44,7 @@ const ContactPage = () => {
         >
           <div className="z-10  ">
             <div className="px-3 md:px-10 lg:py-5  ">
-              <p className="sm:text-xl md:text-2xl font-extralight lg:leading-[2.8rem]">
+              <p className="sm:text-xl md:text-2xl font-extralight max-w-5xl">
                 We offer a wide range of services. Our Home Remodeling services
                 is exactly what you&apos;re looking for.
                 <span className=" text-yellow-600 font-extrabold ml-1  ">

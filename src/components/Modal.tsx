@@ -10,26 +10,24 @@ const Modal = ({ closeModal }: { closeModal: () => void }) => {
       onClick={closeModal}
     >
       <div
-        className=" relative  md:w-2/4 px-5 md:px-20 py-40 flex flex-col md:justify-center items-center gap-10 shadow-2xl bg-white  "
+        className=" relative   flex flex-col md:justify-center items-center gap-5 shadow-2xl bg-white w-full h-[40rem] max-w-2xl rounded-md"
         onClick={(e) => e.stopPropagation()}
       >
         <button
           title="Close Modal"
           type="button"
           onClick={closeModal}
-          className=" absolute top-20 right-20 text-black hover:text-yellow-500"
+          className=" absolute top-10 right-20 text-black hover:text-yellow-500"
         >
           <IoMdClose size={30} />
         </button>
-        <h1 className="font-bold text-3xl ">
-          Get a <strong className="text-yellow-500">Free</strong> Quote
+        <h1 className="font-bold text-4xl ">
+          Get a <strong className="text-orange-500">Free Quote</strong>
         </h1>
-        <h2 className="text-lg">
-          Call us at
-          <strong className="text-white bg-yellow-500 py-1 px-2 ml-1">
-            (404) 641-2994
-          </strong>{" "}
-          or fill out the form below
+        <h2 className="text-lg max-w-lg">
+          Ready to start your home renovation project? Contact us today for a
+          free, detailed estimate. You can call us at (404) 641-2994 or fill out
+          the form below.
         </h2>
         <div className="w-full ">
           <ContactForm showSelectOption={true} />

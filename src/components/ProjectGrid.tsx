@@ -40,10 +40,10 @@ const ProjectGrid: React.FC<ProjectGridProps> = ({ projectsControls }) => {
             <motion.div
               onClick={() => handleImage(index)}
               key={index}
-              className={`  rounded-sm  py-1 md:p-2  ${
+              className={`  rounded-sm  py-1 md:p-2  transition-all duration-200  ${
                 isSelectedImage === index
-                  ? "md:bg-amber-600 hover:text-white shadow-2xl cursor-default md:border-amber-600 text-white font-semibold "
-                  : "md:hover:bg-stone-400/90  border border-neutral-600 hover:text-neutral-100 text-neutral-600  md:hover:border-stone-400/90 cursor-pointer "
+                  ? "md:bg-amber-600 hover:text-white shadow-md  cursor-default md:border-amber-600 text-white font-semibold "
+                  : "md:hover:bg-stone-300/90 hover:shadow-sm  border border-neutral-600  text-neutral-600  md:hover:border-stone-300/90 cursor-pointer "
               } `}
               variants={Scale_1}
               initial="initial"

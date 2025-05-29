@@ -12,7 +12,7 @@ const itemVariants: Variants = {
 };
 
 const HoverList =
-  "py-2 px-3 hover:bg-yellow-500 hover:text-white cursor-pointer";
+  "py-2 px-3 hover:bg-amber-500/80 hover:text-white cursor-pointer";
 
 interface SelectInputProps {
   value: string | number;
